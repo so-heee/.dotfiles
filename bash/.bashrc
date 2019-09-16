@@ -2,8 +2,8 @@
 alias ll='ls -alGh'
 alias l='clear && ll'
 
-## cd
-alias cdp='cd ~/Projects'
+## ps
+alias psg='ps aux | grep'
 
 ## git
 alias g='git'
@@ -23,9 +23,5 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 ## other
-alias vi='nvim'
+alias vi='vim'
 alias grep='grep --color=auto'
-alias ssh-config-update="cat ~/.ssh/conf.d/config ~/.ssh/conf.d/*.conf > ~/.ssh/config"
-
-# cdの後にlsを実行
-chpwd() { ll }
