@@ -11,6 +11,7 @@ nnoremap <S-Left>  <C-w><
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
+nnoremap <c-t><c-t> :Tnew<CR><C-w><C-w>
 
 "----------------------------------------
 " Insert Mode
@@ -32,3 +33,8 @@ cnoremap <C-h> <Left>
 cnoremap <C-l> <Right>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+
+"----------------------------------------
+" Terminal Mode
+"----------------------------------------
+tnoremap <silent> jj <C-\><C-n>

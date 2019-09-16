@@ -25,7 +25,6 @@ alias rm='rm -i'
 ## other
 alias vi='nvim'
 alias grep='grep --color=auto'
-alias ssh-config-update="cat ~/.ssh/conf.d/config ~/.ssh/conf.d/*.conf > ~/.ssh/config"
 
 # cdの後にlsを実行
 chpwd() { ll }

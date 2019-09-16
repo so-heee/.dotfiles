@@ -20,3 +20,6 @@ repo = 'dracula/vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'kassio/neoterm'

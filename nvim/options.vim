@@ -65,3 +65,8 @@ set incsearch
 set wrapscan
 " 検索語をハイライト表示
 set hlsearch
+
+set splitbelow
+
+
+
