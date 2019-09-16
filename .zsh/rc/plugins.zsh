@@ -17,7 +17,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Setting PowerLevel9k. 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir status)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(date time)
 
 POWERLEVEL9K_DIR_HOME_BACKGROUND="cyan"

@@ -2,7 +2,7 @@
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ## Setting neovim
-export XDG_CONFIG_HOME="$HOME/.dotfiles/.config"
+export XDG_CONFIG_HOME="$HOME/.dotfiles"
 
 ## Setting pyenv
 export PYENV_ROOT="$HOME/.pyenv"

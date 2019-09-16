@@ -4,7 +4,7 @@ endif
 
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
-let s:base_dir = expand('~/.dotfiles/.config/nvim')
+let s:base_dir = expand('~/.dotfiles/nvim')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:toml_dir = s:base_dir . '/toml'
