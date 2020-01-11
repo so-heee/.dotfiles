@@ -1,21 +1,20 @@
-echo "start setup..."
+echo "### Start Setup..."
 
-echo "installing homebrew..."
+echo "### Installing Homebrew..."
 which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "run brew bundle..."
+echo "### Run Brew Doctor..."
+which brew >/dev/null 2>&1 && brew doctor
+
+echo "### Run Brew Update..."
+which brew >/dev/null 2>&1 && brew update
+
+echo "### Run Brew Bundle..."
 brew bundle
 
-echo "setup dotfiles links"
+echo "### Setup Dotfiles Links..."
+ln -snfv $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
+ln -snfv $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
+ln -snfv $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 
-DOT_FILES=(zshrc vimrc tmux.conf)
-
-for dotfile in ${DOT_FILES[@]}; do 
-    ln -s ${CURRENT_DIR}/$file/.$file $HOME/.$file
-done
-
-ln -snfv ~/.dotfiles/.zsh/.zshrc ~/.zshrc
-ln -snfv ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -snfv ~/.dotfiles/vim/.vimrc ~/.vimrc
-
-echo "finished setup !!"
+echo "### Finished Setup !!"
