@@ -11,6 +11,7 @@ nnoremap <S-Left>  <C-w><
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
+" ターミナル
 nnoremap <c-t><c-t> :Tnew<CR><C-w><C-w>
 
 "----------------------------------------

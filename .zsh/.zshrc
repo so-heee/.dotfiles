@@ -1,15 +1,18 @@
 autoload -Uz compinit
 
 # load zplugin
-. "${HOME}/.dotfiles/.zsh/rc/plugins.zsh"
+. "${HOME}/.dotfiles/.zsh/plugins.zsh"
 
 # load key-bindings
-. "${HOME}/.dotfiles/.zsh/rc/keybindings.zsh"
+. "${HOME}/.dotfiles/.zsh/keybindings.zsh"
 
 # load alias
-. "${HOME}/.dotfiles/.zsh/rc/aliases.zsh"
+. "${HOME}/.dotfiles/.zsh/aliases.zsh"
 
 # load options
-. "${HOME}/.dotfiles/.zsh/rc/options.zsh"
+. "${HOME}/.dotfiles/.zsh/options.zsh"
+
+# load local
+. "${HOME}/.dotfiles/.zsh/local.zsh"
 
 compinit
