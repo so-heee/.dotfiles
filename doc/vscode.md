@@ -1,4 +1,4 @@
-## VSCode
+# VSCode
 Setting Syncsによる同期
 
 - VSCodeに拡張機能「Setting Sync」をインストール

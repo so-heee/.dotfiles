@@ -1,4 +1,11 @@
+#!/bin/bash
+
 echo "### Start Setup..."
+echo -e    "             _\n" \
+" ___  ___  | |__   ___  ___  ___\n" \
+"/ __|/ _ \ | '_ \ / _ \/ _ \/ _ \\n" \
+"\__ \ (_) || | | |  __/  __/  __/\n" \
+"|___/\___(_)_| |_|\___|\___|\___|\n" \
 
 echo "### Installing Homebrew..."
 which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -11,10 +18,5 @@ which brew >/dev/null 2>&1 && brew update
 
 echo "### Run Brew Bundle..."
 brew bundle
-
-echo "### Setup Dotfiles Links..."
-ln -snfv $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
-ln -snfv $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
-ln -snfv $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 
 echo "### Finished Setup !!"
