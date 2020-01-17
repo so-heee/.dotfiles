@@ -13,6 +13,7 @@ nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
 " ターミナル
 nnoremap <c-t><c-t> :Tnew<CR><C-w><C-w>
+nnoremap <C-P> :Files<CR>
 
 "----------------------------------------
 " Insert Mode

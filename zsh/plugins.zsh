@@ -25,10 +25,10 @@ fi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(date time)
 
-POWERLEVEL9K_DIR_HOME_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_ETC_BACKGROUND="cyan"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="blue"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="blue"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="blue"
+POWERLEVEL9K_DIR_ETC_BACKGROUND="blue"
 
 POWERLEVEL9K_DATE_BACKGROUND='green'
 POWERLEVEL9K_DATE_FORMAT='%D{%y/%d/%m}'
@@ -69,7 +69,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # Env
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS="--height 60% --reverse --border"
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=dracula-sublime --style=header,grid --line-range :100 {}"'
 
 #----------------------------------------
 # Setting tmux session
