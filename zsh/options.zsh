@@ -1,6 +1,9 @@
 ## Setting nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+## Setting yarn
+export PATH=$HOME/.yarn/bin:$PATH
+
 ## Setting neovim
 export XDG_CONFIG_HOME="$HOME/.dotfiles"
 

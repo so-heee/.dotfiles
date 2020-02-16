@@ -16,3 +16,4 @@ autoload -Uz compinit
 . "${HOME}/.dotfiles/zsh/local.zsh"
 
 compinit
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
