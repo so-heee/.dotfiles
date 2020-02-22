@@ -1,0 +1,1 @@
+https://github.com/buty4649/RictyDiminished-for-Powerline/tree/master/powerline-fontpatched

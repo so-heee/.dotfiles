@@ -29,7 +29,6 @@ brew 'wget'
 brew 'yarn'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'sanemat/font/ricty', args: ['with-powerline']
 
 # cask
 cask 'alfred'
