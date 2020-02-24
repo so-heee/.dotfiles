@@ -33,7 +33,6 @@ brew 'zsh-completions'
 # cask
 cask 'alfred'
 cask 'appcleaner'
-cask 'clipy'
 cask 'dash'
 cask 'docker'
 cask 'dropbox'
