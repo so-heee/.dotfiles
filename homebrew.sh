@@ -13,6 +13,9 @@ which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubu
 echo "### Run Brew Doctor..."
 which brew >/dev/null 2>&1 && brew doctor
 
+echo "### Run Brew Cleanup"
+which brew >/dev/null 2>&1 && brew cleanup
+
 echo "### Run Brew Update..."
 which brew >/dev/null 2>&1 && brew update
 
