@@ -6,7 +6,6 @@ tap 'sanemat/font'
 
 # brew
 brew 'anyenv'
-brew 'awscli'
 brew 'bat'
 brew 'git'
 brew 'composer'
@@ -28,6 +27,7 @@ brew 'zsh'
 brew 'zsh-completions'
 
 # cask
+cask "1password"
 cask 'alfred'
 cask 'appcleaner'
 cask 'dash'
@@ -37,9 +37,12 @@ cask 'figma'
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-japanese-ime'
-cask 'graphql-playground'
 cask 'iterm2'
+cask "jetbrains-toolbox"
+cask "kindle"
 cask 'sequel-pro'
+cask 'sequel-ace'
+cask "slack"
 cask 'visual-studio-code'
 
 # other
