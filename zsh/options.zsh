@@ -1,6 +1,6 @@
 ## Setting anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+# export PATH="$HOME/.anyenv/bin:$PATH"
+# eval "$(anyenv init -)"
 
 ## Setting yarn
 export PATH=$HOME/.yarn/bin:$PATH

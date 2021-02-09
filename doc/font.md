@@ -1,1 +1,5 @@
-https://github.com/buty4649/RictyDiminished-for-Powerline/tree/master/powerline-fontpatched
+# Rictyのインストール
+
+https://github.com/mzyy94/RictyDiminished-for-Powerline
+
+Ricty Diminished Regular for Powerline.ttfをインストール
