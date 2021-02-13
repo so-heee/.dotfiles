@@ -1,0 +1,15 @@
+[core]
+    excludesfile = ~/.gitignore
+[include]
+    path = ~/.dotfiles/.gitconfig.global
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/.dotfiles/.gitconfig.private
+[color]
+    ui = auto
+    diff = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

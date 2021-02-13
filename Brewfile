@@ -4,7 +4,9 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 tap 'sanemat/font'
 
+#----------------------------------------
 # brew
+#----------------------------------------
 brew 'anyenv'
 brew 'bat'
 brew 'git'
@@ -17,6 +19,8 @@ brew 'mas'
 brew 'neovim'
 brew 'openssl'
 brew 'pyenv-virtualenv'
+brew 'sanemat/font/ricty', args: ['with-powerline']
+brew 'sourcetree'
 brew 'ripgrep'
 brew 'tmux'
 brew 'tree'
@@ -26,7 +30,9 @@ brew 'yarn'
 brew 'zsh'
 brew 'zsh-completions'
 
+#----------------------------------------
 # cask
+#----------------------------------------
 cask "1password"
 cask 'alfred'
 cask 'appcleaner'
@@ -45,7 +51,9 @@ cask 'sequel-ace'
 cask "slack"
 cask 'visual-studio-code'
 
+#----------------------------------------
 # other
+#----------------------------------------
 # brew 'colordiff'
 # brew 'diff-so-fancy'
 # brew 'pwgen'

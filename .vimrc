@@ -1,5 +1,5 @@
 "----------------------------------------
-" Setting
+" settings
 "----------------------------------------
 " 文字コードをUFT-8に設定
 set fenc=utf-8
@@ -21,7 +21,7 @@ set showmatch
 set visualbell t_vb=
 
 "----------------------------------------
-" Visual Setting
+" visual settings
 "----------------------------------------
 " シンタックスハイライト
 syntax enable
@@ -39,7 +39,7 @@ set virtualedit=onemore
 set laststatus=2
 
 "----------------------------------------
-" Tab Settings
+" sab settings
 "----------------------------------------
 " tabの幅
 set tabstop=4
@@ -55,7 +55,7 @@ set softtabstop=4
 set shiftwidth=4
 
 "----------------------------------------
-" Serch Settings
+" serch settings
 "----------------------------------------
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
@@ -69,7 +69,7 @@ set wrapscan
 set hlsearch
 
 "----------------------------------------
-" Keymap Settings
+" keymap settings
 "----------------------------------------
 "" Normal Mode
 " ウィンドウ移動

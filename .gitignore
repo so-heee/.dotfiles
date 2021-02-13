@@ -1,3 +1,2 @@
-.config
-configstore
+.DS_Store
 Brewfile.lock.json
