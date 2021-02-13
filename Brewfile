@@ -27,6 +27,7 @@ brew 'tree'
 brew 'vim'
 brew 'wget'
 brew 'yarn'
+brew 'zplug'
 brew 'zsh'
 brew 'zsh-completions'
 

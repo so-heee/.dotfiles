@@ -1,27 +1,59 @@
 #----------------------------------------
-# Setting Prezto
+# Setting Zplug Pretzo
 #----------------------------------------
-# Install Prezto.
-if [[ ! -d ~/.zprezto ]];then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  # Backup .zshrc
-  if [[ ! -d ~/.zshrc ]];then
-    cp .zshrc .zshrc.before
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+
+zplug "sorin-ionescu/prezto"
+
+zplug "modules/environment", from:prezto
+zplug "modules/terminal", from:prezto
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/utility", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/prompt", from:prezto
+zplug "modules/homebrew", from:prezto
+zplug "modules/ruby", from:prezto
+
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
   fi
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
+fi
+
+zplug load # --verbose
+
+if [ ! -e $HOME/.zprezto ]; then
+  ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
 fi
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
 fi
+
+[ ! -e $HOME/.zlogin ] && ln -s $HOME/.zprezto/runcoms/zlogin $HOME/.zlogin
+[ ! -e $HOME/.zpreztorc ] && ln -s $HOME/.zprezto/runcoms/zpreztorc $HOME/.zpreztorc
+[ ! -e $HOME/.zshenv ] && ln -s $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
+[ ! -e $HOME/.zlogout ] && ln -s $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
+[ ! -e $HOME/.zprofile ] && ln -s $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 
 #----------------------------------------
 # Setting PowerLevel9k
 #----------------------------------------
+autoload -Uz promptinit
+promptinit
+prompt powerlevel9k
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(date time)
 POWERLEVEL9K_DIR_HOME_BACKGROUND="blue"
@@ -38,17 +70,6 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u25B8 "
-
-#----------------------------------------
-# Setting Peco
-#----------------------------------------
-# function peco-history-selection() {
-#     BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
-#     CURSOR=${#BUFFER}
-#     zle reset-prompt
-# }
-# zle -N peco-history-selection
-# bindkey '^R' peco-history-selection
 
 #----------------------------------------
 # Setting fzf
