@@ -37,7 +37,6 @@ brew 'zsh-completions'
 cask "1password"
 cask 'alfred'
 cask 'appcleaner'
-cask 'dash'
 cask 'docker'
 cask 'dropbox'
 cask 'figma'

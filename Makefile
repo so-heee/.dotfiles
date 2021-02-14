@@ -9,41 +9,20 @@ all: install links-dotfiles setup-fonts setup-anyenv
 list:
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
-# Install Homebrew Bundle
-.PHONY: install
-install:
-	@./homebrew.sh
-
 # Create Dotfiles Symbolic Link
 .PHONY: links-dotfiles
 links-dotfiles:
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
-## Setup Ricty Fonts
-.PHONY: setup-fonts
-setup-fonts:
-	@cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-	@fc-cache -vf
+# Install Homebrew Bundle
+.PHONY: install
+install:
+	@./scripts/homebrew.sh
 
 ## Setup Anyenv
 .PHONY: setup-anyenv
 setup-anyenv:
-	@anyenv init
-	@anyenv install --init
-	@anyenv install pyenv
-	@anyenv install ndenv
-	@anyenv install goenv
-	@anyenv install rbenv
-
-## Setup Anyenv
-.PHONY: setup-anyenv-update
-setup-anyenv-update:
-	sed -e "/^'syntax-highlighting' \$/i 'prompt'" ~/.zpreztorc
-
-## Setup Cheatset
-.PHONY: setup-cheatset
-setup-cheatset:
-	@sudo gem install cheatset
+	@./scripts/anyenv.sh
 
 ## Setup Neovim Python2
 .PHONY: setup-nvim-python2
@@ -68,6 +47,4 @@ setup-nvim-python3:
 ## Show dot files in this repo
 .PHONY: setup-nvim
 setup-nvim:
-	@mkdir -p $(HOME)/.config/nvim 
-	@touch $(HOME)/.config/nvim/init.vim
-	@ln -snf $(HOME)/.dotfiles/nvim/init.vim $(HOME)/.config/nvim/init.vim
+	@./scripts/nvim.sh

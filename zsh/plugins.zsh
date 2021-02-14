@@ -4,13 +4,18 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "zsh-users/zsh-syntax-highlighting"
+# 構文のハイライト
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# 履歴
 zplug "zsh-users/zsh-history-substring-search"
+# 補完
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
+# powerlevel10k
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 
+# pretzo関連
 zplug "sorin-ionescu/prezto"
-
 zplug "modules/environment", from:prezto
 zplug "modules/terminal", from:prezto
 zplug "modules/editor", from:prezto
@@ -48,28 +53,18 @@ fi
 [ ! -e $HOME/.zprofile ] && ln -s $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 
 #----------------------------------------
-# Setting PowerLevel9k
+# Setting PowerLevel10k
 #----------------------------------------
-autoload -Uz promptinit
-promptinit
-prompt powerlevel9k
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(date time)
-POWERLEVEL9K_DIR_HOME_BACKGROUND="blue"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="blue"
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="blue"
-POWERLEVEL9K_DIR_ETC_BACKGROUND="blue"
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="magenta"
-POWERLEVEL9K_DATE_BACKGROUND='green'
-POWERLEVEL9K_DATE_FORMAT='%D{%y/%d/%m}'
-POWERLEVEL9K_TIME_BACKGROUND='green'
-POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u25B8 "
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
+
+# autoload -Uz promptinit
+# promptinit
+# prompt powerlevel10k
 
 #----------------------------------------
 # Setting fzf
