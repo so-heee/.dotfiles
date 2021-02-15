@@ -13,6 +13,8 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 # powerlevel10k
 zplug "romkatv/powerlevel10k", as:theme, depth:1
+# ゴミ箱
+zplug "b4b4r07/zsh-gomi", if:"which fzf"
 
 # pretzo関連
 zplug "sorin-ionescu/prezto"
@@ -97,3 +99,13 @@ function tm() {
            tmux new-session
        fi
 }
+
+#----------------------------------------
+# Setting anyenv
+#----------------------------------------
+eval "$(anyenv init -)"
+
+#----------------------------------------
+# Setting yarn
+#----------------------------------------
+export PATH=$HOME/.yarn/bin:$PATH
