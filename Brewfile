@@ -20,7 +20,6 @@ brew 'neovim'
 brew 'openssl'
 brew 'pyenv-virtualenv'
 brew 'sanemat/font/ricty', args: ['with-powerline']
-brew 'sourcetree'
 brew 'ripgrep'
 brew 'tmux'
 brew 'tree'
@@ -48,6 +47,7 @@ cask "jetbrains-toolbox"
 cask "kindle"
 cask 'sequel-pro'
 cask 'sequel-ace'
+cask 'sourcetree'
 cask "slack"
 cask 'visual-studio-code'
 

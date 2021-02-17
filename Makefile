@@ -28,7 +28,7 @@ setup-anyenv:
 .PHONY: setup-nvim-python2
 setup-nvim-python2:
 	pyenv install $(PYTHON2)
-	pyenv virtualenv $(PYTHON3) neovim2
+	pyenv virtualenv $(PYTHON2) neovim2
 	pyenv activate neovim2
 	pip install --upgrade pip
 	pip install neovim
@@ -40,8 +40,8 @@ setup-nvim-python3:
 	pyenv install $(PYTHON3)
 	pyenv virtualenv $(PYTHON3) neovim3
 	pyenv activate neovim3
-	pip3 install --upgrade pip
-	pip3 install neovim
+	pip install --upgrade pip
+	pip install neovim
 	pyenv deactivate
 
 ## Show dot files in this repo
