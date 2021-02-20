@@ -3,6 +3,7 @@
 ## かな、英字切り替えショートカット
 
 ※USキーボードの場合
+
 - システム環境設定-キーボード-ショートカット-入力ソース-前の入力ソースを選択を無効にする
 - Karabinerをインストール
 - Complex modifications-Import more rules from the Internet - For Japanese（日本語環境向けの設定）をインポート
@@ -63,7 +64,7 @@ Finder-表示タブ
 
 ## 隠しファイルの表示
 
-```
+```:
 $ defaults write com.apple.finder AppleShowAllFiles TRUE
 確認
 $ defaults read com.apple.finder AppleShowAllFiles

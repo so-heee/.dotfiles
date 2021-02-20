@@ -1,6 +1,9 @@
-## ls
-alias ll='ls -alGh'
+## exa
+alias ls='exa'
+alias ll='ls -halgHiS'
+alias llt='ls -halgHiST'
 alias l='clear && ll'
+alias lsl='exa --group-directories-first'
 
 ## cd
 alias cdp='cd ~/Projects'
