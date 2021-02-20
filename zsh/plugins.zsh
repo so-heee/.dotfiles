@@ -84,7 +84,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Env
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS="--height 60% --reverse --border"
+export FZF_DEFAULT_OPTS="--height 50% --reverse --border"
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=dracula-sublime --style=header,grid --line-range :100 {}"'
 
 #----------------------------------------
@@ -104,6 +104,12 @@ function tm() {
 # Setting anyenv
 #----------------------------------------
 eval "$(anyenv init -)"
+
+#----------------------------------------
+# Setting navi
+#----------------------------------------
+export NAVI_TAG_WIDTH=10
+export NAVI_FZF_OVERRIDES='--height 100% '
 
 #----------------------------------------
 # Setting yarn

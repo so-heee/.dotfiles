@@ -24,6 +24,16 @@ install:
 setup-anyenv:
 	@./scripts/anyenv.sh
 
+## Setup Navi
+.PHONY: setup-navi
+setup-navi:
+	@./scripts/navi.sh
+
+## Setup Karabiner
+.PHONY: setup-karabiner
+setup-karabiner:
+	@./scripts/karabiner.sh
+
 ## Setup Neovim Python2
 .PHONY: setup-nvim-python2
 setup-nvim-python2:

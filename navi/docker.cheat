@@ -1,102 +1,135 @@
 % docker
 
-# イメージ取得
-docker pull <image>:<version>
+# Create image from dockerfile
+docker build -t <image>:<version>
 
-# イメージの一覧表示
-docker images
+# Save the running container as an image
+docker commit <container_id> <container_name>
 
-# イメージの削除
-docker rmi <image_id>
-
-# 未使用イメージを一括削除
-docker image prune
-
-
-# 停止コンテナを一括削除
+# Remove all stopped containers
 docker container prune
 
-# 未使用ボリュームを一括削除
-docker volume prune
-
-# 未使用ボリュームを一括削除
-docker network prune
-
-# 停止コンテナ、タグ無しイメージ、未使用ボリューム、未使用ネットワークを一括削除
-docker system prune
-
-
-
-
-# Remove an image
-docker image rm <image_id>
-
-
-
-# Clean none/dangling images
-docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
-
-# Force clean none/dangling images
-docker rmi $(docker images --filter "dangling=true" -q --no-trunc) -f
-
-
-
-# Build an image from the Dockerfile in the current directory and tag the image
-docker build -t <image>:<version> .
-
-
-
-# Stop a running container through SIGTERM
-docker stop <container_id>
-
-# Stop a running container through SIGKILL
-docker kill <container_id>
-
-# List the networks
-docker network ls
-
-# List the running containers
-docker ps
-
-# Delete all running and stopped containers
-docker rm -f $(docker ps -aq)
-
-# Create a new bash process inside the container and connect it to the terminal
+# create a new Bash session in the container
 docker exec -it <container_id> bash
 
-# Print the last lines of a container's logs
-docker logs --tail 100 <container_id> | less
+# Remove unused images
+docker image prune
 
-# Print the last lines of a container's logs and following its logs
-docker logs --tail 100 <container_id> -f
+# List of images
+docker images
 
-# Create new network
-docker network create <network_name>
+# Kill one or more running containers
+docker kill <container_id>
+
+# Import a docker image in tar.gz format
+docker load < <file_name>.tar.gz
+
+# Fetch the logs of a container ( -t: timestamp -f: follow  )
+docker logs --tail 100 <container_id> -t | less
+
+# Fetch the logs of a container streaming the new output ( -f: follow  )
+docker logs --tail 100 <container_id> -t -f
+
+# Remove all unused networks
+docker network prune
+
+# List of all containers
+docker ps -a
+
+# List of running container ids
+docker ps -q
+
+# Pull an image or a repository from a registry
+docker pull <image>:<version>
+
+# Delete image
+docker rmi <image_id>
+
+# Save docker image in tar.gz format
+docker save <image> > <file_name>.tar.gz
+
+# Stop one or more running containers
+docker stop <container_id>
+
+# Stop running containers
+docker stop $(docker ps -aq)
+
+# Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes
+docker system prune
+
+# Remove all unused local volumes
+docker volume prune
 
 $ image_id: docker images --- --headers 1 --column 3
 $ container_id: docker ps --- --headers 1 --column 1
 
 
 
+
 % docker-compose
 
-# Builds, (re)creates, starts, and attaches to containers for all services
+# Run the service build
+docker-compose build
+
+# Validate and view the Compose file
+docker-compose config
+
+# Create the container based on the built service
+docker-compose create
+
+# Stops containers and removes containers, networks, volumes, and images
+docker-compose down --rmi all
+
+# create a new Bash session in the container
+docker-compose exec <service_name>
+
+# Displays log output from service
+docker-compose logs --tail 100 <service_name> | less
+
+# Displays log output from service following
+docker-compose logs -f --tail 100 <service_name>
+
+# Pauses running containers of a services
+docker-compose pause
+
+# Pauses running containers of a service
+docker-compose pause <service_name>
+
+# Lists containers
+docker-compose ps -a
+
+# Restarts all stopped and running services
+docker-compose restart
+
+# Restarts all stopped and running service
+docker-compose restart <service_name>
+
+# Removes stopped service containers
+docker-compose rm
+
+# Runs a one-time command against a service
+docker-compose run <service_name>
+
+# Sets the number of containers to run for a service
+docker-compose scale <service_name>=<number>
+
+# Starts existing containers for a service
+docker-compose start
+
+# Stops running containers without removing them
+docker-compose stop
+
+# Unpauses paused containers of a service
+docker-compose unpause
+
+# build, (re)creates, starts, and attaches to containers for all services
 docker-compose up
 
 # Builds, (re)creates, starts, and dettaches to containers for all services
 docker-compose up -d
 
 # Builds, (re)creates, starts, and attaches to containers for a service
-docker-compose up -d <service_name>
+docker-compose up <service_name>
 
 # Builds, (re)creates, starts, and dettaches to containers for a service
 docker-compose up -d <service_name>
-
-# Print the last lines of a service’s logs
-docker-compose logs --tail 100 <service_name> | less
-
-# Print the last lines of a service's logs and following its logs
-docker-compose logs -f --tail 100 <service_name>
-
-# Stops containers and removes containers, networks created by up
-docker-compose down

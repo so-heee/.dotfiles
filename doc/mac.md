@@ -5,12 +5,7 @@
 ※USキーボードの場合
 
 - システム環境設定-キーボード-ショートカット-入力ソース-前の入力ソースを選択を無効にする
-- Karabinerをインストール
-- Complex modifications-Import more rules from the Internet - For Japanese（日本語環境向けの設定）をインポート
-- Add rule
-- コマンドキー（左右どちらでも）を単体で押した時に、英数・かなをトグルで切り替える。（rev2）
-- simple modifications から TargetDeviceをmacbookにして Add item
-- capslockとcontrollを入れ替え
+- capslockとcontrollを入れ替え（内蔵キーボードのみ）
 
 ## バッテリー残量の表示
 
