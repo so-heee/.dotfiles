@@ -1,12 +1,20 @@
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# cdの後にlsを実行
+chpwd() { ll }
+
 ## exa
 alias ls='exa'
-alias ll='ls -halgHiS'
-alias llt='ls -halgHiST'
-alias l='clear && ll'
-alias lsl='exa --group-directories-first'
+alias ll='exa -ahl --git'
 
-## cd
-alias cdp='cd ~/Projects'
+# du/df
+alias du="du -h"
+alias df="df -h"
+alias duh="du -h ./ --max-depth=1"
 
 ## git
 alias g='git'
@@ -24,10 +32,8 @@ alias gcm='git commit -m'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias rmf='rm -rf'
 
 ## other
 alias vi='nvim'
 alias grep='grep --color=auto'
-
-# cdの後にlsを実行
-chpwd() { ll }

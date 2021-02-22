@@ -83,6 +83,7 @@ fi
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Env
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS="--height 50% --reverse --border"
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=dracula-sublime --style=header,grid --line-range :100 {}"'
@@ -104,6 +105,8 @@ function tm() {
 # Setting anyenv
 #----------------------------------------
 eval "$(anyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 #----------------------------------------
 # Setting navi
