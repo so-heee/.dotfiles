@@ -31,11 +31,10 @@ zplug "modules/ruby", from:prezto
 
 # pretzoのシンボリックリンク
 [ ! -e $HOME/.zprezto ] && ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
-[ ! -e $HOME/.zlogin ] && ln -s $HOME/.zprezto/runcoms/zlogin $HOME/.zlogin
-[ ! -e $HOME/.zpreztorc ] && ln -s $HOME/.zprezto/runcoms/zpreztorc $HOME/.zpreztorc
-[ ! -e $HOME/.zshenv ] && ln -s $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
-[ ! -e $HOME/.zlogout ] && ln -s $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
-[ ! -e $HOME/.zprofile ] && ln -s $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
+for file in .zlogin .zpreztorc .zshenv .zlogout .zprofile
+do
+	[ ! -e $HOME/$file ] && ln -s $HOME/.zprezto/runcoms/$file $HOME/$file
+done
 
 if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
   source "$HOME/.zprezto/init.zsh"
@@ -79,7 +78,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS="--height 50% --reverse --border"
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=dracula-sublime --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=Dracula --style=header,grid --line-range :100 {}"'
 
 #----------------------------------------
 # Setting tmux session
@@ -107,6 +106,11 @@ export PATH=$PATH:$GOPATH/bin
 #----------------------------------------
 export NAVI_TAG_WIDTH=10
 export NAVI_FZF_OVERRIDES='--height 100% '
+
+#----------------------------------------
+# Setting bat
+#----------------------------------------
+export BAT_THEME="Dracula"
 
 #----------------------------------------
 # Setting yarn
