@@ -1,3 +1,8 @@
+# history
+HISTFILE=$HOME/.zsh-history
+HISTSIZE=100000
+SAVEHIST=1000000
+
 # ビープ音
 setopt no_beep
 setopt no_list_beep

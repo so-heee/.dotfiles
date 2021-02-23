@@ -15,7 +15,6 @@ zplug "zsh-users/zsh-completions"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 # ゴミ箱
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
-
 # pretzo関連
 zplug "sorin-ionescu/prezto"
 zplug "modules/environment", from:prezto
@@ -30,6 +29,19 @@ zplug "modules/prompt", from:prezto
 zplug "modules/homebrew", from:prezto
 zplug "modules/ruby", from:prezto
 
+# pretzoのシンボリックリンク
+[ ! -e $HOME/.zprezto ] && ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
+[ ! -e $HOME/.zlogin ] && ln -s $HOME/.zprezto/runcoms/zlogin $HOME/.zlogin
+[ ! -e $HOME/.zpreztorc ] && ln -s $HOME/.zprezto/runcoms/zpreztorc $HOME/.zpreztorc
+[ ! -e $HOME/.zshenv ] && ln -s $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
+[ ! -e $HOME/.zlogout ] && ln -s $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
+[ ! -e $HOME/.zprofile ] && ln -s $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
+
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
+fi
+
+# pluginのインストールチェック
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '
   if read -q; then
@@ -38,21 +50,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load # --verbose
-
-if [ ! -e $HOME/.zprezto ]; then
-  ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
-fi
-
-# Source Prezto.
-if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
-  source "$HOME/.zprezto/init.zsh"
-fi
-
-[ ! -e $HOME/.zlogin ] && ln -s $HOME/.zprezto/runcoms/zlogin $HOME/.zlogin
-[ ! -e $HOME/.zpreztorc ] && ln -s $HOME/.zprezto/runcoms/zpreztorc $HOME/.zpreztorc
-[ ! -e $HOME/.zshenv ] && ln -s $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
-[ ! -e $HOME/.zlogout ] && ln -s $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
-[ ! -e $HOME/.zprofile ] && ln -s $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 
 #----------------------------------------
 # Setting PowerLevel10k
@@ -63,10 +60,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
-
-# autoload -Uz promptinit
-# promptinit
-# prompt powerlevel10k
 
 #----------------------------------------
 # Setting fzf
