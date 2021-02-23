@@ -30,3 +30,6 @@
 [delta "line-numbers"]
     line-numbers-left-style = cyan
     line-numbers-right-style = cyan
+# ghq
+[ghq]
+    root = ~/Workspace

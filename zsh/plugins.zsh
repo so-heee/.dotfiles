@@ -107,6 +107,7 @@ function tm() {
 eval "$(anyenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PATH=$PATH:$GOPATH/bin
 
 #----------------------------------------
 # Setting navi
@@ -118,3 +119,14 @@ export NAVI_FZF_OVERRIDES='--height 100% '
 # Setting yarn
 #----------------------------------------
 export PATH=$HOME/.yarn/bin:$PATH
+
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf

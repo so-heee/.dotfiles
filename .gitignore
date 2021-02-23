@@ -1,5 +1,4 @@
 .DS_Store
 .gitconfig.global
-dash/*.docset
 Brewfile.lock.json
 zsh/local.zsh
