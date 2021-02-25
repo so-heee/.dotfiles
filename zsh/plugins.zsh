@@ -30,17 +30,6 @@ zplug "modules/homebrew", from:prezto
 zplug "modules/ruby", from:prezto
 
 # pretzoのシンボリックリンク
-[ ! -e $HOME/.zprezto ] && ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
-for file in .zlogin .zpreztorc .zshenv .zlogout .zprofile
-do
-	[ ! -e $HOME/$file ] && ln -s $HOME/.zprezto/runcoms/$file $HOME/$file
-done
-
-if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
-  source "$HOME/.zprezto/init.zsh"
-fi
-
-# pluginのインストールチェック
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '
   if read -q; then
@@ -49,6 +38,20 @@ if ! zplug check --verbose; then
 fi
 
 zplug load # --verbose
+
+# pretzo設定
+if [ ! -e $HOME/.zprezto ]; then
+  ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
+fi
+
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
+fi
+
+for file in .zlogin .zpreztorc .zshenv .zlogout .zprofile
+do
+	[ ! -e $HOME/$file ] && ln -s $HOME/.zprezto/runcoms/$file $HOME/$file
+done
 
 #----------------------------------------
 # Setting PowerLevel10k
