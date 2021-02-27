@@ -1,8 +1,3 @@
-# history
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=1000000
-
 # ビープ音
 setopt no_beep
 setopt no_list_beep
@@ -47,3 +42,6 @@ setopt correct_all
 
 # 終了ステータスが0以外の場合にステータスを表示する
 setopt print_exit_value
+
+# ヒストリを共有する
+# setopt share_history

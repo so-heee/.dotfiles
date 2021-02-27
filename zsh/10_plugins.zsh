@@ -14,7 +14,10 @@ zplug "zsh-users/zsh-completions"
 # powerlevel10k
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 # ゴミ箱
-zplug "b4b4r07/zsh-gomi", if:"which fzf"
+zplug "b4b4r07/zsh-gomi", \
+    as:command, \
+    use:bin/gomi, \
+    on:junegunn/fzf-bin
 # pretzo関連
 zplug "sorin-ionescu/prezto"
 zplug "modules/environment", from:prezto
@@ -29,17 +32,17 @@ zplug "modules/prompt", from:prezto
 zplug "modules/homebrew", from:prezto
 zplug "modules/ruby", from:prezto
 
-# pretzoのシンボリックリンク
-if ! zplug check --verbose; then
-  printf 'Install? [y/N]: '
-  if read -q; then
-    echo; zplug install
-  fi
-fi
+# install check
+# if ! zplug check --verbose; then
+#   printf 'Install? [y/N]: '
+#   if read -q; then
+#     echo; zplug install
+#   fi
+# fi
 
 zplug load # --verbose
 
-# pretzo設定
+# pretzo
 if [ ! -e $HOME/.zprezto ]; then
   ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
 fi
@@ -99,10 +102,8 @@ function tm() {
 #----------------------------------------
 # Setting anyenv
 #----------------------------------------
-eval "$(anyenv init -)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PATH=$PATH:$GOPATH/bin
+eval "$(pyenv init - --no-rehash)"
+eval "$(pyenv virtualenv-init - --no-rehash)"
 
 #----------------------------------------
 # Setting navi
@@ -120,6 +121,9 @@ export BAT_THEME="Dracula"
 #----------------------------------------
 export PATH=$HOME/.yarn/bin:$PATH
 
+#----------------------------------------
+# Setting ghq
+#----------------------------------------
 function ghq-fzf() {
   local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
   if [ -n "$src" ]; then

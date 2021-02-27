@@ -1,5 +1,13 @@
 # iTermの設定
 
+## zplugのインストールチェックを有効に変更
+
+/Users/s_mochizuki/.dotfiles/zsh/10_plugins.zsh
+
+
+
+終わったらコメントアウト
+
 ## iterm起動して以下の警告が出たらそれぞれ実行
 
 ```
