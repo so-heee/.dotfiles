@@ -1,2 +1,4 @@
 .DS_Store
+.gitconfig.global
 Brewfile.lock.json
+zsh/00_local.zsh
