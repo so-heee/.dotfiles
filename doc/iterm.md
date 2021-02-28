@@ -3,9 +3,6 @@
 ## zplugのインストールチェックを有効に変更
 
 /Users/s_mochizuki/.dotfiles/zsh/10_plugins.zsh
-
-
-
 終わったらコメントアウト
 
 ## iterm起動して以下の警告が出たらそれぞれ実行
@@ -25,6 +22,16 @@ chmod 755 /usr/local/share/zsh/site-functions
 chmod 755 /usr/local/share/zsh
 ```
 
+## ログインシェルを変更
+
+```
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+
+# 以下を実行
+chsh -s /bin/zsh
+```
 ## 設定ファイルのインポート
 
 - Preferences-General-Preference
@@ -33,8 +40,7 @@ chmod 755 /usr/local/share/zsh
 - Copyするか聞かれたら'Don't Copy'を選択
 - Save changesはManuallyを選択
 - セキュリティとプライバシー-アクセシビリティでiTermを許可
-
-
+- 
 ## 設定の反映
 
 - macを再起動（再起動しないと反映されない）

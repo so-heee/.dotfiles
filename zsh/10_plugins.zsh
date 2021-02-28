@@ -32,7 +32,7 @@ zplug "modules/prompt", from:prezto
 zplug "modules/homebrew", from:prezto
 zplug "modules/ruby", from:prezto
 
-# install check
+# インストールチェック
 # if ! zplug check --verbose; then
 #   printf 'Install? [y/N]: '
 #   if read -q; then
@@ -40,21 +40,19 @@ zplug "modules/ruby", from:prezto
 #   fi
 # fi
 
-zplug load # --verbose
-
-# pretzo
+# 初期設定
 if [ ! -e $HOME/.zprezto ]; then
   ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    [ ! -e $HOME/.${rcfile:t} ] && ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
 fi
+
+zplug load # --verbose
 
 if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
   source "$HOME/.zprezto/init.zsh"
 fi
-
-for file in .zlogin .zpreztorc .zshenv .zlogout .zprofile
-do
-	[ ! -e $HOME/$file ] && ln -s $HOME/.zprezto/runcoms/$file $HOME/$file
-done
 
 #----------------------------------------
 # Setting PowerLevel10k

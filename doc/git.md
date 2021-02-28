@@ -33,13 +33,16 @@ eval "$(ssh-agent -s)"
 Agent pid 32047
 
 # 登録
-ssh-add .ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 ## 確認
 
 ```
 ssh -T git@github.com
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes # yesを入力
+
 Hi so-heee! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
