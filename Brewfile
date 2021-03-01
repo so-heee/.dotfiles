@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "sanemat/font"
 tap "wfxr/csview"
