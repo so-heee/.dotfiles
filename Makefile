@@ -1,6 +1,6 @@
 DOTFILES	:= .gitconfig .tmux.conf .vimrc .zshenv .zshrc
 
-all: install links-dotfiles workspace setup-pyenv setup-navi setup-karabiner setup-nvim
+all: install links-dotfiles setup-fonts setup-workspace setup-pyenv setup-navi setup-karabiner setup-nvim
 
 ## Show dot files in this repo
 .PHONY: list
@@ -17,9 +17,15 @@ links-dotfiles:
 install:
 	@./scripts/homebrew.sh
 
+## Setup Ricty Fonts
+.PHONY: setup-fonts
+setup-fonts:
+	@cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+	@fc-cache -vf
+
 # Create Workspace
-.PHONY: workspace
-workspace:
+.PHONY: setup-workspace
+setup-workspace:
 	@./scripts/workspace.sh
 
 ## Setup Pyenv
