@@ -148,4 +148,4 @@ fzf-z-search() {
 }
 
 zle -N fzf-z-search
-bindkey '^f' fzf-z-search
+bindkey '^[' fzf-z-search

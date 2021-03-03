@@ -17,12 +17,6 @@ export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
-#----------------------------------------
-# Setting Python
-#----------------------------------------
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
