@@ -18,6 +18,8 @@ zplug "b4b4r07/zsh-gomi", \
     as:command, \
     use:bin/gomi, \
     on:junegunn/fzf-bin
+# ディレクトリ移動
+zplug "rupa/z", use:"*.sh"
 # pretzo関連
 zplug "sorin-ionescu/prezto"
 zplug "modules/environment", from:prezto
@@ -98,12 +100,6 @@ function tm() {
 }
 
 #----------------------------------------
-# Setting anyenv
-#----------------------------------------
-# eval "$(pyenv init - --no-rehash)"
-# eval "$(pyenv virtualenv-init - --no-rehash)"
-
-#----------------------------------------
 # Setting navi
 #----------------------------------------
 export NAVI_TAG_WIDTH=10
@@ -137,3 +133,19 @@ bindkey '^]' ghq-fzf
 # Setting exa
 #----------------------------------------
 export EXA_COLORS="ur=35;40:gr=35;40:tr=35;40:uw=34;40:gw=34;40:tw=34;40:ux=36;40:ue=36;40:gx=36;40:tx=36;40:uu=37;40"
+
+#----------------------------------------
+# Setting z
+#----------------------------------------
+fzf-z-search() {
+    local res=$(z | sort -rn | cut -c 12- | fzf)
+    if [ -n "$res" ]; then
+        BUFFER+="cd $res"
+        zle accept-line
+    else
+        return 1
+    fi
+}
+
+zle -N fzf-z-search
+bindkey '^f' fzf-z-search
