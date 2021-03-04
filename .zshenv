@@ -4,7 +4,13 @@
 autoload -Uz compinit && compinit -u
 
 #----------------------------------------
-# history
+# Editor
+#----------------------------------------
+export EDITOR=nvim
+export GIT_EDITOR="${EDITOR}"
+
+#----------------------------------------
+# History
 #----------------------------------------
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
