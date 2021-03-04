@@ -116,6 +116,11 @@ export BAT_THEME="Dracula"
 export PATH=$HOME/.yarn/bin:$PATH
 
 #----------------------------------------
+# Setting anyenv
+#----------------------------------------
+eval "$(anyenv init -)"
+
+#----------------------------------------
 # Setting ghq
 #----------------------------------------
 function ghq-fzf() {
