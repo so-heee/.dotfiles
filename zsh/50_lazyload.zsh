@@ -1,9 +1,3 @@
-anyenv() {
-  unfunction "$0"
-  source <(anyenv init -)
-  $0 "$@"
-}
-
 pyenv() {
   unfunction "$0"
   source <(pyenv init -)
