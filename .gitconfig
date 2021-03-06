@@ -6,6 +6,13 @@
     path = ~/.dotfiles/.gitconfig.private
 [color]
     ui = auto
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    co = checkout
+    br  = branch
+    di = diff
 # sourcetree
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
