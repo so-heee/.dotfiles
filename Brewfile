@@ -33,6 +33,7 @@ brew "rga"
 brew "ripgrep"
 brew 'sanemat/font/ricty'
 brew "silicon"
+brew "tig"
 brew "tmux"
 brew "tokei"
 brew "vim"

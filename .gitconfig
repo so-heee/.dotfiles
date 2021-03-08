@@ -1,5 +1,7 @@
 [core]
     excludesfile = ~/.gitignore
+    quotepath = false
+	ignorecase = false
 [include]
     path = ~/.dotfiles/.gitconfig.global
 [includeIf "gitdir:~/.dotfiles/"]
