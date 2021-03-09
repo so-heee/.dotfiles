@@ -48,6 +48,12 @@ set background=dark
 set laststatus=2
 
 "----------------------------------------
+" keymaps
+"----------------------------------------
+
+let mapleader = "\<Space>"
+
+"----------------------------------------
 " normal mode
 "----------------------------------------
 " ウィンドウ移動
@@ -174,14 +180,13 @@ let g:airline_powerline_fonts = 1
 let g:neoterm_default_mod='belowright'
 let g:neoterm_size=15
 let g:neoterm_autoscroll=1
-if has('nvim')
-  " Neovim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-else
-  " Vim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-endif
+:tnoremap <Esc> <C-\><C-n>
 
+"----------------------------------------
 " fzf
+"----------------------------------------
+let g:fzf_layout = { 'down': '40%' }
+
 command! -bang -nargs=? -complete=dir Files
             \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
