@@ -45,3 +45,6 @@ zstyle ':completion:*:history-words' menu yes
 ## 補完候補をキャッシュする。
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/compcache"
+
+#何も入力されていないときのTABでTABが挿入されるのを抑制
+zstyle ':completion:*' insert-tab false

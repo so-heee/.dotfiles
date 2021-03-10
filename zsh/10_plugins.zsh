@@ -20,8 +20,41 @@ zplug "b4b4r07/zsh-gomi", \
     on:junegunn/fzf-bin
 # ディレクトリ移動
 zplug "rupa/z", use:"*.sh"
+# pretzo関連
+# zplug "sorin-ionescu/prezto"
+zplug "modules/environment", from:prezto
+zplug "modules/terminal", from:prezto
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+# zplug "modules/spectrum", from:prezto
+# zplug "modules/utility", from:prezto
+zplug "modules/completion", from:prezto
+# zplug "modules/prompt", from:prezto
+# zplug "modules/homebrew", from:prezto
+# zplug "modules/ruby", from:prezto
+
+# インストールチェック
+# if ! zplug check --verbose; then
+#   printf 'Install? [y/N]: '
+#   if read -q; then
+#     echo; zplug install
+#   fi
+# fi
+
+# 初期設定
+if [ ! -e $HOME/.zprezto ]; then
+  ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    [ ! -e $HOME/.${rcfile:t} ] && ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+fi
 
 zplug load # --verbose
+
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
+fi
 
 #----------------------------------------
 # Setting PowerLevel10k
