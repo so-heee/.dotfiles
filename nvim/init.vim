@@ -14,7 +14,7 @@ let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
 let s:base_dir = expand('~/.dotfiles/nvim')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let s:toml_dir = s:base_dir . '/toml'
+let s:toml_dir = s:base_dir . '/rc'
 
 if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)

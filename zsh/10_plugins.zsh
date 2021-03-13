@@ -22,14 +22,14 @@ zplug "b4b4r07/zsh-gomi", \
 zplug "rupa/z", use:"*.sh"
 # pretzo関連
 # zplug "sorin-ionescu/prezto"
-zplug "modules/environment", from:prezto
-zplug "modules/terminal", from:prezto
+# zplug "modules/environment", from:prezto
+# zplug "modules/terminal", from:prezto
 zplug "modules/editor", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/directory", from:prezto
+# zplug "modules/history", from:prezto
+# zplug "modules/directory", from:prezto
 # zplug "modules/spectrum", from:prezto
 # zplug "modules/utility", from:prezto
-zplug "modules/completion", from:prezto
+# zplug "modules/completion", from:prezto
 # zplug "modules/prompt", from:prezto
 # zplug "modules/homebrew", from:prezto
 # zplug "modules/ruby", from:prezto
