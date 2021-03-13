@@ -1,84 +1,23 @@
-# Neovimプラグインマネージャー
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
-# 自動補完プラグイン
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-'''
-
-# ステータスライン関連
-[[plugins]]
-repo    = 'vim-airline/vim-airline'
-depends = ['vim-airline-themes']
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-# Dracula Theme
-[[plugins]]
-repo = 'dracula/vim'
-
-# Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-# ターミナル
-[[plugins]]
-repo = 'kassio/neoterm'
-
-# コマンドライン曖昧検索
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-
-# ファイラ
-[[plugins]]
-repo ="kristijanhusak/defx-git"
-hook_add = '''
-call defx#custom#column('git', 'indicators', {
-  \ 'Modified'  : '✹',
-  \ 'Staged'    : '✚',
-  \ 'Untracked' : '✭',
-  \ 'Renamed'   : '➜',
-  \ 'Unmerged'  : '═',
-  \ 'Ignored'   : '☒',
-  \ 'Deleted'   : '✖',
-  \ 'Unknown'   : '?'
-  \ })
-'''
-
-[[plugins]]
-repo ="kristijanhusak/defx-icons"
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-depends = ['defx-git', 'defx-icons']
-hook_add = '''
+"----------------------------------------
+" Shougo/defx.nvim
+"----------------------------------------
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
       \ 'opened_icon': '▾',
       \ 'root_icon': ' ',
-      \ })
-call defx#custom#column('filename', {
-      \ 'min_width': 40,
-      \ 'max_width': 40,
       \ })
 call defx#custom#column('mark', {
       \ 'readonly_icon': '✗',
       \ 'selected_icon': '✓',
       \ })
 call defx#custom#option('_', {
-      \ 'columns': 'indent:git:icons:filename',
       \ 'show_ignored_files': 1,
+      \ 'buffer_name': 'exproler',
+      \ 'columns': 'indent:git:icons:filename',
+      \ 'toggle': 1,
+      \ 'resume': 1,
       \ })
-nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <silent><Leader>e :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 autocmd FileType defx call s:defx_my_settings()
   function! s:defx_my_settings() abort
     " Define mappings
@@ -113,27 +52,3 @@ autocmd FileType defx call s:defx_my_settings()
     nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
     nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
   endfunction
-'''
-
-# Go
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_add = '''
-  let g:go_fmt_command = "goimports"
-  let g:go_def_mapping_enabled = 0
-  let g:go_doc_keywordprg_enabled = 0
-'''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = '''
-  set hidden
-  let g:LanguageClient_serverCommands = {
-      \ 'go': ['gopls']
-      \ }
-  let g:LanguageClient_loadSettings = 1
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-'''

@@ -14,7 +14,7 @@ let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
 let s:base_dir = expand('~/.dotfiles/nvim')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let s:toml_dir = s:base_dir . '/rc'
+let s:toml_dir = s:base_dir . '/plugins/config'
 
 if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
@@ -51,7 +51,7 @@ set laststatus=2
 " keymaps
 "----------------------------------------
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 "----------------------------------------
 " normal mode
@@ -166,28 +166,8 @@ set hlsearch
 
 set splitbelow
 
-"----------------------------------------
-" vim-airline
-"----------------------------------------
-let g:airline_theme = 'dracula'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_powerline_fonts = 1
 
-"----------------------------------------
-" neoterm
-"----------------------------------------
-let g:neoterm_default_mod='belowright'
-let g:neoterm_size=15
-let g:neoterm_autoscroll=1
-if has('nvim')
-  " Neovim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-else
-  " Vim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-endif
-:tnoremap <Esc> <C-\><C-n>
+
 
 "----------------------------------------
 " fzf
