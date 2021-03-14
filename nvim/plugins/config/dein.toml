@@ -18,6 +18,9 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'dracula/vim'
 
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -30,6 +33,7 @@ build = './install --all'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+hook_add = 'source ~/.config/nvim/plugins/fzf.vim'
 
 [[plugins]]
 repo ="kristijanhusak/defx-git"

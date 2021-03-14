@@ -12,3 +12,5 @@ else
   autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
 endif
 :tnoremap <Esc> <C-\><C-n>
+
+nnoremap <c-t><c-t> :Tnew<CR><C-w><C-w>
