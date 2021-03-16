@@ -44,7 +44,7 @@ endif
 " colorscheme settings
 "----------------------------------------
 filetype plugin indent on
-colorscheme iceberg
+colorscheme dracula
 syntax on
 
 set t_Co=256
