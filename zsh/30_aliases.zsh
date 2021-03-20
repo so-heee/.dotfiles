@@ -22,6 +22,9 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias rmf='rm -rf'
 
+## vi
+alias vid='cd ~/.dotfiles && vi'
+
 ## other
 alias vi='nvim'
 alias grep='grep --color=auto'

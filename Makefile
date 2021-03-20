@@ -47,3 +47,8 @@ setup-karabiner:
 .PHONY: setup-nvim
 setup-nvim:
 	@./scripts/nvim.sh
+
+## Setup Jetbrain
+.PHONY: setup-jetbrain
+setup-jetbrain:
+	@./scripts/jetbrain.sh
