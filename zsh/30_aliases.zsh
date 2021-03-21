@@ -28,3 +28,5 @@ alias vid='cd ~/.dotfiles && vi'
 ## other
 alias vi='nvim'
 alias grep='grep --color=auto'
+
+alias wo='cd ~/Workspace'
