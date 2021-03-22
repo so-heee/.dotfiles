@@ -41,18 +41,6 @@ if dein#check_install()
 endif
 
 "----------------------------------------
-" colorscheme settings
-"----------------------------------------
-filetype plugin indent on
-colorscheme dracula
-syntax on
-
-set t_Co=256
-set termguicolors
-set background=dark
-set laststatus=2
-
-"----------------------------------------
 " normal mode
 "----------------------------------------
 " ウィンドウ移動
@@ -151,3 +139,21 @@ set incsearch             " 検索文字列入力時に順次対象文字列に�
 set wrapscan              " 検索時に最後まで行ったら最初に戻る
 set hlsearch              " 検索語をハイライト表示
 set splitbelow            " 新規ウィンドウは下に開く
+
+"----------------------------------------
+" colorscheme settings
+"----------------------------------------
+filetype plugin indent on
+colorscheme dracula
+syntax on
+
+set t_Co=256
+set termguicolors
+set background=dark
+set laststatus=2
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
