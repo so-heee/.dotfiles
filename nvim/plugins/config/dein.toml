@@ -55,3 +55,10 @@ repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 rev = 'next'
 hook_add = 'source ~/.config/nvim/plugins/languageclient-neovim.vim'
+
+[[plugins]]
+repo = "honza/vim-snippets"
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+hook_add = 'source ~/.config/nvim/plugins/ultisnips.vim'
