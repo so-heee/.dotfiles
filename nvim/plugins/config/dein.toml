@@ -2,11 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
-
-[[plugins]]
 repo    = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = 'source ~/.config/nvim/plugins/vim-airline.vim'
@@ -62,3 +57,12 @@ repo = "honza/vim-snippets"
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_add = 'source ~/.config/nvim/plugins/ultisnips.vim'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
+hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
