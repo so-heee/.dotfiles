@@ -1,0 +1,5 @@
+# To start the docker daemon:
+docker -d
+
+# あああああい:
+docker run -ti <image-name> /bin/bash

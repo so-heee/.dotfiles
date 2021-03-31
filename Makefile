@@ -52,3 +52,8 @@ setup-nvim:
 .PHONY: setup-jetbrain
 setup-jetbrain:
 	@./scripts/jetbrain.sh
+
+## Setup Cheat
+.PHONY: setup-cheat
+setup-cheat:
+	@./scripts/cheat.sh

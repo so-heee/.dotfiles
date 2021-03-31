@@ -28,3 +28,5 @@ alias grep='grep --color=auto'
 
 alias wo='cd ~/Workspace'
 alias dot='cd ~/.dotfiles'
+
+alias ch='cheat -p personal'
