@@ -1,0 +1,5 @@
+Ctrl + r # fzf によるコマンド履歴
+Ctrl + t # fzf によるカレントディレクトリ検索
+Ctrl + ] # fzf と ghq によるプロジェクト検索
+Ctrl + [ # fzf と z によるディレクトリ検索
+

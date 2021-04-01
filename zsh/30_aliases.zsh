@@ -30,3 +30,8 @@ alias wo='cd ~/Workspace'
 alias dot='cd ~/.dotfiles'
 
 alias ch='cheat -p personal'
+
+
+
+
+alias -g F='| fzf'
