@@ -66,3 +66,18 @@ on_event = 'InsertEnter'
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter'
 hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'markonm/traces.vim'

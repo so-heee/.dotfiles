@@ -1,3 +1,11 @@
+# 標準
 H, L # 行頭、行末
 <Leader>w # ファイル保存
 
+# vim-surround
+ds[e] # [e]を削除
+di[e] # [e]の囲いの中を削除、diwで単語、ditでタグの中なども削除
+cs[e][d] # [e]を[d]に変更
+ci[e] # [e]の囲いの中を変更、ciwで単語
+ys[m][d] # [m]を使って[d]で囲む、ysiwで単語
+S[d] # [d]で囲む、viwS[d]で単語を選択して[d]で囲む
