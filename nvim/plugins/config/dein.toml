@@ -81,3 +81,11 @@ repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = 'source ~/.config/nvim/plugins/winresizer.vim'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = 'source ~/.config/nvim/plugins/vim-indent-guides.vim'

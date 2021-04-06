@@ -43,17 +43,6 @@ endif
 "----------------------------------------
 " normal mode
 "----------------------------------------
-" ウィンドウ移動
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-" ウィンドウサイズ変更
-nnoremap <S-Left>  <C-w><
-nnoremap <S-Right> <C-w>>
-nnoremap <S-Up>    <C-w>-
-nnoremap <S-Down>  <C-w>+
-nnoremap <C-P> :Files<CR>
 " 行先頭と行末
 noremap H ^
 noremap L g_
@@ -62,6 +51,17 @@ nnoremap <Leader>w :w<CR>
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
+" 画面
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
+
+" fzf
+nnoremap <C-P> :Files<CR>
+nnoremap <C-h> :History<CR>
 
 "----------------------------------------
 " insert mode
