@@ -88,8 +88,5 @@ hook_add = 'source ~/.config/nvim/plugins/winresizer.vim'
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
-hook_add = '''
-    "" vim-expand-region settings.
-    vmap v <Plug>(expand_region_expand)
-    vmap <C-v> <Plug>(expand_region_shrink)
-'''
+hook_add = 'source ~/.config/nvim/plugins/vim-expand-region.vim'
+
