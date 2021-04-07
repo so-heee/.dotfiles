@@ -140,20 +140,26 @@ set wrapscan              " 検索時に最後まで行ったら最初に戻る
 set hlsearch              " 検索語をハイライト表示
 set splitbelow            " 新規ウィンドウは下に開く
 
+filetype plugin indent on " ファイルタイプ識別
+
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+
 "----------------------------------------
 " colorscheme settings
 "----------------------------------------
-filetype plugin indent on
 colorscheme dracula
+set background=dark
 syntax on
 
 set t_Co=256
 set termguicolors
-set background=dark
-set laststatus=2
+"set laststatus=2
 
 highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
+highlight NonText    ctermbg=NONE guibg=NONE guifg=#55596d
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE guifg=#55596d
