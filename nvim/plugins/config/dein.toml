@@ -42,6 +42,11 @@ depends = ['defx-git', 'defx-icons']
 hook_add = 'source ~/.config/nvim/plugins/defx.vim'
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
+hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
+
+[[plugins]]
 repo = 'fatih/vim-go'
 hook_add = 'source ~/.config/nvim/plugins/vim-go.vim'
 
@@ -57,15 +62,6 @@ repo = "honza/vim-snippets"
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_add = 'source ~/.config/nvim/plugins/ultisnips.vim'
-
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'

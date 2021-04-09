@@ -119,6 +119,7 @@ set number                " 行番号を表示
 set cursorline            " 現在の行を強調表示
 set virtualedit=onemore   " 行末の1文字先までカーソルを移動できるように
 set laststatus=2          " ステータスラインを常に表示
+set clipboard+=unnamed
 
 "----------------------------------------
 " tab settings
