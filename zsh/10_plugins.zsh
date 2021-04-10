@@ -154,3 +154,8 @@ fzf-z-search() {
 
 zle -N fzf-z-search
 bindkey '^[' fzf-z-search
+
+#----------------------------------------
+# Setting gh
+#----------------------------------------
+eval "$(gh completion -s zsh)"
