@@ -53225,11 +53225,11 @@
 			<key>Name</key>
 			<string>s_mochizuki</string>
 			<key>Non Ascii Font</key>
-			<string>HackNerdFontComplete-Regular 16</string>
+			<string>HackNerdFontComplete-Regular 17</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RictyDiscord-Regular 16</string>
+			<string>RictyDiscord-Regular 17</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
