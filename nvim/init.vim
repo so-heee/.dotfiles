@@ -62,7 +62,7 @@ nnoremap sv :<C-u>vs<CR><C-w>l
 nmap <Tab>      gt
 nmap <S-Tab>    gT
 " fzf
-nnoremap <C-P> :Files<CR>
+nnoremap <C-t> :Files<CR>
 nnoremap <C-h> :History<CR>
 
 "----------------------------------------

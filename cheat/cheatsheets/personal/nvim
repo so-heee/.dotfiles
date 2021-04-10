@@ -1,7 +1,14 @@
-# 標準
+# alias
 H, L # 行頭、行末
 u, <C-r> # 戻す、進む
 <Leader>w # ファイル保存
+sh,j,k,l # ペイン移動
+ss, sv # ペイン分割
+<Tab>,<S-Tab> # タブ移動
+
+# fzf
+<C-t> # ファイル検索
+<C-h> # 履歴検索
 
 # vim-surround
 ds[e] # [e]を削除
