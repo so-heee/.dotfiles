@@ -1,6 +1,6 @@
 DOTFILES	:= .gitconfig .tmux.conf .vimrc .zshenv .zshrc
 
-all: install links-dotfiles setup-fonts setup-workspace setup-anyenv setup-navi setup-karabiner setup-nvim
+all: install links-dotfiles setup-fonts setup-workspace setup-anyenv setup-karabiner setup-nvim
 
 ## Show dot files in this repo
 .PHONY: list
@@ -32,11 +32,6 @@ setup-workspace:
 .PHONY: setup-anyenv
 setup-anyenv:
 	@./scripts/anyenv.sh
-
-## Setup Navi
-.PHONY: setup-navi
-setup-navi:
-	@./scripts/navi.sh
 
 ## Setup Karabiner
 .PHONY: setup-karabiner

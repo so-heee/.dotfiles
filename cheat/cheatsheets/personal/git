@@ -1,0 +1,124 @@
+# global設定
+git config --global user.name "XXXX"
+git config --global user.email "XXXX"
+
+# local（特定のディレクトリのみアカウントを切り替える）
+git config --local user.name "XXXX"
+git config --local user.email "XXXX"
+
+# ローカルリポジトリの作成
+git init
+
+## Github 上にあるプロジェクトから始める
+git clone <リポジトリ名>
+
+## 変更をステージに追加する
+git add <ファイル名>/<ディレクトリ名>/.
+
+## 変更を記録する
+git commit -m "<メッセージ>"
+git commit -v # gitエディタ立ち上げ
+
+## 変更内容を確認する
+git status
+
+## 何を変更したのかを確認する
+git diff
+git diff <ファイル名>
+git diff --staged # ステージ後に確認
+
+## 変更履歴を確認する
+git log # 一行で表示する
+git log -p index.html # ファイルの差分を確認する
+git log -n <コミット数>
+
+## ファイルの削除を記録する
+git rm <ファイル名>
+git rm -r <ディレクトリ>
+git rm --cached <ファイル名> # ワークツリーには残しておきたい
+
+# 元に戻す場合
+git reset HEAD index.html
+git checkout index.html
+
+## ファイルの移動を記録する
+git mv <旧ファイル> <新ファイル>
+
+## Github にプッシュする
+
+# githubページでリポジトリを作成
+# origin（メインのリモートリポジトリ） という名前で url のリモートリポジトリを登録する
+git remote add origin https://github.com/user/repo.git
+# リモートリポジトリ（Github）へ送信する
+git push <リモート名> <ブランチ名>
+git push -u origin master
+
+github でリポジトリを作成した時のコマンドの説明
+
+- git init していない場合
+- git init をしていてすでにコミットまで完了している場合
+
+git remote add origin git@github.com:so-heee/git-example.git
+git branch -M main
+git push -u origin main
+
+## ワークツリーのファイルへの変更を戻す
+git checkout -- <ファイル名>
+git checkout -- <ディレクトリ名>
+git checkout -- . # 全てのファイル
+
+## ステージした変更を取り消す
+git reset HEAD <ファイル名>
+git reset HEAD <ディレクトリ名>
+git reset HEAD . # 全てのファイル
+
+## 直前のコミットを修正する
+git commit --amend
+
+## リモートの情報を確認する
+git remote
+git remote -v # 対応するURLを表示
+
+## リモートリポジトリを追加する
+git remote add <リモート名> <リモートURL>
+git remote add git-example https://github.com/so-heee/git-example.git
+
+## リモートから情報を取得する
+git fetch <リモート名>
+git fetch origin
+
+## リモートから情報を取得してマージする
+git pull
+
+## リモートの詳細情報を表示する
+git remote show <リモート名>
+git remote show origin
+
+## リモートを変更・削除する
+git remote rename <旧リモート名> <新リモート名> # 変更
+git remote rm <リモート名> # 削除
+
+## 新しいブランチを作成する
+git branch <ブランチ名>
+
+## ブランチの一覧を表示する
+git branch
+git branch -a # 全てのブランチ(リモートを含む)を表示
+
+## ブランチを切り替える
+git checkout <ブランチ名>
+git checkout -b <ブランチ名> # ブランチの作成と切り替え
+
+## 変更履歴をマージする
+git merge <ブランチ名>
+git merge <リモート名/ブランチ名>
+git merge origin/master
+
+## ブランチ名を変更する
+git branch -m <ブランチ名>
+
+## ブランチを削除する
+git branch -d <ブランチ名>
+git branch -D <ブランチ名> # 強制削除（masterにマージされていない変更がある場合は削除できないため）する
+
+
