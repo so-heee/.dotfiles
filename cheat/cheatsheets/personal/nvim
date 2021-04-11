@@ -1,9 +1,15 @@
+# keymap
+w,b # 単語移動
+gg,G # ファイルの先頭、末尾移動
+<C-u>,<C-d> # 画面半分移動
+f{char},F{char} # 文字に移動
+
 # alias
-H, L # 行頭、行末
-u, <C-r> # 戻す、進む
+H,L # 行頭、行末
+u,<C-r> # 戻す、進む
 <Leader>w # ファイル保存
 sh,j,k,l # ペイン移動
-ss, sv # ペイン分割
+ss,sv # ペイン分割
 <Tab>,<S-Tab> # タブ移動
 
 # fzf
