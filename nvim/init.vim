@@ -51,14 +51,14 @@ nnoremap <Leader>w :w<CR>
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
-" 画面
+" ペイン
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
-" TAB移動
+" TAB
 nnoremap <Tab>      gt
 nnoremap <S-Tab>    gT
 " バッファ
