@@ -59,9 +59,15 @@ nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 " TAB移動
-nmap <Tab>      gt
-nmap <S-Tab>    gT
-" fzf
+nnoremap <Tab>      gt
+nnoremap <S-Tab>    gT
+" バッファ
+nnoremap <Leader>nn :new<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>ls :ls<CR> fzf
+" FZF
 nnoremap <C-t> :Files<CR>
 nnoremap <C-h> :History<CR>
 
