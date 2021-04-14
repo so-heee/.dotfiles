@@ -66,7 +66,7 @@ nnoremap <Leader>nn :new<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>ls :ls<CR> fzf
+nnoremap <Leader>ls :ls<CR>
 " FZF
 nnoremap <C-t> :Files<CR>
 nnoremap <C-h> :History<CR>

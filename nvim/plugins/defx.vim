@@ -1,7 +1,7 @@
 "----------------------------------------
 " Shougo/defx.nvim
 "----------------------------------------
-nnoremap <silent><Leader>e :<C-u>Defx <CR>
+nnoremap <silent><Leader>e :<C-u>Defx<CR>
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
       \ 'opened_icon': '▾',
@@ -12,9 +12,6 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 call defx#custom#option('_', {
-      \ 'winwidth': 40,
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
       \ 'show_ignored_files': 1,
       \ 'buffer_name': 'exproler',
       \ 'columns': 'indent:git:icons:filename',
@@ -23,7 +20,7 @@ call defx#custom#option('_', {
       \ })
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
+  nnoremap <silent><buffer><expr> <CR> defx#do_action('open')
   nnoremap <silent><buffer><expr> c defx#do_action('copy')
   nnoremap <silent><buffer><expr> m defx#do_action('move')
   nnoremap <silent><buffer><expr> p defx#do_action('paste')
