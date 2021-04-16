@@ -3,5 +3,7 @@ Cmd + Shift + Enter # カーソル上に空行
 Cmd + d # 単語選択
 Cmd + l # 行選択
 Cmd + Shift + \ # 対応する括弧
+Cmd + b # エクスプローラー
+Cmd + p # ファイル検索
 
 Control + ` # ターミナルを開く
