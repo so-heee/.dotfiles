@@ -1,0 +1,28 @@
+"----------------------------------------
+" normal mode
+"----------------------------------------
+" 行先頭と行末
+noremap H ^
+noremap L g_
+" ファイル保存
+nnoremap <Leader>w :w<CR>
+" セミコロンとコロンを入れ替え
+nnoremap ; :
+nnoremap : ;
+
+"----------------------------------------
+" insert mode
+"----------------------------------------
+inoremap <silent> jj <ESC>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+
+
+inoremap jj <Esc>
+
