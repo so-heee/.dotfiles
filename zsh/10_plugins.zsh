@@ -156,6 +156,11 @@ zle -N fzf-z-search
 bindkey '^[' fzf-z-search
 
 #----------------------------------------
+# Setting Go
+#----------------------------------------
+export PATH="$PATH:$GOPATH/bin"
+
+#----------------------------------------
 # Setting gh
 #----------------------------------------
 eval "$(gh completion -s zsh)"

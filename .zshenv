@@ -20,13 +20,6 @@ HISTSIZE=100000
 SAVEHIST=1000000
 
 #----------------------------------------
-# Setting Go
-#----------------------------------------
-export GOPATH="$HOME/.go"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
-
-#----------------------------------------
 # Setting Python
 #----------------------------------------
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
