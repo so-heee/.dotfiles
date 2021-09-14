@@ -1,9 +1,11 @@
+# パフォーマンス確認用
+# zmodload zsh/zprof && zprof
+
 #----------------------------------------
 # autoload
 #----------------------------------------
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
-autoload -Uz compinit && compinit -u
 autoload -Uz is-at-least
 
 #----------------------------------------
