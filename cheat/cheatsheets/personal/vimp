@@ -1,7 +1,3 @@
-# fzf
-<C-t> # ファイル検索
-<C-h> # 履歴検索
-
 # vim-surround
 ds[e] # [e]を削除
 di[e] # [e]の囲いの中を削除、diwで単語、ditでタグの中なども削除
@@ -30,9 +26,9 @@ r # ファイル名変更
 <C-e> # 起動
 h,j,k,l # サイズ変更
 
-
 # junegunn/fzf
-
+<C-t> # ファイル検索
+<C-h> # 履歴検索
 
 # kassio/neoterm
 

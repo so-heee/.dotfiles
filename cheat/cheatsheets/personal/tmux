@@ -1,11 +1,5 @@
 <C-q> # プレフィックス
 
-# セッション
-tmux new -s <セッション名> # 新規セッション
-tmux ls # セッションの一覧
-tmux kill-session # セッションを終了
-tmux kill-server # tmuxを終了
-
 # ペイン
 -, | # ペインの分割
 h,j,k,l # ペインの移動
@@ -14,3 +8,10 @@ H,J,K,L # ペインのサイズ変更
 # ウィンドウ
 c,n,& # ウィンドウの作成、移動、破棄
 0-9 # 指定番号のウインドウへ移動
+
+# セッション
+tmux new -s <セッション名> # 新規セッション
+tmux ls # セッションの一覧
+tmux kill-session # セッションを終了
+tmux kill-server # tmuxを終了
+

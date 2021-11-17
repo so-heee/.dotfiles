@@ -1,5 +1,12 @@
-Q # 終了
-s # ステータス
-u # add
+# tig
+
+## main view
+
+Q # 終了(どのメニューでも)
+s # status view
 ! # checkout
+
+## status view
+u # add
+C # コミット
 
