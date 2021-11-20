@@ -46,8 +46,6 @@ endif
 " 行先頭と行末
 noremap H ^
 noremap L g_
-" ファイル保存
-nnoremap <Leader>w :w<CR>
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
