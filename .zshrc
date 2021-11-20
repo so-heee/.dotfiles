@@ -12,3 +12,7 @@ if [ $HOME/.zshenv -nt $HOME/.zshenv.zwc ]; then
 fi
 
 for config (~/.dotfiles/zsh/[0-9]*.zsh) source $config
+
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi

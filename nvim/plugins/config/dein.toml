@@ -13,12 +13,6 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'dracula/vim'
 
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'kassio/neoterm'
 hook_add = 'source ~/.config/nvim/plugins/neoterm.vim'
 
@@ -45,16 +39,6 @@ hook_add = 'source ~/.config/nvim/plugins/defx.vim'
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter'
 hook_add = 'source ~/.config/nvim/plugins/deoplete.vim'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_add = 'source ~/.config/nvim/plugins/vim-go.vim'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = 'source ~/.config/nvim/plugins/languageclient-neovim.vim'
 
 [[plugins]]
 repo = "honza/vim-snippets"

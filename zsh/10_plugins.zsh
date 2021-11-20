@@ -100,12 +100,6 @@ function tm() {
 }
 
 #----------------------------------------
-# Setting navi
-#----------------------------------------
-export NAVI_TAG_WIDTH=10
-export NAVI_FZF_OVERRIDES='--height 100% '
-
-#----------------------------------------
 # Setting bat
 #----------------------------------------
 export BAT_THEME="Dracula"
