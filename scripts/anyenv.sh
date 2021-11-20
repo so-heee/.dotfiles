@@ -31,3 +31,5 @@ pip install --upgrade pip
 pip install neovim
 pyenv deactivate
 
+# 高速化のため
+anyenv init - --no-rehash > ~/.anyenv-rc.sh

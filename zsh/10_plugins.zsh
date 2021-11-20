@@ -112,8 +112,9 @@ export PATH=$HOME/.yarn/bin:$PATH
 #----------------------------------------
 # Setting anyenv
 #----------------------------------------
-eval "$(anyenv init - --no-rehash)"
-
+if [ -f ~/.anyenv-rc.sh ]; then
+    source ~/.anyenv-rc.sh
+fi
 #----------------------------------------
 # Setting ghq
 #----------------------------------------
