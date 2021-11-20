@@ -158,7 +158,7 @@ bindkey '^[' fzf-z-search
 #----------------------------------------
 # Setting Go
 #----------------------------------------
-export PATH="$PATH:$GOPATH/bin"
+export PATH=$(go env GOPATH)/bin:$PATH
 
 #----------------------------------------
 # Setting gh
