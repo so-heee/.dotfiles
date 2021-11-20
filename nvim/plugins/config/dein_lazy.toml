@@ -1,4 +1,0 @@
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_event = 'InsertEnter'
-
