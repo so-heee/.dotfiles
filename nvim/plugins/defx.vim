@@ -2,19 +2,10 @@
 " Shougo/defx.nvim
 "----------------------------------------
 nnoremap <silent><Leader>e :<C-u>Defx<CR>
-call defx#custom#column('icon', {
-      \ 'directory_icon': '▸',
-      \ 'opened_icon': '▾',
-      \ 'root_icon': ' ',
-      \ })
-call defx#custom#column('mark', {
-      \ 'readonly_icon': '✗',
-      \ 'selected_icon': '✓',
-      \ })
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'buffer_name': 'exproler',
-      \ 'columns': 'indent:git:icons:filename',
+      \ 'columns': 'indent:git:space:icons:space:filename',
       \ 'toggle': 1,
       \ 'resume': 1,
       \ })
