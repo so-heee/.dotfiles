@@ -128,6 +128,7 @@ set visualbell t_vb=      " ビープ無効
 "----------------------------------------
 " visual settings
 "----------------------------------------
+
 syntax enable             " シンタックスハイライト
 set title                 " タイトルを表示
 set number                " 行番号を表示
@@ -160,7 +161,6 @@ filetype plugin indent on " ファイルタイプ識別
 
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-
 
 "----------------------------------------
 " colorscheme settings
