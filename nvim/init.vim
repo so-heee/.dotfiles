@@ -104,6 +104,15 @@ tnoremap <silent> jj <C-\><C-n>
 onoremap <silent> jj <ESC>
 
 "----------------------------------------
+" vscode
+"----------------------------------------
+if exists('g:vscode')
+    xmap gc  <Plug>VSCodeCommentary
+    nmap gc  <Plug>VSCodeCommentary
+    omap gc  <Plug>VSCodeCommentary
+    nmap gcc <Plug>VSCodeCommentaryLine
+end
+""----------------------------------------
 " settings
 "----------------------------------------
 set fenc=utf-8            " 文字コードをUFT-8に設定
