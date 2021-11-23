@@ -1,6 +1,11 @@
 "----------------------------------------
 " SirVer/ultisnips
+"
+" honza/vim-snippets
 "----------------------------------------
+UsePlugin 'vim-snippets'
+UsePlugin 'ultisnips'
+
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger       = '<c-k>'

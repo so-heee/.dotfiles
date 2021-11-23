@@ -1,6 +1,13 @@
 "----------------------------------------
+" junegunn/fzf
 " junegunn/fzf.vim
 "----------------------------------------
+UsePlugin 'fzf.vim'
+
+nnoremap <C-t> :Files<CR>
+nnoremap <C-h> :History<CR>
+
+
 let g:fzf_layout = { 'down': '40%' }
 
 " カレントディレクトリのファイル一覧

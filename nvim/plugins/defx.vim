@@ -1,6 +1,13 @@
 "----------------------------------------
 " Shougo/defx.nvim
+"
+" kristijanhusak/defx-git
+" kristijanhusak/defx-icons"
 "----------------------------------------
+UsePlugin 'defx.nvim'
+UsePlugin 'defx-git'
+UsePlugin 'defx-icons'
+
 nnoremap <silent><Leader>e :<C-u>Defx<CR>
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,

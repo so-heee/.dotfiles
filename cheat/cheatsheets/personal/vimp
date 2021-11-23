@@ -38,3 +38,8 @@ v           # 拡大
 <Leader> s  # 指定した単語で検索その後に該当のアルファベット入力
 <Leader> l  # 選択したアルファベットの行に移動
 <Leader> w  # 選択したアルファベットの単語に移動
+
+# junegunn/vim-plug
+:PlugInstall    # プラグインのインストール
+:PlugUpdate     # プラグインのアップデート
+:PlugStatus     # プラグインの確認

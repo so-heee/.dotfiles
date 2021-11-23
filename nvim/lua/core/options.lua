@@ -4,13 +4,7 @@ local g = vim.g
 --------------------------------------
 -- settings
 --------------------------------------
-g.nobackup  			= true		-- バックアップファイルを作らない
 g.noswapfile			= true		-- スワップファイルを作らない
-
-opt.encoding			= 'utf-8'	-- vimの文字コードをUTF-8に設定
-opt.fileencoding		= 'utf-8'	-- ファイルの文字コードをUTF-8に設定
-opt.autoread			= true		-- 編集中のファイルが変更されたら自動で読み直す
-opt.showcmd     		= true		-- 入力中のコマンドをステータスに表示する
 opt.shortmess:append('c')
 opt.showmatch			= true		-- 対応する括弧をハイライト表示する
 opt.visualbell			= true		-- ビープ無効
@@ -50,5 +44,4 @@ opt.hlsearch			= true		-- 検索語をハイライト表示
 --------------------------------------
 vim.cmd('filetype plugin indent on')
 g.syntax_on			    = true
-g.to_Co				    = 256
 opt.termguicolors		= true
