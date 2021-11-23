@@ -56,9 +56,6 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
-" TAB
-nnoremap <Tab>      gt
-nnoremap <S-Tab>    gT
 " バッファ
 nnoremap <Leader>nn :new<CR>
 nnoremap <Leader>bp :bp<CR>
@@ -122,7 +119,6 @@ set autoread              " 編集中のファイルが変更されたら自動�
 set showcmd               " 入力中のコマンドをステータスに表示する
 set shortmess+=I          " 開始時の挨拶を表示しない
 set showmatch             " 対応する括弧をハイライト表示する
-"set matchtime=3          " 括弧のハイライト表示の秒数を設定
 set visualbell t_vb=      " ビープ無効
 
 "----------------------------------------
@@ -171,7 +167,6 @@ syntax on
 
 set t_Co=256
 set termguicolors
-"set laststatus=2
 
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText    ctermbg=NONE guibg=NONE guifg=#55596d
