@@ -39,12 +39,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
-" g:plugs is a global variable by vim-plug
+" vim-plugでインストールしていないプラグインの個別設定は読み込まない
 let s:plugs = get(s:, 'plugs', get(g:, 'plugs', {}))
 function! FindPlugin(name) abort
   return has_key(s:plugs, a:name) ? isdirectory(s:plugs[a:name].dir) : 0
 endfunction
-" UsePlugin does not load settings when the plugin is not installed
+
 command! -nargs=1 UsePlugin if !FindPlugin(<args>) | finish | endif
 
 runtime! plugins/*.vim
