@@ -1,6 +1,6 @@
 " vim-plugの自動インストール
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -9,7 +9,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
 if exists('g:vscode')
   Plug 'asvetliakov/vim-easymotion'
@@ -35,7 +35,15 @@ Plug 'kristijanhusak/defx-icons'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'markonm/traces.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'machakann/vim-highlightedyank'
+" Plug 'neovim/nvim-lspconfig'
+Plug 'autozimu/LanguageClient-neovim', {
+	\ 'branch': 'next',
+	\ 'do': 'bash install.sh'
+	\ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mattn/vim-goimports'
 
 call plug#end()
 

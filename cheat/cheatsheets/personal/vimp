@@ -7,7 +7,8 @@ ys[m][d]        # [m]を使って[d]で囲む、ysiwで単語
 S[d]            # [d]で囲む、viwS[d]で単語を選択して[d]で囲む
 
 # tpope/vim-commentary [コメントアウト]
-選択してgcc
+gcc             # 行をコメントアウト
+選択してgc      # 選択範囲をコメントアウト
 
 # Shougo/defx.nvim [ファイラー]
 <Leader>e # 起動
