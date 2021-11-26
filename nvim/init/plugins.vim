@@ -38,12 +38,19 @@ Plug 'markonm/traces.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
 " Plug 'neovim/nvim-lspconfig'
-Plug 'autozimu/LanguageClient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh'
-	\ }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'mattn/vim-goimports'
+" Plug 'autozimu/LanguageClient-neovim', {
+" 	\ 'branch': 'next',
+" 	\ 'do': 'bash install.sh'
+" 	\ }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'mattn/vim-goimports'
+
+if has("nvim")
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'rafaelsq/completion-nvim'
+  Plug 'tami5/lspsaga.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+endif
 
 call plug#end()
 
