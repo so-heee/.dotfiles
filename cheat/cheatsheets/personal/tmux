@@ -16,3 +16,9 @@ tmux ls # セッションの一覧
 tmux kill-session # セッションを終了
 tmux kill-server # tmuxを終了
 
+# コピーモード
+[ # コピーモード起動
+hjkl # 移動
+v # 範囲選択
+y # コピー
+Enter # 終了

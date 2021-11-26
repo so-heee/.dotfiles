@@ -22,6 +22,9 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias rmf='rm -rf'
 
+# tmux
+alias ide='tmux new-session \; source-file ~/.dotfiles/.tmux.session.conf'
+
 ## other
 alias vi='nvim'
 alias grep='grep --color=auto'
