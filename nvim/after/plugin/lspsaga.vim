@@ -1,4 +1,4 @@
-if !exists('g:loaded_lspsaga') | finish | endif
+UsePlugin 'lspsaga.nvim'
 
 lua << EOF
 local saga = require 'lspsaga'

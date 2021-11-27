@@ -11,45 +11,58 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-if exists('g:vscode')
-  Plug 'asvetliakov/vim-easymotion'
-else
-  Plug 'easymotion/vim-easymotion'
-endif
-
 Plug 'dracula/vim', {'as': 'dracula'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
+Plug 'markonm/traces.vim'
+
+
 Plug 'simeji/winresizer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'kristijanhusak/defx-git'
-Plug 'kristijanhusak/defx-icons'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
-Plug 'markonm/traces.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'machakann/vim-highlightedyank'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'autozimu/LanguageClient-neovim', {
-" 	\ 'branch': 'next',
-" 	\ 'do': 'bash install.sh'
-" 	\ }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'mattn/vim-goimports'
 
 if has("nvim")
+
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'kristijanhusak/defx-git'
+  Plug 'kristijanhusak/defx-icons'
+
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+
+  Plug 'windwp/nvim-autopairs'
+
   Plug 'neovim/nvim-lspconfig'
-  Plug 'rafaelsq/completion-nvim'
   Plug 'tami5/lspsaga.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'onsails/lspkind-nvim'
+  Plug 'folke/lsp-colors.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
+  Plug 'SirVer/ultisnips'
+  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+endif
+
+" vscode-neovimで使用するプラグイン
+if exists('g:vscode')
+  Plug 'asvetliakov/vim-easymotion'
+else
+  Plug 'easymotion/vim-easymotion'
 endif
 
 call plug#end()

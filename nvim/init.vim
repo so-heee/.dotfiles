@@ -39,4 +39,6 @@ let g:did_install_default_menus = 1
 let g:skip_loading_mswin        = 1
 let g:did_install_syntax_menu   = 1
 
-runtime! init/*.vim
+runtime options.vim
+runtime maps.vim
+runtime plugins.vim

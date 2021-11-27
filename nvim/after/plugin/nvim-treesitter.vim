@@ -1,7 +1,4 @@
-if !exists('g:loaded_nvim_treesitter')
-  echom "Not loaded treesitter"
-  finish
-endif
+UsePlugin 'nvim-treesitter'
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -20,5 +17,4 @@ require'nvim-treesitter.configs'.setup {
     "go"
   },
 }
-
 EOF

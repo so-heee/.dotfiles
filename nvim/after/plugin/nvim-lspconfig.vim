@@ -1,6 +1,11 @@
-UsePlugin('nvim-lspconfig.vim')
+UsePlugin 'nvim-lspconfig'
 
 lua << EOF
+vim.lsp.set_log_level("debug")
+EOF
+
+lua << EOF
+
   lspconfig = require "lspconfig"
   lspconfig.gopls.setup {
     cmd = {"gopls", "serve"},
@@ -13,6 +18,7 @@ lua << EOF
       },
     },
   }
+
   function goimports(timeout_ms)
     local context = { only = { "source.organizeImports" } }
     vim.validate { context = { context, "t", true } }
@@ -42,6 +48,7 @@ lua << EOF
       vim.lsp.buf.execute_command(action)
     end
   end
+
 EOF
 
 autocmd BufWritePre *.go lua goimports(1000)
