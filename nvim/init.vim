@@ -8,16 +8,6 @@ let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
 
 "----------------------------------------
-" colorscheme settings
-"----------------------------------------
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText    ctermbg=NONE guibg=NONE guifg=#55596d
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
-highlight SpecialKey ctermbg=NONE guibg=NONE guifg=#55596d
-
-"----------------------------------------
 " 不要なデフォルトプラグイン
 "----------------------------------------
 let g:loaded_gzip              = 1

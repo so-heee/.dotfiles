@@ -7,8 +7,8 @@ let g:mapleader = "\<Space>"
 " normal mode
 "----------------------------------------
 " 行先頭と行末
-noremap H ^
-noremap L g_
+noremap <Leader>h ^
+noremap <Leader>l $
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
@@ -25,6 +25,11 @@ nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>ls :ls<CR>
+" 折り返し
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 "----------------------------------------
 " insert mode
@@ -49,6 +54,15 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+"----------------------------------------
+" visual mode
+"----------------------------------------
+" 折り返し
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
 
 "----------------------------------------
 " terminal mode
