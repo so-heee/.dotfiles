@@ -1,3 +1,10 @@
+# vscode
+
+" Neovim
+gc # 
+
+
+
 Cmd + Enter # カーソル下に空行
 Cmd + Shift + Enter # カーソル上に空行
 Cmd + d # 単語選択
