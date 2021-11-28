@@ -42,5 +42,16 @@ v           # 拡大
 
 # junegunn/vim-plug
 :PlugInstall    # プラグインのインストール
-:PlugUpdate     # プラグインのアップデート
+:PlugClean      # プラグインのクリーン
 :PlugStatus     # プラグインの確認
+
+# nvim-lspconfig-gopls
+gd # 定義元へ移動
+gr # 参照先を表示
+:ccl # Quixfixウィンドウを閉じる
+gi # インターフェースの実装に移動
+K # ホバー情報を表示
+<space>D # 型定義に移動
+<space>rn # 名前の変更
+<space>e # エラーの詳細をみる
+C-k # シグネチャヘルプ
