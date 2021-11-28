@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'simeji/winresizer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
