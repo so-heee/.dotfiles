@@ -3,7 +3,6 @@
 "
 " honza/vim-snippets
 "----------------------------------------
-UsePlugin 'vim-snippets'
 UsePlugin 'ultisnips'
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']

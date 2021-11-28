@@ -19,13 +19,10 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
 
-
 Plug 'simeji/winresizer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 
 if has("nvim")
