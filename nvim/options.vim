@@ -20,8 +20,6 @@ set termguicolors
 "----------------------------------------
 " tab settings
 "----------------------------------------
-set tabstop=4             " tabの幅
-set expandtab             " tabをスペースにする
 set smartindent           " スマートインデント
 set autoindent            " オートインデント
 set softtabstop=4         " キーボードから入力した場合のtabの幅
@@ -40,3 +38,17 @@ set splitbelow            " 新規ウィンドウは下に開く
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
+" 拡張子ごとのインデント設定 {{{
+set tabstop=2 shiftwidth=2 softtabstop=2
+
+augroup fileTypeIndent
+  au!
+  au FileType go setlocal tabstop=4 shiftwidth=4
+  au FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType sh setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType zsh setlocal tabstop=2 shiftwidth=2 expandtab
+  au FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab
+augroup END
+" }}}

@@ -7,8 +7,8 @@ let g:mapleader = "\<Space>"
 " normal mode
 "----------------------------------------
 " 行先頭と行末
-noremap <Leader>h ^
-noremap <Leader>l $
+noremap H ^
+noremap L $
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
