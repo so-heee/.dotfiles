@@ -52807,7 +52807,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>15.100000000000001</real>
+			<real>19.879833984374997</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -53381,7 +53381,7 @@
 			<key>Title Components</key>
 			<integer>512</integer>
 			<key>Transparency</key>
-			<real>0.095125940201130299</real>
+			<real>0.10266113281250001</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
