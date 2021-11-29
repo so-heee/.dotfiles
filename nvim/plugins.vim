@@ -31,7 +31,6 @@ else
   Plug 'simeji/winresizer'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
-  Plug 'kassio/neoterm'
 
   if has("nvim")
 
