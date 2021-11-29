@@ -63,6 +63,7 @@ else
     Plug 'SirVer/ultisnips'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+    Plug 'romgrk/barbar.nvim'
   endif
 
 endif
