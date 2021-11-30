@@ -1,4 +1,4 @@
-UsePlugin 'lualine'
+UsePlugin 'lualine.nvim'
 
 lua << END
 require'lualine'.setup {
