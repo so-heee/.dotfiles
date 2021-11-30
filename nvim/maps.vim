@@ -32,6 +32,9 @@ nnoremap gj j
 nnoremap gk k
 " ハイライトを削除する
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+" ファイル保存と終了
+nnoremap <Leader>w :w<CR>
+
 "----------------------------------------
 " insert mode
 "----------------------------------------

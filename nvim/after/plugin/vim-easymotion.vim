@@ -8,6 +8,3 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 
 " Move to line
 nmap <Leader>l <Plug>(easymotion-overwin-line)
-
-" Move to word
-nmap <Leader>w <Plug>(easymotion-overwin-w)
