@@ -30,7 +30,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
+" ハイライトを削除する
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 "----------------------------------------
 " insert mode
 "----------------------------------------
