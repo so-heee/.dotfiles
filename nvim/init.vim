@@ -1,5 +1,5 @@
 filetype plugin indent on " ファイルタイプ識別
-syntax on
+syntax enable
 
 "----------------------------------------
 " python settings
@@ -36,3 +36,4 @@ runtime plugins.vim
 " if exists('g:vscode')
 "     runtime vscode/settings.vim
 " endif
+

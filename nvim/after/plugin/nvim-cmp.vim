@@ -35,9 +35,13 @@ lua <<EOF
       { name = 'buffer' },
     }),
     formatting = {
-      format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+      format = lspkind.cmp_format({with_text = true, menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        ultisnips = "[UltiSnip]",
+      })})
     }
   })
-
 EOF
+
 

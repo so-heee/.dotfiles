@@ -26,8 +26,8 @@ if exists('g:vscode')
 else
   Plug 'easymotion/vim-easymotion'
 
-  " Plug 'Mofiqul/dracula.nvim'
-  Plug 'dracula/vim', {'as': 'dracula'}
+  Plug 'Mofiqul/dracula.nvim'
+  " Plug 'dracula/vim', {'as': 'dracula'}
   Plug 'simeji/winresizer'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'

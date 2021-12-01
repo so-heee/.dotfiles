@@ -14,7 +14,9 @@ require'nvim-treesitter.configs'.setup {
     "toml",
     "json",
     "yaml",
-    "go"
+    "go",
+    "vim",
+    "lua"
   },
 }
 EOF
