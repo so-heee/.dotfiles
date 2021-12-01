@@ -1,7 +1,4 @@
-"----------------------------------------
-" dracula/vim
-"----------------------------------------
-UsePlugin 'dracula'
+UsePlugin 'dracula.nvim'
 
 colorscheme dracula
 
@@ -14,3 +11,4 @@ highlight EndOfBuffer ctermbg=NONE guibg=NONE
 highlight SpecialKey ctermbg=NONE guibg=NONE guifg=#55596d
 
 highlight! CmpItemAbbrMatch guibg=NONE guifg=#50fa7b
+
