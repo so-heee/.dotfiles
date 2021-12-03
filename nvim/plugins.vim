@@ -31,6 +31,7 @@ else
   " Plug 'shaunsingh/nord.nvim'
   " Plug 'navarasu/onedark.nvim'
   " Plug 'cocopon/iceberg.vim'
+  " Plug 'bluz71/vim-nightfly-guicolors'
 
   Plug 'simeji/winresizer'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -67,6 +68,7 @@ else
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
     Plug 'romgrk/barbar.nvim'
+    Plug 'glepnir/dashboard-nvim'
   endif
 
 endif

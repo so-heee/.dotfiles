@@ -15,18 +15,10 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-      ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-      ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.complete(),
+      ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<Space>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      })
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
@@ -34,6 +26,9 @@ lua <<EOF
     }, {
       { name = 'buffer' },
     }),
+    experimental = {
+      ghost_text = true
+    },
     formatting = {
       format = lspkind.cmp_format({with_text = true, menu = ({
         buffer = "[Buffer]",
@@ -43,5 +38,4 @@ lua <<EOF
     }
   })
 EOF
-
 
