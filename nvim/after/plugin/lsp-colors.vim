@@ -2,9 +2,9 @@ UsePlugin 'lsp-colors.nvim'
 
 lua << EOF
 require("lsp-colors").setup({
-  Error = "#ff5555",
-  Warning = "#f1fa8c",
-  Information = "#8be9fd",
-  Hint = "#50fa7b"
+  Error = "#db4b4b",
+  Warning = "#e0af68",
+  Information = "#0db9d7",
+  Hint = "#10B981"
 })
 EOF
