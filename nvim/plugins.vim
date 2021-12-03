@@ -27,11 +27,12 @@ else
   Plug 'easymotion/vim-easymotion'
 
   " Plug 'Mofiqul/dracula.nvim'
-  Plug 'dracula/vim', {'as': 'dracula'}
+  " Plug 'dracula/vim', {'as': 'dracula'}
   " Plug 'shaunsingh/nord.nvim'
   " Plug 'navarasu/onedark.nvim'
   " Plug 'cocopon/iceberg.vim'
   " Plug 'bluz71/vim-nightfly-guicolors'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
   Plug 'simeji/winresizer'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
