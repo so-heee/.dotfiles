@@ -18,7 +18,6 @@ Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
 
 " vscode-neovimで使用するプラグイン
 if exists('g:vscode')
@@ -34,6 +33,7 @@ else
   " Plug 'bluz71/vim-nightfly-guicolors'
   " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+  Plug 'tpope/vim-commentary'
   Plug 'simeji/winresizer'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'

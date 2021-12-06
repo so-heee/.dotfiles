@@ -33,7 +33,7 @@ runtime options.vim
 runtime maps.vim
 runtime plugins.vim
 
-" if exists('g:vscode')
-"     runtime vscode/settings.vim
-" endif
+if exists('g:vscode')
+    runtime vscode/settings.vim
+endif
 
