@@ -73,19 +73,18 @@ end
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-nvim_lsp.gopls.setup {
-  cmd = {"gopls", "serve"},
-  capabilities = capabilities,
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-  on_attach = on_attach,
-}
+local servers = { "pyright", "gopls" }
+for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup { 
+        capabilities = capabilities;
+        on_attach = on_attach;
+        init_options = {
+            onlyAnalyzeProjectsWithOpenFiles = true,
+            suggestFromUnimportedLibraries = false,
+            closingLabels = true,
+        };
+    }
+end
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
