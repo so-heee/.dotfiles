@@ -34,7 +34,8 @@ nnoremap gk k
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 " ファイル保存と終了
 nnoremap <Leader>w :w<CR>
-
+" 全選択
+nnoremap <C-a> gg<S-v>G
 "----------------------------------------
 " insert mode
 "----------------------------------------
