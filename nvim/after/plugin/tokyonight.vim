@@ -1,5 +1,6 @@
 UsePlugin 'tokyonight.nvim'
 
-colorscheme tokyonight
+let g:tokyonight_style = "night"
 
+colorscheme tokyonight
 
