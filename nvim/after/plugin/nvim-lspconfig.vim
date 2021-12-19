@@ -85,7 +85,6 @@ local servers = {
     'pyright',
     'rust_analyzer',
     'sqlls',
-    'vimls',
     'yamlls'
   }
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
