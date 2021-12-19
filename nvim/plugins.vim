@@ -50,6 +50,7 @@ else
     Plug 'windwp/nvim-autopairs'
 
     Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'

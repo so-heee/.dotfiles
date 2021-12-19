@@ -73,29 +73,64 @@ end
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-nvim_lsp.gopls.setup {
-  cmd = {"gopls", "serve"},
-  capabilities = capabilities,
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-  on_attach = on_attach,
-}
+-- Set up nvim-lsp-installer
+local servers = {
+    'cmake',
+    'dockerls',
+    'gopls',
+    'graphql',
+    'jsonls',
+    'sumneko_lua',
+    'spectral',
+    'pyright',
+    'rust_analyzer',
+    'sqlls',
+    'vimls',
+    'yamlls'
+  }
+local lsp_installer_servers = require'nvim-lsp-installer.servers'
+for _, lsp in ipairs(servers) do
 
-nvim_lsp.pyright.setup{
-  capabilities = capabilities,
-  on_attach = on_attach,
-  init_options = {
-      onlyAnalyzeProjectsWithOpenFiles = true,
-      suggestFromUnimportedLibraries = false,
-      closingLabels = true,
-  };
+  local ok, analyzer = lsp_installer_servers.get_server(lsp)
+  if ok then
+    if not analyzer:is_installed() then
+      analyzer:install()
+    end
+  end
+end
+
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.settings {
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  },
+  log_level = vim.log.levels.DEBUG,
 }
+lsp_installer.on_server_ready(function(server)
+  local opts = {
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
+  }
+
+  if server.name == 'gopls' then
+    opts.settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+          unusedwrite = true,
+        },
+        staticcheck = true,
+      },
+    }
+  end
+
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
