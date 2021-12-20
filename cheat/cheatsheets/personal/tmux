@@ -22,3 +22,6 @@ hjkl # 移動
 v # 範囲選択
 y # コピー
 Enter # 終了
+
+# tpmのインストール
+prefix + I
