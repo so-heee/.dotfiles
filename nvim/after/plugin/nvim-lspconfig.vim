@@ -111,7 +111,7 @@ lsp_installer.settings {
 }
 lsp_installer.on_server_ready(function(server)
   local opts = {
-    on_attach = custom_on_attach,
+    on_attach = on_attach,
     capabilities = capabilities,
   }
 
@@ -120,7 +120,6 @@ lsp_installer.on_server_ready(function(server)
       gopls = {
         analyses = {
           unusedparams = true,
-          unusedwrite = true,
         },
         staticcheck = true,
       },
