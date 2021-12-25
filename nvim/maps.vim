@@ -20,11 +20,11 @@ nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 " バッファ
-nnoremap <Leader>nn :new<CR>
+nnoremap <Leader>bn :new<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bl :ls<CR>
 nnoremap <TAB> :bp<CR>
 nnoremap <S-TAB> :bn<CR>
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>ls :ls<CR>
 " 折り返し
 nnoremap j gj
 nnoremap k gk

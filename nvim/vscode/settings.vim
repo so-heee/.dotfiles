@@ -16,16 +16,14 @@ nnoremap <silent> gt <Cmd>call VSCodeNotify('editor.action.goToTypeDefinition')<
 " 実装へ移動
 nnoremap <silent> gi <Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>
 " シンボルの名前変更
-nnoremap <silent> <leader>rn <Cmd>call VSCodeNotify('editor.action.rename')<CR>
+nnoremap <silent> gn <Cmd>call VSCodeNotify('editor.action.rename')<CR>
 
 " クイックオープン
-nnoremap <silent> <leader>ff <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap <silent> <leader>f <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 " サイドバーの表示切り替え
-nnoremap <silent> <leader>fd <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+nnoremap <silent> <leader>d <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 " パネルの表示切り替え
-nnoremap <silent> <leader>ft <Cmd>call VSCodeNotify('workbench.action.togglePanel')<CR>
-" 検索にフォーカス
-nnoremap <silent> <leader>fg <Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>
+nnoremap <silent> <leader>t <Cmd>call VSCodeNotify('workbench.action.togglePanel')<CR>
 
 " タブ
 nnoremap <silent> <C-h> <Cmd>Tabprevious<CR>

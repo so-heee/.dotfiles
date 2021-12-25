@@ -11,6 +11,7 @@ tap "wfxr/csview"
 #----------------------------------------
 brew "anyenv"
 brew "bat"
+brew "broot"
 brew "cheat"
 brew "circleci"
 brew "composer"
