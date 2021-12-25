@@ -136,6 +136,9 @@ f  # Telescope find files
 g  # Telescope grep
 d  # defx起動
 w  # 保存
+t  # Lspsaga terminal
+
+jq # jq
 
 bb # Telescope buffer
 bn # バッファ新規作成

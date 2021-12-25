@@ -35,7 +35,4 @@ alias doc='cd ~/Workspace/doc'
 
 alias ch='cheat -p personal'
 
-
-
-
 alias -g F='| fzf'

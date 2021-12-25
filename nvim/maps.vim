@@ -36,6 +36,8 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <Leader>w :w<CR>
 " 全選択
 nnoremap <C-a> gg<S-v>G
+" jq
+nnoremap <silent> <Leader>jq :%!jq '.'<CR>
 "----------------------------------------
 " insert mode
 "----------------------------------------

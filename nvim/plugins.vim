@@ -18,6 +18,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
+Plug 'segeljakt/vim-silicon'
 
 " vscode-neovimで使用するプラグイン
 if exists('g:vscode')
