@@ -159,3 +159,9 @@ export PATH=$(go env GOPATH)/bin:$PATH
 # Setting gh
 #----------------------------------------
 eval "$(gh completion -s zsh)"
+
+#----------------------------------------
+# broot
+#----------------------------------------
+source /Users/s_mochizuki/.config/broot/launcher/bash/br
+
