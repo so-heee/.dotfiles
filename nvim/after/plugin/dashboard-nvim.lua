@@ -1,6 +1,3 @@
-UsePlugin 'dashboard-nvim'
-
-lua <<EOF
 vim.g.dashboard_default_executive = 'telescope'
 vim.g.dashboard_custom_header = {
 [[      ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁    ░▓▓▒         ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁]],
@@ -51,4 +48,3 @@ vim.g.dashboard_custom_section = {
     e = {description = {'  Config             '}, command = 'vi ~/.config/nvim/init.vim'},
 }
 vim.g.dashboard_custom_footer = {'Do one thing, do it well - Unix Philosophy'}
-EOF
