@@ -35,8 +35,27 @@ set wrapscan              " 検索時に最後まで行ったら最初に戻る
 set hlsearch              " 検索語をハイライト表示
 set splitbelow            " 新規ウィンドウは下に開く
 
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"----------------------------------------
+" 不要なデフォルトプラグイン
+"----------------------------------------
+let g:loaded_gzip              = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
+let g:did_install_default_menus = 1
+let g:skip_loading_mswin        = 1
+let g:did_install_syntax_menu   = 1
 
 " 拡張子ごとのインデント設定 {{{
 set tabstop=2 shiftwidth=2 softtabstop=2

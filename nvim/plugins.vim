@@ -17,8 +17,8 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
 Plug 'segeljakt/vim-silicon'
+Plug 'unblevable/quick-scope'
 
 " vscode-neovimで使用するプラグイン
 if exists('g:vscode')
@@ -28,16 +28,15 @@ else
 
   " Plug 'Mofiqul/dracula.nvim'
   Plug 'dracula/vim', {'as': 'dracula'}
-  " Plug 'shaunsingh/nord.nvim'
-  " Plug 'navarasu/onedark.nvim'
-  " Plug 'cocopon/iceberg.vim'
-  " Plug 'bluz71/vim-nightfly-guicolors'
   " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  " Plug 'rose-pine/neovim'
 
   Plug 'tpope/vim-commentary'
   Plug 'simeji/winresizer'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
+  " Plug 'akinsho/toggleterm.nvim'
 
   if has("nvim")
 
@@ -72,6 +71,7 @@ else
 
     Plug 'romgrk/barbar.nvim'
     Plug 'glepnir/dashboard-nvim'
+    Plug 'lewis6991/gitsigns.nvim'
   endif
 
 endif
