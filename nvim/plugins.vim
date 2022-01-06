@@ -12,13 +12,12 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'markonm/traces.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'segeljakt/vim-silicon'
 Plug 'unblevable/quick-scope'
+Plug 'blackCauldron7/surround.nvim'
 
 " vscode-neovimで使用するプラグイン
 if exists('g:vscode')
@@ -31,48 +30,47 @@ else
   " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   " Plug 'rose-pine/neovim'
 
-  Plug 'tpope/vim-commentary'
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'kristijanhusak/defx-git'
+  Plug 'kristijanhusak/defx-icons'
+
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+
+  Plug 'windwp/nvim-autopairs'
+
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'onsails/lspkind-nvim'
+  Plug 'folke/lsp-colors.nvim'
+
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
+  Plug 'SirVer/ultisnips'
+  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+  Plug 'numToStr/Comment.nvim'
   Plug 'simeji/winresizer'
   Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'romgrk/barbar.nvim'
+  Plug 'glepnir/dashboard-nvim'
+  Plug 'lewis6991/gitsigns.nvim'
+
+  " 導入見送り
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
   " Plug 'akinsho/toggleterm.nvim'
-
-  if has("nvim")
-
-    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'kristijanhusak/defx-git'
-    Plug 'kristijanhusak/defx-icons'
-
-    Plug 'hoob3rt/lualine.nvim'
-    Plug 'kyazdani42/nvim-web-devicons'
-
-    Plug 'windwp/nvim-autopairs'
-
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'williamboman/nvim-lsp-installer'
-    Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'onsails/lspkind-nvim'
-    Plug 'folke/lsp-colors.nvim'
-
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-
-    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-
-    Plug 'SirVer/ultisnips'
-    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
-    Plug 'romgrk/barbar.nvim'
-    Plug 'glepnir/dashboard-nvim'
-    Plug 'lewis6991/gitsigns.nvim'
-  endif
+  " Plug 'karb94/neoscroll.nvim'
 
 endif
 

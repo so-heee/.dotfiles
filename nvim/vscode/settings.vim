@@ -32,3 +32,7 @@ nnoremap <silent> <C-l> <Cmd>Tabnext<CR>
 " 履歴
 nnoremap u <Cmd>call VSCodeNotify('undo')<CR>
 nnoremap <C-r> <Cmd>call VSCodeNotify('redo')<CR>
+
+" quick-scope
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
