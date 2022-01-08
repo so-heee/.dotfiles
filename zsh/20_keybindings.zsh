@@ -1,2 +1,4 @@
-bindkey '^h' fzf-history-widget
+# bindkey -e
+# bindkey -a '^f' autosuggest-accept
+# bindkey '^h' fzf-history-widget
 
