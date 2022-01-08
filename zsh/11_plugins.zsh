@@ -61,11 +61,6 @@ zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
 #----------------------------------------
-# Setting Go
-#----------------------------------------
-export PATH=$(go env GOPATH)/bin:$PATH
-
-#----------------------------------------
 # Setting gh
 #----------------------------------------
 eval "$(gh completion -s zsh)"
