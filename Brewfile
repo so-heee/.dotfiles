@@ -9,7 +9,7 @@ tap "wfxr/csview"
 #----------------------------------------
 # brew
 #----------------------------------------
-brew "anyenv"
+brew "asdf"
 brew "bat"
 brew "broot"
 brew "cheat"

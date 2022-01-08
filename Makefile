@@ -1,5 +1,5 @@
 DOTFILES	:= .gitconfig .tmux.conf .vimrc .zshenv .zshrc .ideavimrc
-all: install links-dotfiles setup-fonts setup-workspace setup-anyenv setup-karabiner setup-nvim setup-tmux setup-cheat
+all: install links-dotfiles setup-fonts setup-workspace setup-karabiner setup-nvim setup-tmux setup-cheat
 
 ## Show dot files in this repo
 .PHONY: list
@@ -26,11 +26,6 @@ setup-fonts:
 .PHONY: setup-workspace
 setup-workspace:
 	@./scripts/workspace.sh
-
-## Setup Anyenv
-.PHONY: setup-anyenv
-setup-anyenv:
-	@./scripts/anyenv.sh
 
 ## Setup Karabiner
 .PHONY: setup-karabiner

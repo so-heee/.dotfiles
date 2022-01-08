@@ -75,4 +75,7 @@ eval "$(gh completion -s zsh)"
 #----------------------------------------
 source /Users/s_mochizuki/.config/broot/launcher/bash/br
 
-
+#----------------------------------------
+# asdf
+#----------------------------------------
+. /usr/local/opt/asdf/asdf.sh
