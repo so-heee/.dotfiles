@@ -1,10 +1,8 @@
 local g = vim.g
-local b = vim.b
 local map = require("utils").map
 local opts = {silent = true}
 
 g.mapleader = ' '
-vim.b.mapleader = ''
 
 ------------------------------
 -- normal mode
