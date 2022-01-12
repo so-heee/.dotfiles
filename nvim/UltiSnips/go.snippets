@@ -100,3 +100,23 @@ endsnippet
 snippet ap "a = append(a, value)"
 ${1:slice} = append($1, ${0:value})
 endsnippet
+
+global !p
+import re
+# Automatically wrap return types with parentheses
+def return_values(s):
+	# remove everything wrapped in parentheses
+	s = re.sub("\(.*?\)|\([^)]*$", "", s)
+	return len(s.split(","))
+def opening_par(snip, pos):
+	if return_values(t[pos]) > 1 and not t[pos].startswith("("):
+		snip.rv = "("
+	else:
+		snip.rv = ""
+def closing_par(snip, pos):
+	if return_values(t[pos]) > 1:
+		snip.rv = ")"
+	else:
+		snip.rv = ""
+endglobal
+
