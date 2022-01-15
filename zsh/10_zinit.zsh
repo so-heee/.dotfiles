@@ -26,7 +26,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
 
-zinit snippet PZT::modules/editor/init.zsh
+# zinit snippet PZT::modules/editor/init.zsh
 
 
 #----------------------------------------
