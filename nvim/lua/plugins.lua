@@ -1,7 +1,6 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -23,11 +22,51 @@ end
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
-  use { "dracula/vim", as = "dracula", config = "vim.cmd('colorscheme dracula')" }
+  use 'machakann/vim-highlightedyank'
 
-	use {
-    "nvim-lualine/lualine.nvim", 
+  use 'segeljakt/vim-silicon'
+
+  use {
+    'terryma/vim-expand-region',
+    config = "require('config.vim-expand-region')"
+  }
+
+  use {'unblevable/quick-scope'}
+
+  use {
+    'blackCauldron7/surround.nvim',
+  }
+
+  -- Nvim Only
+
+  -- use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+  use {
+    "dracula/vim",
+    as = "dracula",
+    config = "vim.cmd('colorscheme dracula')",
+  }
+
+  -- LSP
+  use {
+    'neovim/nvim-lspconfig',
+    requires = {
+      'williamboman/nvim-lsp-installer',
+      'tami5/lspsaga.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/nvim-cmp',
+      'onsails/lspkind-nvim',
+      'folke/lsp-colors.nvim',
+    },
+    config = "require('config.lsp')",
+  }
+
+  use {
+    "nvim-lualine/lualine.nvim",
 	  requires = {'kyazdani42/nvim-web-devicons', opt = true},
 		event = "BufWinEnter",
 		config = "require('config.lualine')",
@@ -37,18 +76,20 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
     event = "BufWinEnter",
-    config = "require('config.treesitter')"
+    config = "require('config.treesitter')",
   }
 
-
-  -- LSP
---  use 'neovim/nvim-lspconfig'
---  use 'williamboman/nvim-lsp-installer'
---  use {'tami5/lspsaga.nvim', config = "require('config.lspsaga')"}
+  use {
+    'windwp/nvim-autopairs',
+    config = "require('config.nvim-autopairs')",
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} },
+    requires = {
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'}
+    },
 		config = "require('config.telescope')",
   }
 
@@ -56,31 +97,30 @@ return packer.startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     event = "BufWinEnter",
-    config = "require('config.bufferline')"
+    config = "require('config.bufferline')",
   }
 
   use {
-      'kyazdani42/nvim-tree.lua',
-      requires = {'kyazdani42/nvim-web-devicons'},
-      config = "require('config.nvim-tree')"
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = "require('config.nvim-tree')",
   }
 
-  -- Nvim Plugins
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = "require('config.indentline')"
+    config = "require('config.indentline')",
   }
 
   use {
     'glepnir/dashboard-nvim',
     event = "BufRead",
-    config = "require('config.dashboard')"
+    config = "require('config.dashboard')",
   }
 
   use {
     'numToStr/Comment.nvim',
-    config = "require('config.comment')"
+    config = "require('config.comment')",
   }
 
   use {
@@ -88,22 +128,8 @@ return packer.startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = "require('config.gitsigns')"
+    config = "require('config.gitsigns')",
   }
-
-  use 'blackCauldron7/surround.nvim'
-
-  -- Vim Plugins
-  use 'machakann/vim-highlightedyank'
-
-  use 'segeljakt/vim-silicon'
-  
-  use {
-    'terryma/vim-expand-region',
-    config = "require('config.vim-expand-region')"
-  }
-
-  use 'unblevable/quick-scope'
 
   if packer_bootstrap then
     require('packer').sync()

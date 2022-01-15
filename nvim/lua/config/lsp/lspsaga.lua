@@ -31,5 +31,5 @@ map("n", "[e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<
 map("n", "]e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>")
 -- Float Terminal
 map("n", "<leader>t", "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>")
-map("t", "<leader>t", "<C-\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>")
+map("t", "<leader>t", "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>")
 
