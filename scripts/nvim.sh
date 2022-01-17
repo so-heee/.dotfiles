@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "### Setting Neovim..."
-ln -s ${HOME}/.dotfiles/nvim ${HOME}/.config/nvim
+ln -s ${HOME}/.dotfiles/.config/nvim ${HOME}/.config/nvim

@@ -1,0 +1,14 @@
+shell:
+  program: /usr/local/bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
+window:
+  decolations: buttonless # mac only
+  startup_mode: SimpleFullscreen # mac only
+
+# font設定
+font:
+  size: 12.5
