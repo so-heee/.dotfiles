@@ -1,0 +1,30 @@
+
+import:
+  - ~/.config/alacritty/rose-pine.yml
+
+# shell:
+#   program: /usr/local/bin/zsh
+#   args:
+#     - -l
+#     - -c
+#     - "tmux attach || tmux"
+
+window:
+  decolations: buttonless # mac only
+  startup_mode: SimpleFullscreen # mac only
+
+# font設定
+font:
+  size: 20.5
+  normal:
+    family: 'RictyDiminished NF'
+    style: Regular
+  bold:
+    family: 'RictyDiminished NF'
+    style: Bold
+  italic:
+    family: 'RictyDiminished NF'
+    style: Italic
+  bold_italic:
+    family: 'RictyDiminished NF'
+    style: Bold Italic
