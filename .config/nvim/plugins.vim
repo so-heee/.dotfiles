@@ -55,20 +55,23 @@ else
   Plug 'SirVer/ultisnips'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+  " Plug 'folke/which-key.nvim'
   Plug 'numToStr/Comment.nvim'
-  Plug 'simeji/winresizer'
   Plug 'lukas-reineke/indent-blankline.nvim'
-  " Plug 'romgrk/barbar.nvim'
   Plug 'akinsho/bufferline.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'folke/todo-comments.nvim'
+  Plug 'karb94/neoscroll.nvim'
+  Plug 'simeji/winresizer'
 
   " 導入見送り
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
   " Plug 'akinsho/toggleterm.nvim'
-  " Plug 'karb94/neoscroll.nvim'
 
 endif
 

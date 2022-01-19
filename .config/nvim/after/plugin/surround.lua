@@ -1,8 +1,10 @@
-local status_ok, surround = pcall(require, "surround")
+local status_ok, surround = pcallrequire, "surround"
 if not status_ok then
 	return
 end
 
 -- default settings
-surround.setup {}
+surround.setup {
+  mappings_style = "surround",
+}
 
