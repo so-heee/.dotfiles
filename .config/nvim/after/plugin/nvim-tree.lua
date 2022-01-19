@@ -19,8 +19,8 @@ nvim_tree.setup {
 
 local map = require("utils").map
 
-map('n', '<leader>d', '<cmd>NvimTreeToggle<cr>')
-map('n', '<leader>fd', '<cmd>NvimTreeFocus<cr>')
+map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>fe', '<cmd>NvimTreeFocus<cr>')
 
 local g = vim.g
 
