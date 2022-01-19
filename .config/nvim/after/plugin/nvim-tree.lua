@@ -10,10 +10,19 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-nvim_tree.setup {}
+nvim_tree.setup {
+	auto_close = true,
+  view = {
+    width = 40,
+  },
+}
 
 local map = require("utils").map
 
-map('n', '<leader>dd', '<cmd>NvimTreeToggle<cr>')
-map('n', '<leader>df', '<cmd>NvimTreeFocus<cr>')
+map('n', '<leader>d', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>fd', '<cmd>NvimTreeFocus<cr>')
 
+local g = vim.g
+
+
+g.nvim_tree_quit_on_open = 1 
