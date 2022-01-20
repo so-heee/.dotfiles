@@ -1,5 +1,4 @@
 # フォント
 
-powerlevel10k 用に以下の Ricty Disminished Dicord + Nerd Fonts（アイコンフォント）を使用する
-
-https://github.com/macchaberrycream/RictyDiminished-Nerd-Fonts
+以下の記事を参考に自分でパッチをあてる（gitにあるのは一部アイコンが文字化けした）
+https://qiita.com/Suzukaze31/items/ddcc6d9a0a9da19f6ee3
