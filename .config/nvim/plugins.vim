@@ -56,6 +56,7 @@ else
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
   " Plug 'folke/which-key.nvim'
+  Plug 'folke/trouble.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'akinsho/bufferline.nvim'
@@ -66,7 +67,6 @@ else
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/todo-comments.nvim'
   Plug 'karb94/neoscroll.nvim'
-  Plug 'simeji/winresizer'
 
   " 導入見送り
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

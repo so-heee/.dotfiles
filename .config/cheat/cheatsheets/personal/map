@@ -35,8 +35,8 @@ V  # カーソル行を選択
 R  # 置換モード
 J  # 行結合
 P  # カーソルの前にペースト
-H  # 行頭
-L  # 行末
+H  # 
+L  # 
 K  # Lspsaga hoverdoc
 G  # 末尾移動
 N  # 前を検索
@@ -118,7 +118,9 @@ b  # 画面全体分だけ上に移動
 d  # 画面半分だけ下に移動
 e  # VimWindowResizer
 f  # 画面全体分だけ下に移動
+h  # 行頭
 v  # 短形選択
+l  # 行末
 r  # redo
 y  # 画面を上に 1 行スクロール
 u  # 画面半分だけ上に移動
@@ -152,6 +154,8 @@ cc # Lspsaga diagnost
 wa # Lsp add workspace
 wr # Lsp remove workspace
 wl # Lsp workspace list
+
+xx # Trouble
 
 ======================================================================
 Special

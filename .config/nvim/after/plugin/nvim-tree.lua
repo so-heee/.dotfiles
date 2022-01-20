@@ -24,5 +24,4 @@ map('n', '<leader>fe', '<cmd>NvimTreeFocus<cr>')
 
 local g = vim.g
 
-
 g.nvim_tree_quit_on_open = 1 
