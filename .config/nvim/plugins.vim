@@ -55,6 +55,8 @@ else
   Plug 'SirVer/ultisnips'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+  Plug 'ray-x/go.nvim'
+
   " Plug 'folke/which-key.nvim'
   Plug 'folke/trouble.nvim'
   Plug 'numToStr/Comment.nvim'
@@ -67,11 +69,12 @@ else
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/todo-comments.nvim'
   Plug 'karb94/neoscroll.nvim'
+  Plug 'akinsho/toggleterm.nvim'
 
-  " 導入見送り
+  " 保留
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
-  " Plug 'akinsho/toggleterm.nvim'
+  " Plug 'lewis6991/spellsitter.nvim'
 
 endif
 
