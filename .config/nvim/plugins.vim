@@ -70,6 +70,7 @@ else
   Plug 'folke/todo-comments.nvim'
   Plug 'karb94/neoscroll.nvim'
   Plug 'akinsho/toggleterm.nvim'
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 
   " 保留
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
