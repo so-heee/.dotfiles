@@ -34,7 +34,6 @@ brew "pyenv-virtualenv"
 brew "pwgen"
 brew "rga"
 brew "ripgrep"
-brew 'sanemat/font/ricty'
 brew "silicon"
 brew "tig"
 brew "tmux"

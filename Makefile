@@ -37,6 +37,16 @@ setup-karabiner:
 setup-nvim:
 	@./scripts/nvim.sh
 
+## Setup Kitty
+.PHONY: setup-kitty
+setup-kitty:
+	@./scripts/kitty.sh
+
+## Setup Hammerspoon
+.PHONY: setup-hammerspoon
+setup-hammerspoon:
+	@./scripts/hammerspoon.sh
+
 ## Setup Tmux
 .PHONY: setup-tmux
 	@./scripts/tmux.sh
