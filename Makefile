@@ -42,6 +42,11 @@ setup-nvim:
 setup-kitty:
 	@./scripts/kitty.sh
 
+## Setup Alacritty
+.PHONY: setup-alacritty
+setup-alacritty:
+	@./scripts/alacritty.sh
+
 ## Setup Hammerspoon
 .PHONY: setup-hammerspoon
 setup-hammerspoon:
