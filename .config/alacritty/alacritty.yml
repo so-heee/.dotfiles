@@ -1,4 +1,3 @@
-
 import:
   - ~/.config/alacritty/rose-pine.yml
 
@@ -13,14 +12,16 @@ window:
   decolations: buttonless # mac only
   startup_mode: Maximized # mac only
 
+background_opacity: 0.9
+
 # font設定
 font:
-  size: 20.5
+  size: 22
   normal:
-    family: 'HackGenNerd'
+    family: 'HackGen35Nerd'
     style: Regular
   bold:
-    family: 'HackGenNerd'
+    family: 'HackGen35Nerd'
     style: Bold
   # italic:
   #   family: 'RictyDiminished NF'
@@ -28,3 +29,6 @@ font:
   # bold_italic:
   #   family: 'RictyDiminished NF'
   #   style: Bold Italic
+
+key_bindings:
+  - { key: Q,         mods: Control, chars: "\x11"                        } # tmux prefix
