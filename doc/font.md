@@ -5,6 +5,14 @@ https://qiita.com/Suzukaze31/items/ddcc6d9a0a9da19f6ee3
 
 RictyDiminishedDiscordにNerdFontのパッチを当てる
 
+## pythonのインストール
+
+※fontforgeがhomebrewでインストールしたpythonがないと動かないため一時的にインストール
+
+```
+brew install python
+```
+
 ## FontForgeをインストール
 
 Brewfileでインストールされている

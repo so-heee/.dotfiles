@@ -76,7 +76,6 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- Set up nvim-lsp-installer
 local servers = {
-    'cmake',
     'dockerls',
     'gopls',
     'graphql',
@@ -85,7 +84,6 @@ local servers = {
     'spectral',
     'pyright',
     'rust_analyzer',
-    'sqlls',
     'yamlls'
   }
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
@@ -125,6 +123,17 @@ lsp_installer.on_server_ready(function(server)
         staticcheck = true,
       },
     }
+  end
+
+  if server.name == "sumneko_lua" then
+    opts = vim.tbl_deep_extend("force", {
+      settings = {
+        Lua = {
+          diagnostics = {globals = {'vim'}},
+        }
+      }
+
+    }, opts)
   end
 
   server:setup(opts)
