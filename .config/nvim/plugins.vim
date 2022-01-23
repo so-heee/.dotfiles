@@ -57,7 +57,7 @@ else
 
   Plug 'ray-x/go.nvim'
 
-  " Plug 'folke/which-key.nvim'
+  Plug 'folke/which-key.nvim'
   Plug 'folke/trouble.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'lukas-reineke/indent-blankline.nvim'
