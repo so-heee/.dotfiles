@@ -1,6 +1,7 @@
 UsePlugin 'lspsaga.nvim'
 
-lua << EOF
+lua <<EOF
+
 local lspsaga = require 'lspsaga'
 lspsaga.setup {
   debug = false,
@@ -33,6 +34,7 @@ lspsaga.setup {
   server_filetype_map = {},
   diagnostic_prefix_format = "%d. "
 }
+
 EOF
 
 " WhichKeyに移行

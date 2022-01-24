@@ -1,21 +1,18 @@
 -- 必要なフォーマッタは別でインストールする必要がある
-local null_ls = require('null-ls')
+local null_ls = require 'null-ls'
 
 local formatting = null_ls.builtins.formatting
 
-null_ls.setup({
+null_ls.setup {
   sources = {
-    formatting.sqlformat.with({extra_args = {'-k=upper', '-i=lower', '-r'}}),
-    formatting.lua_format.with({
-      extra_args = {
-        '--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=100',
-        '--break-after-table-lb', '--indent-width=2'
-      }
-    }), formatting.isort, formatting.codespell.with({filetypes = {'markdown'}})
+    formatting.sqlformat.with { extra_args = { '-k=upper', '-i=lower', '-r' } },
+    null_ls.builtins.formatting.stylua.with {
+      extra_args = { '--config-path', vim.fn.expand '~/.config/stylua.toml' },
+    },
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+      vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()'
     end
     vim.cmd [[
       augroup document_highlight
@@ -24,5 +21,5 @@ null_ls.setup({
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]]
-  end
-})
+  end,
+}
