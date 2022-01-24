@@ -23,7 +23,7 @@ alias rm='rm -i'
 alias rmf='rm -rf'
 
 # tmux
-alias ide='tmux new-session \; source-file ~/.dotfiles/.tmux.session.conf'
+alias ide='tmux new-session \; source-file ~/.dotfiles/.config/tmux/.tmux.session.conf'
 
 ## other
 alias vi='nvim'

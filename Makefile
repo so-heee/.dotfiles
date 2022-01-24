@@ -1,4 +1,4 @@
-DOTFILES	:= .gitconfig .tmux.conf .vimrc .zshenv .zshrc .ideavimrc
+DOTFILES	:= .gitconfig .zshenv .zshrc 
 all: install links-dotfiles setup-fonts setup-workspace setup-karabiner setup-nvim setup-tmux setup-cheat
 
 ## Show dot files in this repo
