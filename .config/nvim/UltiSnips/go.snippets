@@ -52,13 +52,20 @@ func main() {
 }
 endsnippet
 
-# function
-snippet func "func Function(...) [error] { ... }"
+snippet met "Method"
 // $1.
-func ${1:name}(${2:params})${3/(.+)/ /}`!p opening_par(snip, 3)`$3`!p closing_par(snip, 3)` {
+func (${1:receiver} ${2:type}) ${3:name}(${4:params})${5/(.+)/ /}${5:type} {
 	${0:${VISUAL}}
 }
 endsnippet
+
+snippet func "Function"
+// $1.
+func ${1:name}(${2:params})${3/(.+)/ /}${3:type} {
+	${0:${VISUAL}}
+}
+endsnippet
+
 
 # for loop
 snippet for "for ... { ... }"
@@ -76,7 +83,7 @@ endsnippet
 
 # for range loop
 snippet forr "for k, v := range items { ... }"
-for ${2:k}, ${3:v} := range ${1} {
+for ${2:_}, ${3:v} := range ${1} {
 	${0:${VISUAL}}
 }
 endsnippet
@@ -101,22 +108,4 @@ snippet ap "a = append(a, value)"
 ${1:slice} = append($1, ${0:value})
 endsnippet
 
-global !p
-import re
-# Automatically wrap return types with parentheses
-def return_values(s):
-	# remove everything wrapped in parentheses
-	s = re.sub("\(.*?\)|\([^)]*$", "", s)
-	return len(s.split(","))
-def opening_par(snip, pos):
-	if return_values(t[pos]) > 1 and not t[pos].startswith("("):
-		snip.rv = "("
-	else:
-		snip.rv = ""
-def closing_par(snip, pos):
-	if return_values(t[pos]) > 1:
-		snip.rv = ")"
-	else:
-		snip.rv = ""
-endglobal
 
