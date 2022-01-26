@@ -63,6 +63,8 @@ vnoremap gk k
 " インデント
 vnoremap < <gv
 vnoremap > >gv
+" ペースト時に上書きしない
+vnoremap p "_dP
 
 "----------------------------------------
 " terminal mode
