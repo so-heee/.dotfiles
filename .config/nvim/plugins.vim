@@ -26,9 +26,10 @@ else
   Plug 'easymotion/vim-easymotion'
 
   " Plug 'Mofiqul/dracula.nvim'
-  " Plug 'dracula/vim', {'as': 'dracula'}
+  Plug 'dracula/vim', {'as': 'dracula'}
   " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-  Plug 'rose-pine/neovim'
+  " Plug 'rose-pine/neovim'
+  " Plug 'sainnhe/gruvbox-material'
 
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
