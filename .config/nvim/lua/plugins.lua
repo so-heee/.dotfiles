@@ -1,5 +1,9 @@
 local fn = vim.fn
 
+local function not_vscode()
+  return not vim.g.vscode
+end
+
 -- Automatically install packer
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -50,6 +54,7 @@ return packer.startup(function(use)
     'dracula/vim',
     as = 'dracula',
     config = "vim.cmd('colorscheme dracula')",
+    cond = not_vscode,
   }
 
   -- LSP
@@ -82,15 +87,15 @@ return packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    event = 'BufWinEnter',
     config = "require('config.lualine')",
+    cond = not_vscode,
   }
 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    event = 'BufWinEnter',
     config = "require('config.treesitter')",
+    cond = not_vscode,
   }
 
   use {
@@ -123,13 +128,11 @@ return packer.startup(function(use)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
     config = "require('config.indentline')",
   }
 
   use {
     'glepnir/dashboard-nvim',
-    event = 'BufRead',
     config = "require('config.dashboard')",
   }
 
