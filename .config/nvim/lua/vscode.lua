@@ -1,4 +1,6 @@
-local map = require("utils").map
+local map = require('utils').map
+
+vim.cmd 'highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6'
 
 -- コメント
 map('x', 'gc', '<Plug>VSCodeCommentary')
@@ -34,7 +36,3 @@ map('n', '<C-l>', '<Cmd>Tabnext<CR>')
 -- 履歴
 map('n', 'u', '<Cmd>call VSCodeNotify("undo")<CR>')
 map('n', '<C-r>', '<Cmd>call VSCodeNotify("redo")<CR>')
-
--- quick-scope
-vim.cmd("highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline")
-vim.cmd("highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline")
