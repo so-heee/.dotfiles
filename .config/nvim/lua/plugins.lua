@@ -161,6 +161,7 @@ return packer.startup(function(use)
   use {
     'folke/which-key.nvim',
     config = "require('config.whichkey')",
+    cond = not_vscode,
   }
 
   use {
