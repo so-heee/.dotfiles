@@ -110,6 +110,7 @@ return packer.startup(function(use)
       { 'nvim-lua/plenary.nvim' },
     },
     config = "require('config.telescope')",
+    cond = not_vscode,
   }
 
   use {
@@ -118,17 +119,20 @@ return packer.startup(function(use)
     config = function()
       require('bufferline').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = "require('config.nvim-tree')",
+    cond = not_vscode,
   }
 
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = "require('config.indentline')",
+    cond = not_vscode,
   }
 
   use {
@@ -151,11 +155,13 @@ return packer.startup(function(use)
     config = function()
       require('gitsigns').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
     'ray-x/go.nvim',
     config = "require('config.go')",
+    cond = not_vscode,
   }
 
   use {
@@ -169,11 +175,13 @@ return packer.startup(function(use)
     config = function()
       require('trouble').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
+    cond = not_vscode,
   }
 
   use {
@@ -181,6 +189,7 @@ return packer.startup(function(use)
     config = function()
       require('colorizer').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
@@ -189,6 +198,7 @@ return packer.startup(function(use)
     config = function()
       require('todo-comments').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
@@ -196,20 +206,24 @@ return packer.startup(function(use)
     config = function()
       require('neoscroll').setup()
     end,
+    cond = not_vscode,
   }
 
   use {
     'akinsho/toggleterm.nvim',
     config = "require('config.toggleterm')",
+    cond = not_vscode,
   }
 
   use {
     'tversteeg/registers.nvim',
+    cond = not_vscode,
   }
 
   use {
     'jose-elias-alvarez/null-ls.nvim',
     config = "require('config.null-ls')",
+    cond = not_vscode,
   }
 
   if packer_bootstrap then
