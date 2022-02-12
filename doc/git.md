@@ -51,3 +51,7 @@ Hi so-heee! You've successfully authenticated, but GitHub does not provide shell
 - アカウント-追加
   認証タイプ：OAuth
   プロトコル：SSH
+
+## グローバルの設定を追加
+
+.dotfiles/.config/git/.gitconfig.globalを作成
