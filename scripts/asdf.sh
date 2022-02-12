@@ -13,4 +13,3 @@ asdf global python "${LATEST_PYTHON3_VERSION}" "${LATEST_PYTHON2_VERSION}"
 
 asdf reshim python
 
-pip install sqlformat

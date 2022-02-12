@@ -4,6 +4,7 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup {
   sources = {
+    formatting.pg_format,
     formatting.stylua.with {
       extra_args = { '--config-path', vim.fn.expand '~/.config/stylua.toml' },
     },
