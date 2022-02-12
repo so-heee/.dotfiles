@@ -1,20 +1,29 @@
-DOTFILES	:= .gitconfig .zshenv .zshrc 
-all: install links-dotfiles setup-fonts setup-workspace setup-karabiner setup-nvim setup-tmux setup-cheat
+all: install setup-zsh setup-git setup-fonts setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat
 
 ## Show dot files in this repo
 .PHONY: list
 list:
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
-# Create Dotfiles Symbolic Link
-.PHONY: links-dotfiles
-links-dotfiles:
-	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-
 # Install Homebrew Bundle
 .PHONY: install
 install:
 	@./scripts/homebrew.sh
+
+# Setup Zsh
+.PHONY: setup-zsh
+setup-zsh:
+	@./scripts/zsh.sh
+
+# Setup Git
+.PHONY: setup-git
+setup-git:
+	@./scripts/git.sh
+
+# Setup LazyGit
+.PHONY: setup-lazygit
+setup-lazygit:
+	@./scripts/lazygit.sh
 
 ## Setup Ricty Fonts
 .PHONY: setup-fonts
@@ -31,6 +40,11 @@ setup-workspace:
 .PHONY: setup-karabiner
 setup-karabiner:
 	@./scripts/karabiner.sh
+
+## Setup Asdf
+.PHONY: setup-asdf
+setup-asdf:
+	@./scripts/asdf.sh
 
 ## Setup Neovim
 .PHONY: setup-nvim
@@ -60,6 +74,11 @@ setup-hammerspoon:
 .PHONY: setup-jetbrain
 setup-jetbrain:
 	@./scripts/jetbrain.sh
+
+## Setup Stylua
+.PHONY: setup-stylua
+setup-stylua:
+	@./scripts/stylua.sh
 
 ## Setup Cheat
 .PHONY: setup-cheat

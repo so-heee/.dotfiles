@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "### Setting Stylua..."
-ln -s ${HOME}/.dotfiles/.config/stylua/stylua.toml ${HOME}/.config/stylua.toml
+ln -sfnv ${HOME}/.dotfiles/.config/stylua/stylua.toml ${HOME}/.config/stylua.toml

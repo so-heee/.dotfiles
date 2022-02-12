@@ -2,4 +2,4 @@
 
 echo "### Setting Karabiner..."
 mkdir -p ${HOME}/.config/karabiner
-ln -snf ${HOME}/.dotfiles/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
+ln -sfnv ${HOME}/.dotfiles/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "### Setting Cheat..."
-ln -s ${HOME}/.dotfiles/.config/cheat ${HOME}/.config/cheat
+ln -sfnv ${HOME}/.dotfiles/.config/cheat ${HOME}/.config/cheat

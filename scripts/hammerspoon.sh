@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "### Setting Hammerspoon..."
-ln -s ${HOME}/.dotfiles/.config/hammerspoon ${HOME}/.hammerspoon
+ln -sfnv ${HOME}/.dotfiles/.config/hammerspoon ${HOME}/.hammerspoon

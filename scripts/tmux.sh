@@ -5,4 +5,4 @@ echo "### Setting Tmux..."
 
 echo "### Plugin Install Prefix+I"
 
-ln -s ${HOME}/.dotfiles/.config/tmux/.tmux.conf ${HOME}/.tmux.conf
+ln -sfnv ${HOME}/.dotfiles/.config/tmux/.tmux.conf ${HOME}/.tmux.conf

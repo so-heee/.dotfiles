@@ -1,11 +1,11 @@
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
     quotepath = false
 	ignorecase = false
 [include]
-    path = ~/.dotfiles/.gitconfig.global
+    path = ~/.dotfiles/.config/git/.gitconfig.global
 [includeIf "gitdir:~/.dotfiles/"]
-    path = ~/.dotfiles/.gitconfig.private
+    path = ~/.dotfiles/.config/git/.gitconfig.private
 [color]
     ui = auto
 [alias]

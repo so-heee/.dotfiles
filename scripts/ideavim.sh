@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "### Setting IdeaVim..."
-ln -s ${HOME}/.dotfiles/.config/ideavim/.ideavimrc ${HOME}/.ideavimrc
+ln -sfnv ${HOME}/.dotfiles/.config/ideavim/.ideavimrc ${HOME}/.ideavimrc
