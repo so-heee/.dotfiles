@@ -42,10 +42,10 @@ return packer.startup(function(use)
     config = "require('config.vim-expand-region')",
   }
 
-  use {
-    'blackCauldron7/surround.nvim',
-    config = "require('config.surround')",
-  }
+  -- use {
+  --   'blackCauldron7/surround.nvim',
+  --   config = "require('config.surround')",
+  -- }
 
   -- Nvim Only
 
