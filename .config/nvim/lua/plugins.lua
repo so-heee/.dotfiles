@@ -75,6 +75,7 @@ return packer.startup(function(use)
       'williamboman/nvim-lsp-installer',
       'tami5/lspsaga.nvim',
       'folke/lsp-colors.nvim',
+      'ray-x/lsp_signature.nvim',
     },
     config = "require('config.lsp')",
   }

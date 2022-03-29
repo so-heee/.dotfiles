@@ -1,9 +1,12 @@
 local nvim_lsp = require 'lspconfig'
 local protocol = require 'vim.lsp.protocol'
+local lsp_signature = require 'lsp_signature'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  lsp_signature.on_attach(client, bufnr)
+
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
