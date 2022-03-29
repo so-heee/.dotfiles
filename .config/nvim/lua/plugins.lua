@@ -50,12 +50,23 @@ return packer.startup(function(use)
   -- Nvim Only
 
   -- use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+  -- use {
+  --   'projekt0n/github-nvim-theme',
+  --   config = "require('config.color')",
+  -- }
   use {
-    'dracula/vim',
-    as = 'dracula',
-    config = "vim.cmd('colorscheme dracula')",
-    cond = not_vscode,
+    'folke/tokyonight.nvim',
+    setup = function()
+      vim.g.tokyonight_style = 'night'
+    end,
+    config = "vim.cmd('colorscheme tokyonight')",
   }
+  -- use {
+  --   'dracula/vim',
+  --   as = 'dracula',
+  --   config = "vim.cmd('colorscheme dracula')",
+  --   cond = not_vscode,
+  -- }
 
   -- LSP
   use {
