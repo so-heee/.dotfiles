@@ -1,6 +1,6 @@
 local g = vim.g
-local map = require("utils").map
-local opts = {silent = true}
+local map = require('utils').map
+local opts = { silent = true }
 
 g.mapleader = ' '
 
@@ -65,10 +65,10 @@ map('v', 'k', 'gk')
 map('v', 'gj', 'j')
 map('v', 'gk', 'k')
 -- インデント
-map('v','<','<gv')
-map('v','>','>gv')
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 -- ペースト時に上書きしない
-map('v','p','"_dP')
+map('v', 'p', '"_dP')
 
 ------------------------------
 -- terminal mode

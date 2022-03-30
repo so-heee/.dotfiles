@@ -2,7 +2,7 @@ require('which-key').setup()
 
 local mappings = {
   q = { ':q<cr>', 'Quit' },
-  Q = { ':wq<cr>', 'Save & Quit' },
+  Q = { ':q!<cr>', 'Forced Quit' },
   w = { ':w<cr>', 'Save' },
   x = { ':bdelete<cr>', 'Close' },
   t = {
@@ -17,8 +17,31 @@ local mappings = {
     f = { '<cmd>Telescope find_files<cr>', 'Find Files' },
     g = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
     b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
+    r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
+    c = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
   },
-  g = { name = 'Git', g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', 'Lazygit' } },
+  g = {
+    name = 'Git',
+    g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', 'Lazygit' },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", 'Blame' },
+    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", 'Preview Hunk' },
+    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
+    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage Hunk' },
+    u = {
+      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+      'Undo Stage Hunk',
+    },
+    o = { '<cmd>Telescope git_status<cr>', 'Open changed file' },
+    b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
+    c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
+    d = {
+      '<cmd>Gitsigns diffthis HEAD<cr>',
+      'Diff',
+    },
+  },
   l = {
     name = 'Lsp',
     w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add Workspace Folder' },

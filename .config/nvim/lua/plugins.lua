@@ -148,8 +148,8 @@ return packer.startup(function(use)
   }
 
   use {
-    'glepnir/dashboard-nvim',
-    config = "require('config.dashboard')",
+    'goolord/alpha-nvim',
+    config = "require('config.alpha')",
   }
 
   use {
