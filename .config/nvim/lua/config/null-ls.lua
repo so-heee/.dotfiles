@@ -8,6 +8,9 @@ null_ls.setup {
     formatting.stylua.with {
       extra_args = { '--config-path', vim.fn.expand '~/.config/stylua.toml' },
     },
+    formatting.prettier.with {
+      filetypes = { 'html', 'json', 'yaml', 'markdown' },
+    },
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

@@ -1,0 +1,115 @@
+{
+  "fmt.Printf(...)": {
+    "prefix": "ff",
+    "body": [
+      "fmt.Printf(\"${1:%#v}\\n\", $0)"
+    ]
+  },
+  "fmt.Println(...)": {
+    "prefix": "fn",
+    "body": [
+      "fmt.Println(\"${1:%#v}\")"
+    ]
+  },
+  "fmt.Errorf(%w, err)": {
+    "prefix": "fe",
+    "body": [
+      "fmt.Errorf(\"$1: %w\", err)"
+    ]
+  },
+  "log.Printf(...)": {
+    "prefix": "lf",
+    "body": [
+      "log.Printf(\"${1:%#v}\\n\", $0)"
+    ]
+  },
+  "log.Println(...)": {
+    "prefix": "fn",
+    "body": [
+      "log.Println(\"${1:%#v}\")"
+    ]
+  },
+  "type T struct { ... }": {
+    "prefix": "st",
+    "body": [
+      "// $1.",
+      "type $1 struct {",
+      "  $0",
+      "}"
+    ]
+  },
+  "interface I { ... }": {
+    "prefix": "interface",
+    "body": [
+      "// $1.",
+      "type $1 interface {",
+      "  $0",
+      "}"
+    ]
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "package main",
+      "",
+      "func main() {",
+      "  $0",
+      "}"
+    ]
+  },
+  "func Function(...) [error] { ... }": {
+    "prefix": "func",
+    "body": [
+      "// $1 $2.",
+      "func $1($3) $4 {",
+      "  $0",
+      "}"
+    ]
+  },
+  "for ... { ... }": {
+    "prefix": "for",
+    "body": [
+      "for $1 {",
+      "  $0",
+      "}"
+    ]
+  },
+  "for 0..N-1 { ... }": {
+    "prefix": "fori",
+    "body": [
+      "for ${1:i} := 0; $1 < ${2:N}; $1++ {",
+      "  $0",
+      "}"
+    ]
+  },
+  "for k, v := range items { ... }": {
+    "prefix": "forr",
+    "body": [
+      "for _, ${1:v} := range ${2:value} {",
+      "  $0",
+      "}"
+    ]
+  },
+  "Error": {
+    "prefix": "er",
+    "body": [
+      "if err != nil {",
+      "  $0",
+      "}"
+    ]
+  },
+  "Error Inline": {
+    "prefix": "eri",
+    "body": [
+      "if err := ${1:condition}; err != nil {",
+      "  $0",
+      "}"
+    ]
+  },
+  "a = append(a, value)": {
+    "prefix": "ap",
+    "body": [
+      "${1:slice} = append($1, ${0:value})"
+    ]
+  }
+}
