@@ -68,6 +68,9 @@ return packer.startup(function(use)
   --   cond = not_vscode,
   -- }
 
+  use { 'tamago324/nlsp-settings.nvim' }
+  use { 'b0o/schemastore.nvim' }
+
   -- LSP
   use {
     'neovim/nvim-lspconfig',
@@ -76,6 +79,7 @@ return packer.startup(function(use)
       'tami5/lspsaga.nvim',
       'folke/lsp-colors.nvim',
       'ray-x/lsp_signature.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
     },
     config = "require('config.lsp')",
   }
@@ -86,8 +90,6 @@ return packer.startup(function(use)
       'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      -- 'SirVer/ultisnips',
-      -- 'quangnguyen30192/cmp-nvim-ultisnips',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-path',
@@ -231,12 +233,6 @@ return packer.startup(function(use)
 
   use {
     'tversteeg/registers.nvim',
-    cond = not_vscode,
-  }
-
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = "require('config.null-ls')",
     cond = not_vscode,
   }
 

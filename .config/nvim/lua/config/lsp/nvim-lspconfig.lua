@@ -84,6 +84,10 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 local servers = {
   'gopls',
   'sumneko_lua',
+  'jsonls',
+  'dockerls',
+  'yamlls',
+  'rust_analyzer',
 }
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
 for _, lsp in ipairs(servers) do
@@ -113,24 +117,33 @@ lsp_installer.on_server_ready(function(server)
   }
 
   if server.name == 'gopls' then
-    opts.settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      },
-    }
+    local gopls_opts = require 'config.lsp.settings.gopls'
+    opts = vim.tbl_deep_extend('force', gopls_opts, opts)
   end
 
   if server.name == 'sumneko_lua' then
-    opts = vim.tbl_deep_extend('force', {
-      settings = {
-        Lua = {
-          diagnostics = { globals = { 'vim' } },
-        },
-      },
-    }, opts)
+    local sumneko_opts = require 'config.lsp.settings.sumneko_lua'
+    opts = vim.tbl_deep_extend('force', sumneko_opts, opts)
+  end
+
+  if server.name == 'jsonls' then
+    local jsonls_opts = require 'config.lsp.settings.jsonls'
+    opts = vim.tbl_deep_extend('force', jsonls_opts, opts)
+  end
+
+  if server.name == 'dockerls' then
+    local dockerls_opts = require 'config.lsp.settings.dockerls'
+    opts = vim.tbl_deep_extend('force', dockerls_opts, opts)
+  end
+
+  if server.name == 'yamlls' then
+    local yamlls_opts = require 'config.lsp.settings.yamlls'
+    opts = vim.tbl_deep_extend('force', yamlls_opts, opts)
+  end
+
+  if server.name == 'rust_analyzer' then
+    local rust_analyzer_opts = require 'config.lsp.settings.rust_analyzer'
+    opts = vim.tbl_deep_extend('force', rust_analyzer_opts, opts)
   end
 
   server:setup(opts)
