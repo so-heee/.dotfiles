@@ -236,6 +236,12 @@ return packer.startup(function(use)
     cond = not_vscode,
   }
 
+  use {
+    'lewis6991/impatient.nvim',
+    config = "require('config.impatient')",
+    cond = not_vscode,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

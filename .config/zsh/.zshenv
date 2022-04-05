@@ -1,6 +1,8 @@
 # パフォーマンス確認用
 # zmodload zsh/zprof && zprof
 
+export PATH=$PATH:$GOPATH/bin
+
 #----------------------------------------
 # autoload
 #----------------------------------------

@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
     disable = {},
@@ -8,11 +8,11 @@ require('nvim-treesitter.configs').setup({
     disable = {},
   },
   ensure_installed = {
-    "toml",
-    "json",
-    "yaml",
-    "go",
-    "vim",
-    "lua"
+    'toml',
+    'json',
+    'yaml',
+    'go',
+    'vim',
+    'lua',
   },
-})
+}
