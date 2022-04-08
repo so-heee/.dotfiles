@@ -19,6 +19,8 @@ local mappings = {
     b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
     r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
     c = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
+    i = { '<cmd>Telescope media_files<cr>', 'Media' },
+    n = { '<cmd>Telescope file_browser<cr>', 'File' },
   },
   g = {
     name = 'Git',
@@ -66,6 +68,7 @@ local mappings = {
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Go To Previous Diagnostic' },
     x = { '<cmd>TroubleToggle<cr>', 'Trouble' },
   },
+  s = { '<cmd>SymbolsOutline<cr>', 'SymbolsOutline' },
 }
 
 local opts = { prefix = '<leader>' }

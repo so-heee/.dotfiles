@@ -124,6 +124,8 @@ return packer.startup(function(use)
     requires = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-file-browser.nvim' },
+      { 'nvim-telescope/telescope-media-files.nvim' },
     },
     config = "require('config.telescope')",
     cond = not_vscode,
@@ -239,6 +241,14 @@ return packer.startup(function(use)
   use {
     'lewis6991/impatient.nvim',
     config = "require('config.impatient')",
+    cond = not_vscode,
+  }
+
+  use {
+    'simrat39/symbols-outline.nvim',
+    setup = function()
+      vim.g.symbols_outline = { auto_close = true }
+    end,
     cond = not_vscode,
   }
 
