@@ -25,6 +25,11 @@ telescope.setup {
 telescope.load_extension 'media_files'
 telescope.load_extension 'file_browser'
 
+local notify_present, _ = pcall(require, 'notify')
+if notify_present then
+  telescope.load_extension 'notify'
+end
+
 -- WhichKeyへ移行
 -- local map = require("utils").map
 --

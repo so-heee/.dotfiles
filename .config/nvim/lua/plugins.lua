@@ -52,7 +52,7 @@ return packer.startup(function(use)
   -- use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
   -- use {
   --   'projekt0n/github-nvim-theme',
-  --   config = "require('config.color')",
+  --   config = "require('config.github-theme')",
   -- }
   use {
     'folke/tokyonight.nvim',
@@ -116,7 +116,7 @@ return packer.startup(function(use)
 
   use {
     'windwp/nvim-autopairs',
-    config = "require('config.nvim-autopairs')",
+    config = "require('config.autopairs')",
   }
 
   use {
@@ -245,11 +245,32 @@ return packer.startup(function(use)
   }
 
   use {
+    'rcarriga/nvim-notify',
+    config = "require('config.notify')",
+    cond = not_vscode,
+  }
+
+  use {
+    'antoinemadec/FixCursorHold.nvim',
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      vim.g.cursorhold_updatetime = 100
+    end,
+    cond = not_vscode,
+  }
+
+  use {
     'simrat39/symbols-outline.nvim',
     setup = function()
       vim.g.symbols_outline = { auto_close = true }
     end,
     cond = not_vscode,
+  }
+
+  use {
+    'max397574/better-escape.nvim',
+    event = { 'InsertEnter' },
+    config = "require('config.better-escape')",
   }
 
   if packer_bootstrap then
