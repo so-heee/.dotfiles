@@ -1,14 +1,68 @@
+" set multiple-cursors
+set commentary
+
+" set <leader> to <space>
+let mapleader = " "
+
+"----------------------------------------
+" settings
+"----------------------------------------
+" 対応する括弧をハイライト表示する
+set showmatch
+
+"----------------------------------------
+" visual settings
+"----------------------------------------
+" 行末の1文字先までカーソルを移動できるように
+set virtualedit=onemore
+" ステータスラインを常に表示
+set laststatus=2
+" クリップボードに保存 
+set clipboard=unnamed
+
+"----------------------------------------
+" serch settings
+"----------------------------------------
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+" 検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase
+" 検索文字列入力時に順次対象文字列にヒットさせる
+set incsearch
+" 検索時に最後まで行ったら最初に戻る
+set wrapscan
+" 検索語をハイライト表示
+set hlsearch
+
 "----------------------------------------
 " normal mode
 "----------------------------------------
 " 行先頭と行末
-noremap H ^
-noremap L g_
-" ファイル保存
-nnoremap <Leader>w :w<CR>
+noremap <C-h> ^
+noremap <C-l> g_
 " セミコロンとコロンを入れ替え
 nnoremap ; :
 nnoremap : ;
+" ファイル保存
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+" 全選択
+nnoremap <C-a> gg<S-v>G
+
+nnoremap <leader>ld :action GotoDeclaration<CR>
+nnoremap <leader>li :action GotoImplementation<CR>
+nnoremap <leader>lR :action RenameElement<CR>
+nnoremap <leader>lt :action GotoTypeDeclaration<CR>
+nnoremap <leader>ls :action GotoSuperMethod<CR>
+nnoremap <leader>lb :action Back<CR>
+nnoremap <leader>lf :action Forward<CR>
+nnoremap <leader>lr :action ShowUsages<CR>
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <leader>e :action Project<CR>
+
+" tab navigation
+nnoremap <S-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
 
 "----------------------------------------
 " insert mode
@@ -22,7 +76,3 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
-
-
-inoremap jj <Esc>
-
