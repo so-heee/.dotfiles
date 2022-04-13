@@ -54,19 +54,19 @@ return packer.startup(function(use)
   --   'projekt0n/github-nvim-theme',
   --   config = "require('config.github-theme')",
   -- }
-  use {
-    'folke/tokyonight.nvim',
-    setup = function()
-      vim.g.tokyonight_style = 'night'
-    end,
-    config = "vim.cmd('colorscheme tokyonight')",
-  }
   -- use {
-  --   'dracula/vim',
-  --   as = 'dracula',
-  --   config = "vim.cmd('colorscheme dracula')",
-  --   cond = not_vscode,
+  --   'folke/tokyonight.nvim',
+  --   setup = function()
+  --     vim.g.tokyonight_style = 'night'
+  --   end,
+  --   config = "vim.cmd('colorscheme tokyonight')",
   -- }
+  use {
+    'dracula/vim',
+    as = 'dracula',
+    config = "vim.cmd('colorscheme dracula')",
+    cond = not_vscode,
+  }
 
   use { 'tamago324/nlsp-settings.nvim' }
   use { 'b0o/schemastore.nvim' }
