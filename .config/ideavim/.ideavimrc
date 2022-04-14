@@ -1,8 +1,10 @@
-" set multiple-cursors
-set commentary
-
 " set <leader> to <space>
 let mapleader = " "
+
+set highlightedyank
+set surround
+set commentary
+set NERDTree
 
 "----------------------------------------
 " settings
@@ -44,8 +46,8 @@ noremap <C-l> g_
 nnoremap ; :
 nnoremap : ;
 " ファイル保存
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 " 全選択
 nnoremap <C-a> gg<S-v>G
 
@@ -58,7 +60,7 @@ nnoremap <leader>lb :action Back<CR>
 nnoremap <leader>lf :action Forward<CR>
 nnoremap <leader>lr :action ShowUsages<CR>
 nnoremap <leader>f :action GotoFile<CR>
-nnoremap <leader>e :action Project<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 
 " tab navigation
 nnoremap <S-TAB> :action PreviousTab<CR>
@@ -76,3 +78,9 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
+
+"------------------------------
+" visual mode
+"------------------------------
+" ペースト時に上書きしない
+vnoremap p "_dP
