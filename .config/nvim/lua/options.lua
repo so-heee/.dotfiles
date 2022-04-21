@@ -10,6 +10,7 @@ opt.swapfile = false -- スワップファイルを作らない
 opt.shortmess:append 'c'
 opt.showmatch = true -- 対応する括弧をハイライト表示する
 opt.visualbell = true -- ビープ無効
+opt.whichwrap = 'h,l,b,<,>,[,]' --カーソル行を行頭、行末で止まらないように
 
 --------------------------------------
 -- visual settings
