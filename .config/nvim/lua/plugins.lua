@@ -102,7 +102,10 @@ return packer.startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = {
+      { 'kyazdani42/nvim-web-devicons', opt = true },
+      { 'SmiteshP/nvim-gps' },
+    },
     config = "require('config.lualine')",
     cond = not_vscode,
   }
@@ -247,6 +250,19 @@ return packer.startup(function(use)
   use {
     'rcarriga/nvim-notify',
     config = "require('config.notify')",
+    cond = not_vscode,
+  }
+
+  use {
+    'j-hui/fidget.nvim',
+    config = "require('config.fidget')",
+    cond = not_vscode,
+  }
+
+  use {
+    'petertriho/nvim-scrollbar',
+    requires = 'kevinhwang91/nvim-hlslens',
+    config = "require('config.scrollbar')",
     cond = not_vscode,
   }
 
