@@ -34,12 +34,16 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
+  -- プラグインマネージャー
   use 'wbthomason/packer.nvim'
 
+  -- ヤンク時にハイライト
   use 'machakann/vim-highlightedyank'
 
+  -- スクリーンショット
   use 'segeljakt/vim-silicon'
 
+  -- 選択領域
   use {
     'terryma/vim-expand-region',
     config = "require('config.vim-expand-region')",
@@ -69,6 +73,10 @@ return packer.startup(function(use)
     as = 'dracula',
     config = "vim.cmd('colorscheme dracula')",
     cond = not_vscode,
+  }
+  -- Icons
+  use {
+    'kyazdani42/nvim-web-devicons',
   }
 
   use { 'tamago324/nlsp-settings.nvim' }
@@ -105,6 +113,7 @@ return packer.startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
+    after = 'nvim-gps',
     requires = {
       'kyazdani42/nvim-web-devicons',
       opt = true,
@@ -124,6 +133,7 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    event = { 'BufRead', 'BufNewFile' },
     config = "require('config.treesitter')",
     cond = not_vscode,
   }
@@ -147,7 +157,7 @@ return packer.startup(function(use)
 
   use {
     'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    after = 'nvim-web-devicons',
     config = function()
       require('bufferline').setup()
     end,
@@ -252,6 +262,7 @@ return packer.startup(function(use)
     cond = not_vscode,
   }
 
+  -- Neovimの高速化
   use {
     'lewis6991/impatient.nvim',
     config = "require('config.impatient')",
