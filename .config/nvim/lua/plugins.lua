@@ -1,13 +1,11 @@
 local fn = vim.fn
+local cmd = vim.cmd
 
-local function not_vscode()
-  return not vim.g.vscode
-end
-
--- Automatically install packer
+-- プラグインの設定
+-- Packer.nvimが無ければ自動インストールする
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system {
+  Packer_bootstrap = fn.system {
     'git',
     'clone',
     '--depth',
@@ -17,13 +15,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
   }
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
+-- このファイル編集時に設定再読み込み
+cmd [[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
+
+-- VSCodeでは読み込まない
+local function not_vscode()
+  return not vim.g.vscode
+end
 
 local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
@@ -103,10 +106,18 @@ return packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = {
-      { 'kyazdani42/nvim-web-devicons', opt = true },
-      { 'SmiteshP/nvim-gps' },
+      'kyazdani42/nvim-web-devicons',
+      opt = true,
     },
     config = "require('config.lualine')",
+    cond = not_vscode,
+  }
+
+  -- 今いる関数名を表示する
+  use {
+    'SmiteshP/nvim-gps',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = "require('config.gps')",
     cond = not_vscode,
   }
 
@@ -286,10 +297,12 @@ return packer.startup(function(use)
   use {
     'max397574/better-escape.nvim',
     event = { 'InsertEnter' },
-    config = "require('config.better-escape')",
+    config = function()
+      require('better_escape').setup()
+    end,
   }
 
-  if packer_bootstrap then
+  if Packer_bootstrap then
     require('packer').sync()
   end
 end)
