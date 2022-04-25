@@ -74,27 +74,76 @@ return packer.startup(function(use)
     config = "vim.cmd('colorscheme dracula')",
     cond = not_vscode,
   }
+
+  -- Neovimの高速化
+  use {
+    'lewis6991/impatient.nvim',
+    config = "require('config.impatient')",
+    cond = not_vscode,
+  }
+
+  -- Lua functions
+  use { 'nvim-lua/plenary.nvim', cond = not_vscode }
+
+  -- Popup API
+  use { 'nvim-lua/popup.nvim', cond = not_vscode }
+
+  -- Notification Enhancer
+  use {
+    'rcarriga/nvim-notify',
+    config = "require('config.notify')",
+    cond = not_vscode,
+  }
+
+  -- Cursorhold fix
+  use {
+    'antoinemadec/FixCursorHold.nvim',
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      vim.g.cursorhold_updatetime = 100
+    end,
+    cond = not_vscode,
+  }
+
   -- Icons
   use {
     'kyazdani42/nvim-web-devicons',
+    cond = not_vscode,
   }
 
-  use { 'tamago324/nlsp-settings.nvim' }
-  use { 'b0o/schemastore.nvim' }
-
-  -- LSP
+  -- Bufferline
   use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/nvim-lsp-installer',
-      'tami5/lspsaga.nvim',
-      'folke/lsp-colors.nvim',
-      'ray-x/lsp_signature.nvim',
-      'jose-elias-alvarez/null-ls.nvim',
-    },
-    config = "require('config.lsp')",
+    'akinsho/bufferline.nvim',
+    after = 'nvim-web-devicons',
+    config = function()
+      require('bufferline').setup()
+    end,
+    cond = not_vscode,
   }
 
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = "require('config.nvim-tree')",
+    cond = not_vscode,
+  }
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = "require('config.lualine')",
+    cond = not_vscode,
+  }
+
+  -- Syntax highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = "require('config.treesitter')",
+    cond = not_vscode,
+  }
+
+  -- Completion engine
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -111,104 +160,39 @@ return packer.startup(function(use)
     config = "require('config.cmp')",
   }
 
+  -- LSP
   use {
-    'nvim-lualine/lualine.nvim',
-    after = 'nvim-gps',
+    'neovim/nvim-lspconfig',
     requires = {
-      'kyazdani42/nvim-web-devicons',
-      opt = true,
+      'williamboman/nvim-lsp-installer',
+      'tami5/lspsaga.nvim',
+      'folke/lsp-colors.nvim',
+      'ray-x/lsp_signature.nvim',
     },
-    config = "require('config.lualine')",
-    cond = not_vscode,
-  }
-
-  -- 今いる関数名を表示する
-  use {
-    'SmiteshP/nvim-gps',
-    requires = 'nvim-treesitter/nvim-treesitter',
-    config = "require('config.gps')",
-    cond = not_vscode,
+    config = "require('config.lsp')",
   }
 
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    event = { 'BufRead', 'BufNewFile' },
-    config = "require('config.treesitter')",
-    cond = not_vscode,
+    'tamago324/nlsp-settings.nvim',
+    after = { 'nvim-lspconfig' },
   }
 
-  use {
-    'windwp/nvim-autopairs',
-    config = "require('config.autopairs')",
-  }
+  use { 'b0o/schemastore.nvim' }
 
+  -- LSP symbols
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      { 'nvim-lua/popup.nvim' },
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-file-browser.nvim' },
-      { 'nvim-telescope/telescope-media-files.nvim' },
-    },
-    config = "require('config.telescope')",
-    cond = not_vscode,
-  }
-
-  use {
-    'akinsho/bufferline.nvim',
-    after = 'nvim-web-devicons',
-    config = function()
-      require('bufferline').setup()
+    'simrat39/symbols-outline.nvim',
+    setup = function()
+      vim.g.symbols_outline = { auto_close = true }
     end,
     cond = not_vscode,
   }
 
+  -- Formatting and linting
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = "require('config.nvim-tree')",
-    cond = not_vscode,
-  }
-
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = "require('config.indentline')",
-    cond = not_vscode,
-  }
-
-  use {
-    'goolord/alpha-nvim',
-    config = "require('config.alpha')",
-  }
-
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  }
-
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function()
-      require('gitsigns').setup()
-    end,
-    cond = not_vscode,
-  }
-
-  use {
-    'ray-x/go.nvim',
-    config = "require('config.go')",
-    cond = not_vscode,
-  }
-
-  use {
-    'folke/which-key.nvim',
-    config = "require('config.whichkey')",
+    'jose-elias-alvarez/null-ls.nvim',
+    after = 'nvim-lsp-installer',
+    config = "require('config.null-ls')",
     cond = not_vscode,
   }
 
@@ -220,17 +204,104 @@ return packer.startup(function(use)
     cond = not_vscode,
   }
 
+  -- Fuzzy finder
   use {
-    'iamcco/markdown-preview.nvim',
-    run = 'cd app && yarn install',
+    'nvim-telescope/telescope.nvim',
+    event = 'VimEnter',
+    config = "require('config.telescope')",
     cond = not_vscode,
   }
 
+  -- Git integration
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('gitsigns').setup()
+    end,
+    cond = not_vscode,
+  }
+
+  -- Start screen
+  use {
+    'goolord/alpha-nvim',
+    config = "require('config.alpha')",
+    cond = not_vscode,
+  }
+
+  -- Color highlighting
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
     end,
+    cond = not_vscode,
+  }
+
+  -- Autopairs
+  use {
+    'windwp/nvim-autopairs',
+    config = "require('config.autopairs')",
+  }
+
+  -- Terminal
+  use {
+    'akinsho/toggleterm.nvim',
+    config = "require('config.toggleterm')",
+    cond = not_vscode,
+  }
+
+  -- Commenting
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  }
+
+  -- Indentation
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = "require('config.indentline')",
+    cond = not_vscode,
+  }
+
+  -- Keymaps popup
+  use {
+    'folke/which-key.nvim',
+    config = "require('config.whichkey')",
+    cond = not_vscode,
+  }
+
+  -- Smooth scrolling
+  use {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup()
+    end,
+    cond = not_vscode,
+  }
+
+  -- Smooth escaping
+  use {
+    'max397574/better-escape.nvim',
+    event = { 'InsertEnter' },
+    config = function()
+      require('better_escape').setup()
+    end,
+  }
+
+  use {
+    'ray-x/go.nvim',
+    config = "require('config.go')",
+    cond = not_vscode,
+  }
+
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
     cond = not_vscode,
   }
 
@@ -244,34 +315,7 @@ return packer.startup(function(use)
   }
 
   use {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup()
-    end,
-    cond = not_vscode,
-  }
-
-  use {
-    'akinsho/toggleterm.nvim',
-    config = "require('config.toggleterm')",
-    cond = not_vscode,
-  }
-
-  use {
     'tversteeg/registers.nvim',
-    cond = not_vscode,
-  }
-
-  -- Neovimの高速化
-  use {
-    'lewis6991/impatient.nvim',
-    config = "require('config.impatient')",
-    cond = not_vscode,
-  }
-
-  use {
-    'rcarriga/nvim-notify',
-    config = "require('config.notify')",
     cond = not_vscode,
   }
 
@@ -286,31 +330,6 @@ return packer.startup(function(use)
     requires = 'kevinhwang91/nvim-hlslens',
     config = "require('config.scrollbar')",
     cond = not_vscode,
-  }
-
-  use {
-    'antoinemadec/FixCursorHold.nvim',
-    event = { 'BufRead', 'BufNewFile' },
-    config = function()
-      vim.g.cursorhold_updatetime = 100
-    end,
-    cond = not_vscode,
-  }
-
-  use {
-    'simrat39/symbols-outline.nvim',
-    setup = function()
-      vim.g.symbols_outline = { auto_close = true }
-    end,
-    cond = not_vscode,
-  }
-
-  use {
-    'max397574/better-escape.nvim',
-    event = { 'InsertEnter' },
-    config = function()
-      require('better_escape').setup()
-    end,
   }
 
   if Packer_bootstrap then

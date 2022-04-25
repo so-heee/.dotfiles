@@ -3,32 +3,7 @@ if not status_ok then
   return
 end
 
-telescope.setup {
-  extensions = {
-    media_files = {
-      filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
-      -- find_cmd = 'rg', -- find command (defaults to `fd`)
-    },
-    file_browser = {
-      mappings = {
-        ['i'] = {
-          -- your custom insert mode mappings
-        },
-        ['n'] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
-}
-
-telescope.load_extension 'media_files'
-telescope.load_extension 'file_browser'
-
-local notify_present, _ = pcall(require, 'notify')
-if notify_present then
-  telescope.load_extension 'notify'
-end
+telescope.setup {}
 
 -- WhichKeyへ移行
 -- local map = require("utils").map
