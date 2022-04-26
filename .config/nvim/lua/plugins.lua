@@ -78,7 +78,9 @@ return packer.startup(function(use)
   -- Neovimの高速化
   use {
     'lewis6991/impatient.nvim',
-    config = "require('config.impatient')",
+    config = function()
+      require('impatient').enable_profile()
+    end,
     cond = not_vscode,
   }
 
@@ -321,7 +323,9 @@ return packer.startup(function(use)
 
   use {
     'j-hui/fidget.nvim',
-    config = "require('config.fidget')",
+    config = function()
+      require('fidget').setup()
+    end,
     cond = not_vscode,
   }
 
