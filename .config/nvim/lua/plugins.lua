@@ -145,34 +145,20 @@ return packer.startup(function(use)
     cond = not_vscode,
   }
 
-  -- Completion engine
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/nvim-cmp',
-      'onsails/lspkind-nvim',
-    },
-    config = "require('config.cmp')",
-  }
-
-  -- LSP
+  -- Built-in LSP
   use {
     'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/nvim-lsp-installer',
-      'tami5/lspsaga.nvim',
-      'folke/lsp-colors.nvim',
-      'ray-x/lsp_signature.nvim',
-    },
     config = "require('config.lsp')",
   }
+
+  -- LSP manager
+  use { 'williamboman/nvim-lsp-installer' }
+
+  use { 'tami5/lspsaga.nvim' }
+
+  use { 'ray-x/lsp_signature.nvim' }
+
+  use { 'folke/lsp-colors.nvim' }
 
   use {
     'tamago324/nlsp-settings.nvim',
@@ -204,6 +190,46 @@ return packer.startup(function(use)
       require('trouble').setup()
     end,
     cond = not_vscode,
+  }
+
+  -- Completion engine
+  use {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    requires = {
+      -- LSP completion source
+      'hrsh7th/cmp-nvim-lsp',
+      -- Snippet completion source
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      -- Buffer completion source
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      -- Path completion source
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      -- Commadline completion source
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      'onsails/lspkind-nvim',
+    },
+    config = "require('config.cmp')",
+  }
+
+  -- Snippet collection
+  use {
+    'rafamadriz/friendly-snippets',
+    after = 'nvim-cmp',
+  }
+
+  -- Snippet engine
+  use {
+    'L3MON4D3/LuaSnip',
+    after = 'friendly-snippets',
+    config = "require('config.luasnip')",
+  }
+
+  -- Autopairs
+  use {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = "require('config.autopairs')",
   }
 
   -- Fuzzy finder
@@ -240,12 +266,6 @@ return packer.startup(function(use)
       require('colorizer').setup()
     end,
     cond = not_vscode,
-  }
-
-  -- Autopairs
-  use {
-    'windwp/nvim-autopairs',
-    config = "require('config.autopairs')",
   }
 
   -- Terminal

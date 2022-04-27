@@ -1,14 +1,19 @@
 -- Setup nvim-cmp.
-local cmp = require 'cmp'
-local lspkind = require 'lspkind'
+local cmp_status_ok, cmp = pcall(require, 'cmp')
+local lspkind_status_ok, lspkind = pcall(require, 'lspkind')
+local snip_status_ok, luasnip = pcall(require, 'luasnip')
+
+if not cmp_status_ok and not lspkind_status_ok and not snip_status_ok then
+  return
+end
 
 cmp.setup {
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
+      -- vim.fn['vsnip#anonymous'](args.body)
       -- vim.fn['UltiSnips#Anon'](args.body)
-      -- require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -16,11 +21,37 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm { select = true },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, {
+      'i',
+      's',
+    }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      'i',
+      's',
+    }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-    -- { name = 'luasnip' },
+    -- { name = 'vsnip' },
+    { name = 'luasnip' },
     -- { name = 'ultisnips' },
   }, {
     { name = 'buffer' },
@@ -35,8 +66,8 @@ cmp.setup {
         buffer = '[Buffer]',
         nvim_lsp = '[LSP]',
         path = '[Path]',
-        vsnip = '[Vsnip]',
-        -- luasnip = '[Snip]',
+        -- vsnip = '[Vsnip]',
+        luasnip = '[Snip]',
         -- ultisnips = '[UltiSnip]',
       },
     },
