@@ -150,23 +150,25 @@ return packer.startup {
     use {
       'neovim/nvim-lspconfig',
       config = "require('config.lsp')",
+      cond = not_vscode,
     }
 
     -- LSP manager
-    use { 'williamboman/nvim-lsp-installer' }
+    use { 'williamboman/nvim-lsp-installer', cond = not_vscode }
 
-    use { 'tami5/lspsaga.nvim' }
+    use { 'tami5/lspsaga.nvim', cond = not_vscode }
 
-    use { 'ray-x/lsp_signature.nvim' }
+    use { 'ray-x/lsp_signature.nvim', cond = not_vscode }
 
-    use { 'folke/lsp-colors.nvim' }
+    use { 'folke/lsp-colors.nvim', cond = not_vscode }
 
     use {
       'tamago324/nlsp-settings.nvim',
       after = { 'nvim-lspconfig' },
+      cond = not_vscode,
     }
 
-    use { 'b0o/schemastore.nvim' }
+    use { 'b0o/schemastore.nvim', cond = not_vscode }
 
     -- LSP symbols
     use {
@@ -211,12 +213,14 @@ return packer.startup {
         'onsails/lspkind-nvim',
       },
       config = "require('config.cmp')",
+      cond = not_vscode,
     }
 
     -- Snippet collection
     use {
       'rafamadriz/friendly-snippets',
       after = 'nvim-cmp',
+      cond = not_vscode,
     }
 
     -- Snippet engine
@@ -224,6 +228,7 @@ return packer.startup {
       'L3MON4D3/LuaSnip',
       after = 'friendly-snippets',
       config = "require('config.luasnip')",
+      cond = not_vscode,
     }
 
     -- Autopairs
@@ -231,6 +236,7 @@ return packer.startup {
       'windwp/nvim-autopairs',
       event = 'InsertEnter',
       config = "require('config.autopairs')",
+      cond = not_vscode,
     }
 
     -- Fuzzy finder
@@ -314,6 +320,7 @@ return packer.startup {
       config = function()
         require('better_escape').setup()
       end,
+      cond = not_vscode,
     }
 
     use {
