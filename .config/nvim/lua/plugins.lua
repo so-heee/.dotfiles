@@ -146,62 +146,13 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Built-in LSP
-    use {
-      'neovim/nvim-lspconfig',
-      config = "require('config.lsp')",
-      cond = not_vscode,
-    }
-
-    -- LSP manager
-    use { 'williamboman/nvim-lsp-installer', cond = not_vscode }
-
-    use { 'tami5/lspsaga.nvim', cond = not_vscode }
-
-    use { 'ray-x/lsp_signature.nvim', cond = not_vscode }
-
-    use { 'folke/lsp-colors.nvim', cond = not_vscode }
-
-    use {
-      'tamago324/nlsp-settings.nvim',
-      after = { 'nvim-lspconfig' },
-      cond = not_vscode,
-    }
-
-    use { 'b0o/schemastore.nvim', cond = not_vscode }
-
-    -- LSP symbols
-    use {
-      'simrat39/symbols-outline.nvim',
-      setup = function()
-        vim.g.symbols_outline = { auto_close = true }
-      end,
-      cond = not_vscode,
-    }
-
-    -- Formatting and linting
-    use {
-      'jose-elias-alvarez/null-ls.nvim',
-      after = 'nvim-lsp-installer',
-      config = "require('config.null-ls')",
-      cond = not_vscode,
-    }
-
-    use {
-      'folke/trouble.nvim',
-      config = function()
-        require('trouble').setup()
-      end,
-      cond = not_vscode,
-    }
-
     -- Completion engine
     use {
       'hrsh7th/nvim-cmp',
       event = 'InsertEnter',
       requires = {
         -- LSP completion source
-        'hrsh7th/cmp-nvim-lsp',
+        { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
         -- Snippet completion source
         { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
         -- Buffer completion source
@@ -210,9 +161,13 @@ return packer.startup {
         { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
         -- Commadline completion source
         { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-        'onsails/lspkind-nvim',
       },
+      after = { 'lspkind-nvim', 'LuaSnip', 'nvim-autopairs' },
       config = "require('config.cmp')",
+      cond = not_vscode,
+    }
+    use {
+      'onsails/lspkind-nvim',
       cond = not_vscode,
     }
 
@@ -237,6 +192,75 @@ return packer.startup {
       event = 'InsertEnter',
       config = "require('config.autopairs')",
       cond = not_vscode,
+    }
+
+    -- Built-in LSP
+    use {
+      'neovim/nvim-lspconfig',
+      cond = not_vscode,
+      after = { 'cmp-nvim-lsp' },
+    }
+
+    -- LSP manager
+    use {
+      'williamboman/nvim-lsp-installer',
+      cond = not_vscode,
+      after = { 'nvim-lspconfig', 'nlsp-settings.nvim' },
+      config = "require('config.nvim-lsp-installer')",
+    }
+
+    use {
+      'tami5/lspsaga.nvim',
+      cond = not_vscode,
+      after = 'nvim-lsp-installer',
+      config = "require('config.lspsaga')",
+    }
+
+    use { 'ray-x/lsp_signature.nvim', cond = not_vscode, after = 'nvim-lsp-installer' }
+
+    use { 'folke/lsp-colors.nvim', cond = not_vscode, config = "require('config.lsp-colors')" }
+
+    use {
+      'tamago324/nlsp-settings.nvim',
+      after = { 'nvim-lspconfig' },
+      cond = not_vscode,
+    }
+
+    use { 'b0o/schemastore.nvim', cond = not_vscode }
+
+    -- LSP symbols
+    -- use {
+    --   'simrat39/symbols-outline.nvim',
+    --   setup = function()
+    --     vim.g.symbols_outline = { auto_close = true }
+    --   end,
+    --   cond = not_vscode,
+    -- }
+
+    -- Formatting and linting
+    use {
+      'jose-elias-alvarez/null-ls.nvim',
+      after = 'nvim-lsp-installer',
+      config = "require('config.null-ls')",
+      cond = not_vscode,
+    }
+
+    use {
+      'folke/trouble.nvim',
+      cond = not_vscode,
+      after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
+      config = function()
+        require('trouble').setup()
+      end,
+    }
+
+    use {
+      'j-hui/fidget.nvim',
+      cond = not_vscode,
+      after = 'nvim-lsp-installer',
+      config = function()
+        require('fidget').setup()
+      end,
     }
 
     -- Fuzzy finder
@@ -346,14 +370,6 @@ return packer.startup {
 
     use {
       'tversteeg/registers.nvim',
-      cond = not_vscode,
-    }
-
-    use {
-      'j-hui/fidget.nvim',
-      config = function()
-        require('fidget').setup()
-      end,
       cond = not_vscode,
     }
 
