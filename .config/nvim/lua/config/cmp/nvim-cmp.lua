@@ -44,14 +44,13 @@ cmp.setup {
       's',
     }),
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    -- { name = 'vsnip' },
-    { name = 'luasnip' },
-    -- { name = 'ultisnips' },
-  }, {
-    { name = 'buffer' },
-  }),
+  sources = cmp.config.sources{
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
   experimental = {
     ghost_text = true,
   },
@@ -61,6 +60,7 @@ cmp.setup {
       menu = {
         buffer = '[Buffer]',
         nvim_lsp = '[LSP]',
+        nvim_lua = '[Nvim]',
         path = '[Path]',
         -- vsnip = '[Vsnip]',
         luasnip = '[Snip]',

@@ -1,11 +1,11 @@
 local nvim_lsp = require 'lspconfig'
 local protocol = require 'vim.lsp.protocol'
-local lsp_signature = require 'lsp_signature'
+-- local lsp_signature = require 'lsp_signature'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  lsp_signature.on_attach(client, bufnr)
+  -- lsp_signature.on_attach(client, bufnr)
 
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -83,11 +83,11 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 -- Set up nvim-lsp-installer
 local servers = {
   'gopls',
-  'sumneko_lua',
-  'jsonls',
-  'dockerls',
-  'yamlls',
-  'rust_analyzer',
+  -- 'sumneko_lua',
+  -- 'jsonls',
+  -- 'dockerls',
+  -- 'yamlls',
+  -- 'rust_analyzer',
 }
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
 for _, lsp in ipairs(servers) do
