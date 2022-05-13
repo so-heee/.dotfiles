@@ -83,7 +83,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 -- Set up nvim-lsp-installer
 local servers = {
   'gopls',
-  -- 'sumneko_lua',
+  'sumneko_lua',
   -- 'jsonls',
   -- 'dockerls',
   -- 'yamlls',

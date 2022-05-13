@@ -149,41 +149,28 @@ return packer.startup {
     -- Completion engine
     use {
       'hrsh7th/nvim-cmp',
-      event = 'InsertEnter',
       requires = {
         -- LSP completion source
-        -- { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
-        -- Snippet completion source
-        { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+        'hrsh7th/cmp-nvim-lsp',
         -- Buffer completion source
-        { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+        'hrsh7th/cmp-buffer',
+        -- Snippet completion source
+        'saadparwaiz1/cmp_luasnip',
         -- Path completion source
-        { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+        'hrsh7th/cmp-path',
         -- Commadline completion source
-        { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-        -- Nvim completion source
-        { "hrsh7th/cmp-nvim-lua", after = 'nvim-cmp' },
+        'hrsh7th/cmp-cmdline',
+        -- Neovim Lua API completion source
+        'hrsh7th/cmp-nvim-lua',
+        'onsails/lspkind-nvim',
       },
-      after = { 'lspkind-nvim', 'LuaSnip', 'nvim-autopairs' },
       config = "require('config.cmp')",
-      cond = not_vscode,
-    }
-
-    use {
-      'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp',
-      cond = not_vscode,
-    }
-
-    use {
-      'onsails/lspkind-nvim',
-      cond = not_vscode,
     }
 
     -- Snippet collection
     use {
       'rafamadriz/friendly-snippets',
       after = 'nvim-cmp',
-      cond = not_vscode,
     }
 
     -- Snippet engine
@@ -191,7 +178,6 @@ return packer.startup {
       'L3MON4D3/LuaSnip',
       after = 'friendly-snippets',
       config = "require('config.luasnip')",
-      cond = not_vscode,
     }
 
     -- Autopairs
@@ -205,28 +191,16 @@ return packer.startup {
     -- Built-in LSP
     use {
       'neovim/nvim-lspconfig',
-      cond = not_vscode,
-      after = { 'cmp-nvim-lsp' },
+      requires = {
+        -- LSP manager
+        'williamboman/nvim-lsp-installer',
+        'ray-x/lsp_signature.nvim',
+        'tami5/lspsaga.nvim',
+        'folke/lsp-colors.nvim',
+        'ray-x/lsp_signature.nvim',
+      },
+      config = "require('config.lsp')",
     }
-
-    -- LSP manager
-    use {
-      'williamboman/nvim-lsp-installer',
-      cond = not_vscode,
-      after = { 'nvim-lspconfig', 'nlsp-settings.nvim','cmp-nvim-lsp' },
-      config = "require('config.nvim-lsp-installer')",
-    }
-
-    use {
-      'tami5/lspsaga.nvim',
-      cond = not_vscode,
-      after = 'nvim-lsp-installer',
-      config = "require('config.lspsaga')",
-    }
-
-    -- use { 'ray-x/lsp_signature.nvim', cond = not_vscode, after = 'nvim-lsp-installer' }
-    --
-    use { 'folke/lsp-colors.nvim', cond = not_vscode, config = "require('config.lsp-colors')" }
 
     use {
       'tamago324/nlsp-settings.nvim',
@@ -237,39 +211,39 @@ return packer.startup {
     use { 'b0o/schemastore.nvim', cond = not_vscode }
 
     -- LSP symbols
-    -- use {
-    --   'simrat39/symbols-outline.nvim',
-    --   setup = function()
-    --     vim.g.symbols_outline = { auto_close = true }
-    --   end,
-    --   cond = not_vscode,
-    -- }
+    use {
+      'simrat39/symbols-outline.nvim',
+      setup = function()
+        vim.g.symbols_outline = { auto_close = true }
+      end,
+      cond = not_vscode,
+    }
 
-    -- -- Formatting and linting
-    -- use {
-    --   'jose-elias-alvarez/null-ls.nvim',
-    --   after = 'nvim-lsp-installer',
-    --   config = "require('config.null-ls')",
-    --   cond = not_vscode,
-    -- }
-    --
-    -- use {
-    --   'folke/trouble.nvim',
-    --   cond = not_vscode,
-    --   after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
-    --   config = function()
-    --     require('trouble').setup()
-    --   end,
-    -- }
-    --
-    --use {
-    --  'j-hui/fidget.nvim',
-    --  cond = not_vscode,
-    --  after = 'nvim-lsp-installer',
-    --  config = function()
-    --    require('fidget').setup()
-    --  end,
-    --}
+    -- Formatting and linting
+    use {
+      'jose-elias-alvarez/null-ls.nvim',
+      after = 'nvim-lsp-installer',
+      config = "require('config.null-ls')",
+      cond = not_vscode,
+    }
+
+    use {
+      'folke/trouble.nvim',
+      cond = not_vscode,
+      after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
+      config = function()
+        require('trouble').setup()
+      end,
+    }
+
+    use {
+      'j-hui/fidget.nvim',
+      cond = not_vscode,
+      after = 'nvim-lsp-installer',
+      config = function()
+        require('fidget').setup()
+      end,
+    }
 
     -- Fuzzy finder
     use {
