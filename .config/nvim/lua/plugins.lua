@@ -164,13 +164,13 @@ return packer.startup {
         'hrsh7th/cmp-nvim-lua',
         'onsails/lspkind-nvim',
       },
+      after = { 'LuaSnip', 'nvim-autopairs' },
       config = "require('config.cmp')",
     }
 
     -- Snippet collection
     use {
       'rafamadriz/friendly-snippets',
-      after = 'nvim-cmp',
     }
 
     -- Snippet engine
