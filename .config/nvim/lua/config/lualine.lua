@@ -1,4 +1,5 @@
 local gps = require 'nvim-gps'
+gps.setup()
 
 require('lualine').setup {
   options = {

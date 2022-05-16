@@ -69,10 +69,17 @@ return packer.startup {
     --   end,
     --   config = "vim.cmd('colorscheme tokyonight')",
     -- }
+    --
+    -- use {
+    --   'dracula/vim',
+    --   as = 'dracula',
+    --   config = "vim.cmd('colorscheme dracula')",
+    --   cond = not_vscode,
+    -- }
+
     use {
-      'dracula/vim',
-      as = 'dracula',
-      config = "vim.cmd('colorscheme dracula')",
+      'EdenEast/nightfox.nvim',
+      config = "vim.cmd('colorscheme nightfox')",
       cond = not_vscode,
     }
 
@@ -134,18 +141,21 @@ return packer.startup {
     -- Statusline
     use {
       'nvim-lualine/lualine.nvim',
+      requires = 'SmiteshP/nvim-gps',
+      after = 'nvim-treesitter',
       config = "require('config.lualine')",
       cond = not_vscode,
     }
 
-    use {
-      'SmiteshP/nvim-gps',
-      requires = 'nvim-treesitter/nvim-treesitter',
-      config = function()
-        require('nvim-gps').setup()
-      end,
-      cond = not_vscode,
-    }
+    -- use {
+    --   'SmiteshP/nvim-gps',
+    --   requires = 'nvim-treesitter/nvim-treesitter',
+    --   config = function()
+    --     require('nvim-gps').setup()
+    --   end,
+    --   after = { 'nvim-treesitter' },
+    --   cond = not_vscode,
+    -- }
 
     -- Syntax highlighting
     use {
@@ -369,6 +379,19 @@ return packer.startup {
       requires = 'kevinhwang91/nvim-hlslens',
       config = "require('config.scrollbar')",
       cond = not_vscode,
+    }
+
+    -- カーソル行のカラー
+    use {
+      'mvllow/modes.nvim',
+      cond = not_vscode,
+      config = function()
+        require('modes').setup {
+          colors = {
+            visual = '#F5F359',
+          },
+        }
+      end,
     }
 
     if Packer_bootstrap then
