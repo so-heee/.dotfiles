@@ -1,7 +1,9 @@
 return {
   settings = {
     Lua = {
-      format = { enable = false },
+      format = {
+        enable = false,
+      },
       diagnostics = {
         globals = { 'vim' },
       },

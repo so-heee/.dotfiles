@@ -138,6 +138,15 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    use {
+      'SmiteshP/nvim-gps',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      config = function()
+        require('nvim-gps').setup()
+      end,
+      cond = not_vscode,
+    }
+
     -- Syntax highlighting
     use {
       'nvim-treesitter/nvim-treesitter',
