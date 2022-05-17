@@ -79,7 +79,7 @@ return packer.startup {
 
     use {
       'EdenEast/nightfox.nvim',
-      config = "vim.cmd('colorscheme nightfox')",
+      config = "vim.cmd('colorscheme terafox')",
       cond = not_vscode,
     }
 
@@ -183,7 +183,7 @@ return packer.startup {
         'hrsh7th/cmp-nvim-lua',
         'onsails/lspkind-nvim',
       },
-      after = { 'LuaSnip', 'nvim-autopairs' },
+      after = { 'LuaSnip' },
       config = "require('config.cmp')",
     }
 
