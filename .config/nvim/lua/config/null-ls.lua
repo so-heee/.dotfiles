@@ -3,6 +3,17 @@ local null_ls = require 'null-ls'
 local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
+local lsp_formatting = function(bufnr)
+  vim.lsp.buf.format {
+    filter = function(clients)
+      return vim.tbl_filter(function(client)
+        return client.name ~= { 'sumneko_lua' }
+      end, clients)
+    end,
+    bufnr = bufnr,
+  }
+end
+
 null_ls.setup {
   sources = {
     formatting.stylua.with {
@@ -21,7 +32,8 @@ null_ls.setup {
         buffer = bufnr,
         callback = function()
           -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          vim.lsp.buf.formatting_sync()
+          -- vim.lsp.buf.formatting_sync()
+          lsp_formatting(bufnr)
         end,
       })
     end
