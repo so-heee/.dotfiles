@@ -50,6 +50,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "cmp_tabnine" },
   },
   experimental = {
     ghost_text = true,
@@ -64,6 +65,7 @@ cmp.setup {
         path = '[Path]',
         -- vsnip = '[Vsnip]',
         luasnip = '[Snip]',
+        cmp_tabnine = "[TabNine]",
         -- ultisnips = '[UltiSnip]',
       },
     },

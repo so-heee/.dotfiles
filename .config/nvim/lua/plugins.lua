@@ -187,6 +187,11 @@ return packer.startup {
       config = "require('config.cmp')",
     }
 
+    use {
+      'tzachar/cmp-tabnine',
+      run = './install.sh',
+    }
+
     -- Snippet collection
     use {
       'rafamadriz/friendly-snippets',
