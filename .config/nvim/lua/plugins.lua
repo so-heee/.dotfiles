@@ -147,16 +147,6 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- use {
-    --   'SmiteshP/nvim-gps',
-    --   requires = 'nvim-treesitter/nvim-treesitter',
-    --   config = function()
-    --     require('nvim-gps').setup()
-    --   end,
-    --   after = { 'nvim-treesitter' },
-    --   cond = not_vscode,
-    -- }
-
     -- Syntax highlighting
     use {
       'nvim-treesitter/nvim-treesitter',
@@ -384,6 +374,14 @@ return packer.startup {
     use {
       'yamatsum/nvim-cursorline',
       config = "require('config.nvim-cursorline')",
+      cond = not_vscode,
+    }
+
+    use {
+      'nacro90/numb.nvim',
+      config = function()
+        require('numb').setup()
+      end,
       cond = not_vscode,
     }
 
