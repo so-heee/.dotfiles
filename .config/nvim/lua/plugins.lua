@@ -381,17 +381,17 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    use {
+      'yamatsum/nvim-cursorline',
+      config = "require('config.nvim-cursorline')",
+      cond = not_vscode,
+    }
+
     -- カーソル行のカラー
     use {
       'mvllow/modes.nvim',
+      config = "require('config.modes')",
       cond = not_vscode,
-      config = function()
-        require('modes').setup {
-          colors = {
-            visual = '#F5F359',
-          },
-        }
-      end,
     }
 
     if Packer_bootstrap then
