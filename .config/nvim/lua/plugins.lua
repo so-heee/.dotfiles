@@ -141,9 +141,18 @@ return packer.startup {
     -- Statusline
     use {
       'nvim-lualine/lualine.nvim',
-      requires = 'SmiteshP/nvim-gps',
-      after = 'nvim-treesitter',
+      after = { 'nvim-treesitter', 'nvim-gps' },
       config = "require('config.lualine')",
+      cond = not_vscode,
+    }
+
+    use {
+      'SmiteshP/nvim-gps',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      config = function()
+        require('nvim-gps').setup()
+      end,
+      after = { 'nvim-treesitter' },
       cond = not_vscode,
     }
 
@@ -243,20 +252,20 @@ return packer.startup {
 
     use {
       'folke/trouble.nvim',
-      cond = not_vscode,
       after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
       config = function()
         require('trouble').setup()
       end,
+      cond = not_vscode,
     }
 
     use {
       'j-hui/fidget.nvim',
-      cond = not_vscode,
       after = 'nvim-lsp-installer',
       config = function()
         require('fidget').setup()
       end,
+      cond = not_vscode,
     }
 
     -- Fuzzy finder
@@ -373,12 +382,6 @@ return packer.startup {
       'petertriho/nvim-scrollbar',
       requires = 'kevinhwang91/nvim-hlslens',
       config = "require('config.scrollbar')",
-      cond = not_vscode,
-    }
-
-    use {
-      'yamatsum/nvim-cursorline',
-      config = "require('config.nvim-cursorline')",
       cond = not_vscode,
     }
 
