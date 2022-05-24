@@ -164,6 +164,12 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    use {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      after = { 'nvim-treesitter' },
+      cond = not_vscode,
+    }
+
     -- Completion engine
     use {
       'hrsh7th/nvim-cmp',
@@ -390,6 +396,12 @@ return packer.startup {
       config = function()
         require('numb').setup()
       end,
+      cond = not_vscode,
+    }
+
+    use {
+      'yamatsum/nvim-cursorline',
+      config = "require('config.nvim-cursorline')",
       cond = not_vscode,
     }
 
