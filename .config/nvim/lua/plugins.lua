@@ -405,6 +405,12 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    use {
+      'nvim-pack/nvim-spectre',
+      config = "require('config.nvim-spectre')",
+      cond = not_vscode,
+    }
+
     -- カーソル行のカラー
     use {
       'mvllow/modes.nvim',

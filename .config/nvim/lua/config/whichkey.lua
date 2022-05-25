@@ -60,7 +60,8 @@ local mappings = {
     x = { '<cmd>TroubleToggle<cr>', 'Trouble' },
     g = { '<cmd>Telescope diagnostics<CR>', 'All Diagnostics' },
   },
-  s = { '<cmd>SymbolsOutline<cr>', 'SymbolsOutline' },
+  o = { '<cmd>SymbolsOutline<cr>', 'SymbolsOutline' },
+  s = { "<cmd>lua require 'spectre'.open()<cr>", 'SymbolsOutline' },
 }
 
 local opts = { prefix = '<leader>' }
