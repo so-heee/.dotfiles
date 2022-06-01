@@ -1,5 +1,5 @@
 require('modes').setup {
   colors = {
-    visual = '#b97490',
+    visual = '#bb9af7',
   },
 }

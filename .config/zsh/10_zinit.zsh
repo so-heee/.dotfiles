@@ -24,6 +24,7 @@ zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
+# zinit light marlonrichert/zsh-autocomplete
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light rupa/z
 zinit light paulirish/git-open

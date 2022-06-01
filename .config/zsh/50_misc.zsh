@@ -48,3 +48,6 @@ zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/compcache"
 
 #何も入力されていないときのTABでTABが挿入されるのを抑制
 zstyle ':completion:*' insert-tab false
+
+# 大文字・小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
