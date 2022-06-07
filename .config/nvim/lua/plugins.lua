@@ -82,6 +82,11 @@ return packer.startup {
     --   config = "vim.cmd('colorscheme terafox')",
     --   cond = not_vscode,
     -- }
+    --
+    -- use {
+    --   'haishanh/night-owl.vim',
+    --   config = "vim.cmd('colorscheme night-owl')",
+    -- }
 
     -- Neovimの高速化
     use {
@@ -373,6 +378,7 @@ return packer.startup {
     use {
       'folke/todo-comments.nvim',
       requires = 'nvim-lua/plenary.nvim',
+      event = 'VimEnter',
       config = function()
         require('todo-comments').setup()
       end,
