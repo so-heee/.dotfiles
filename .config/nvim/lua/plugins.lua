@@ -88,6 +88,11 @@ return packer.startup {
     --   config = "vim.cmd('colorscheme night-owl')",
     -- }
 
+    -- use {
+    --   'shaunsingh/moonlight.nvim',
+    --   config = "vim.cmd('colorscheme moonlight')",
+    -- }
+
     use {
       'overcache/NeoSolarized',
       config = function()
