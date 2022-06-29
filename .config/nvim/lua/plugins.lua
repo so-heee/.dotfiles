@@ -62,13 +62,13 @@ return packer.startup {
     --   'projekt0n/github-nvim-theme',
     --   config = "require('config.github-theme')",
     -- }
-    -- use {
-    --   'folke/tokyonight.nvim',
-    --   setup = function()
-    --     vim.g.tokyonight_style = 'night'
-    --   end,
-    --   config = "vim.cmd('colorscheme tokyonight')",
-    -- }
+    use {
+      'folke/tokyonight.nvim',
+      setup = function()
+        vim.g.tokyonight_style = 'night'
+      end,
+      config = "vim.cmd('colorscheme tokyonight')",
+    }
     --
     -- use {
     --   'dracula/vim',
@@ -89,17 +89,17 @@ return packer.startup {
     -- }
 
     -- use {
-    --   'shaunsingh/moonlight.nvim',
-    --   config = "vim.cmd('colorscheme moonlight')",
+    --   'rmehri01/onenord.nvim',
+    --   config = "vim.cmd('colorscheme onenord')",
     -- }
 
-    use {
-      'overcache/NeoSolarized',
-      config = function()
-        vim.api.nvim_command 'set background=dark'
-        vim.api.nvim_command 'colorscheme NeoSolarized'
-      end,
-    }
+    -- use {
+    --   'overcache/NeoSolarized',
+    --   config = function()
+    --     vim.api.nvim_command 'set background=dark'
+    --     vim.api.nvim_command 'colorscheme NeoSolarized'
+    --   end,
+    -- }
 
     -- Neovimの高速化
     use {
