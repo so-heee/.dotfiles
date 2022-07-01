@@ -1,9 +1,13 @@
-local status_ok, gps = pcall(require, 'nvim-gps')
+local status_ok, navic = pcall(require, 'nvim-navic')
 if not status_ok then
   return
 end
 
-gps.setup()
+require('lspconfig').clangd.setup {
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end,
+}
 
 require('lualine').setup {
   options = {
@@ -12,7 +16,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_c = {
-      { gps.get_location, cond = gps.is_available },
+      { navic.get_location, cond = navic.is_available },
     },
   },
 }

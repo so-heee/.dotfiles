@@ -133,13 +133,13 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Icons
+    -- アイコン
     use {
       'kyazdani42/nvim-web-devicons',
       cond = not_vscode,
     }
 
-    -- Bufferline
+    -- バッファライン
     use {
       'akinsho/bufferline.nvim',
       after = 'nvim-web-devicons',
@@ -149,32 +149,22 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- File explorer
+    -- ファイルエクスプローラー
     use {
       'kyazdani42/nvim-tree.lua',
       config = "require('config.nvim-tree')",
       cond = not_vscode,
     }
 
-    -- Statusline
+    -- ステータスライン
     use {
       'nvim-lualine/lualine.nvim',
-      after = { 'nvim-treesitter', 'nvim-gps' },
+      after = { 'nvim-treesitter','nvim-navic' },
       config = "require('config.lualine')",
       cond = not_vscode,
     }
 
-    use {
-      'SmiteshP/nvim-gps',
-      requires = 'nvim-treesitter/nvim-treesitter',
-      config = function()
-        require('nvim-gps').setup()
-      end,
-      after = { 'nvim-treesitter' },
-      cond = not_vscode,
-    }
-
-    -- Syntax highlighting
+    -- シンタックスハイライト
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
@@ -188,7 +178,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Completion engine
+    -- 補完
     use {
       'hrsh7th/nvim-cmp',
       requires = {
@@ -215,19 +205,19 @@ return packer.startup {
       run = './install.sh',
     }
 
-    -- Snippet collection
+    -- スニペットコレクション
     use {
       'rafamadriz/friendly-snippets',
     }
 
-    -- Snippet engine
+    -- スニペットエンジン
     use {
       'L3MON4D3/LuaSnip',
       after = 'friendly-snippets',
       config = "require('config.luasnip')",
     }
 
-    -- Autopairs
+    -- 自動ペアリング
     use {
       'windwp/nvim-autopairs',
       event = 'InsertEnter',
@@ -235,7 +225,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Built-in LSP
+    -- ビルドインLSP
     use {
       'neovim/nvim-lspconfig',
       requires = {
@@ -257,7 +247,12 @@ return packer.startup {
 
     use { 'b0o/schemastore.nvim', cond = not_vscode }
 
-    -- LSP symbols
+    use {
+      'SmiteshP/nvim-navic',
+      cond = not_vscode,
+    }
+
+    -- LSP シンボル
     use {
       'simrat39/symbols-outline.nvim',
       setup = function()
@@ -266,7 +261,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Formatting and linting
+    -- フォーマッタ
     use {
       'jose-elias-alvarez/null-ls.nvim',
       after = 'nvim-lsp-installer',
@@ -274,6 +269,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    -- エラー一覧
     use {
       'folke/trouble.nvim',
       after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
@@ -283,6 +279,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    -- LSP読み込みUI
     use {
       'j-hui/fidget.nvim',
       after = 'nvim-lsp-installer',
@@ -292,7 +289,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Fuzzy finder
+    -- あいまい検索
     use {
       'nvim-telescope/telescope.nvim',
       event = 'VimEnter',
@@ -300,7 +297,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Git integration
+    -- Git
     use {
       'lewis6991/gitsigns.nvim',
       requires = {
@@ -312,14 +309,14 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Start screen
+    -- スタート画面
     use {
       'goolord/alpha-nvim',
       config = "require('config.alpha')",
       cond = not_vscode,
     }
 
-    -- Color highlighting
+    -- カラーコードのハイライト
     use {
       'norcalli/nvim-colorizer.lua',
       config = function()
@@ -328,14 +325,14 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Terminal
+    -- ターミナル
     use {
       'akinsho/toggleterm.nvim',
       config = "require('config.toggleterm')",
       cond = not_vscode,
     }
 
-    -- Commenting
+    -- コメント
     use {
       'numToStr/Comment.nvim',
       config = function()
@@ -343,21 +340,21 @@ return packer.startup {
       end,
     }
 
-    -- Indentation
+    -- インデントの強調表示
     use {
       'lukas-reineke/indent-blankline.nvim',
       config = "require('config.indentline')",
       cond = not_vscode,
     }
 
-    -- Keymaps popup
+    -- キーマップのポップアップ
     use {
       'folke/which-key.nvim',
       config = "require('config.whichkey')",
       cond = not_vscode,
     }
 
-    -- Smooth scrolling
+    -- スクロールをスムーズにする
     use {
       'karb94/neoscroll.nvim',
       config = function()
@@ -366,7 +363,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- Smooth escaping
+    -- エスケープをスムーズにする
     use {
       'max397574/better-escape.nvim',
       event = { 'InsertEnter' },
@@ -376,18 +373,21 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    -- Goプラグイン
     use {
       'ray-x/go.nvim',
       config = "require('config.go')",
       cond = not_vscode,
     }
 
+    -- Markdownプレビュー
     use {
       'iamcco/markdown-preview.nvim',
       run = 'cd app && yarn install',
       cond = not_vscode,
     }
 
+    -- TODOコメントのハイライト
     use {
       'folke/todo-comments.nvim',
       requires = 'nvim-lua/plenary.nvim',
@@ -398,11 +398,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    use {
-      'tversteeg/registers.nvim',
-      cond = not_vscode,
-    }
-
+    -- スクロールバー
     use {
       'petertriho/nvim-scrollbar',
       requires = 'kevinhwang91/nvim-hlslens',
@@ -410,6 +406,7 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    -- 行ジャンプピーク
     use {
       'nacro90/numb.nvim',
       config = function()
@@ -418,12 +415,14 @@ return packer.startup {
       cond = not_vscode,
     }
 
+    -- キーワードハイライト
     use {
       'yamatsum/nvim-cursorline',
       config = "require('config.nvim-cursorline')",
       cond = not_vscode,
     }
 
+    -- 検索パネル
     use {
       'nvim-pack/nvim-spectre',
       config = "require('config.nvim-spectre')",
