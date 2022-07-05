@@ -159,9 +159,14 @@ return packer.startup {
     -- ステータスライン
     use {
       'nvim-lualine/lualine.nvim',
-      after = { 'nvim-treesitter','nvim-navic' },
+      after = { 'nvim-treesitter' },
       config = "require('config.lualine')",
       cond = not_vscode,
+    }
+
+    use {
+      'SmiteshP/nvim-navic',
+      requires = 'neovim/nvim-lspconfig',
     }
 
     -- シンタックスハイライト
@@ -246,11 +251,6 @@ return packer.startup {
     }
 
     use { 'b0o/schemastore.nvim', cond = not_vscode }
-
-    use {
-      'SmiteshP/nvim-navic',
-      cond = not_vscode,
-    }
 
     -- LSP シンボル
     use {
