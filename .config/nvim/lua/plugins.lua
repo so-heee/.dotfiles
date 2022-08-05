@@ -235,7 +235,8 @@ return packer.startup {
       'neovim/nvim-lspconfig',
       requires = {
         -- LSP manager
-        'williamboman/nvim-lsp-installer',
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
         'ray-x/lsp_signature.nvim',
         'tami5/lspsaga.nvim',
         'folke/lsp-colors.nvim',
@@ -249,9 +250,9 @@ return packer.startup {
       after = { 'nvim-lspconfig' },
       cond = not_vscode,
     }
-
+    
     use { 'b0o/schemastore.nvim', cond = not_vscode }
-
+    
     -- LSP シンボル
     use {
       'simrat39/symbols-outline.nvim',
@@ -264,7 +265,7 @@ return packer.startup {
     -- フォーマッタ
     use {
       'jose-elias-alvarez/null-ls.nvim',
-      after = 'nvim-lsp-installer',
+      after = 'mason',
       config = "require('config.null-ls')",
       cond = not_vscode,
     }
@@ -272,7 +273,7 @@ return packer.startup {
     -- エラー一覧
     use {
       'folke/trouble.nvim',
-      after = { 'nvim-lsp-installer', 'lsp-colors.nvim' },
+      after = { 'mason', 'lsp-colors.nvim' },
       config = function()
         require('trouble').setup()
       end,
@@ -282,7 +283,7 @@ return packer.startup {
     -- LSP読み込みUI
     use {
       'j-hui/fidget.nvim',
-      after = 'nvim-lsp-installer',
+      after = 'mason',
       config = function()
         require('fidget').setup()
       end,
