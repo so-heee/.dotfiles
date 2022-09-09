@@ -38,3 +38,6 @@ alias ch='cheat -p personal'
 alias -g F='| fzf'
 
 alias lg='lazygit -ucd ~/.config/lazygit'
+
+alias tmux='tmux -u'
+alias tm='tmux -u'
