@@ -69,3 +69,13 @@ g.did_install_syntax_menu = 1
 vim.cmd 'filetype plugin indent on'
 g.syntax_on = true
 opt.termguicolors = true
+
+--------------------------------------
+-- 背景透過
+--------------------------------------
+vim.cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
