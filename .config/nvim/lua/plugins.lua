@@ -41,19 +41,11 @@ return packer.startup {
     -- ヤンク時にハイライト
     use 'machakann/vim-highlightedyank'
 
-    -- スクリーンショット
-    use 'segeljakt/vim-silicon'
-
     -- 選択領域
     use {
       'terryma/vim-expand-region',
-      config = "require('config.vim-expand-region')",
+      config = "require('plugins.vim-expand-region')",
     }
-
-    -- use {
-    --   'blackCauldron7/surround.nvim',
-    --   config = "require('config.surround')",
-    -- }
 
     -- Nvim Only
 
@@ -101,43 +93,14 @@ return packer.startup {
     --   end,
     -- }
 
-    -- Neovimの高速化
-    use {
-      'lewis6991/impatient.nvim',
-      config = function()
-        require('impatient').enable_profile()
-      end,
-      cond = not_vscode,
-    }
-
     -- Lua functions
     use { 'nvim-lua/plenary.nvim', cond = not_vscode }
 
     -- Popup API
     use { 'nvim-lua/popup.nvim', cond = not_vscode }
 
-    -- Notification Enhancer
-    use {
-      'rcarriga/nvim-notify',
-      config = "require('config.notify')",
-      cond = not_vscode,
-    }
-
-    -- Cursorhold fix
-    use {
-      'antoinemadec/FixCursorHold.nvim',
-      event = { 'BufRead', 'BufNewFile' },
-      config = function()
-        vim.g.cursorhold_updatetime = 100
-      end,
-      cond = not_vscode,
-    }
-
     -- アイコン
-    use {
-      'kyazdani42/nvim-web-devicons',
-      cond = not_vscode,
-    }
+    use { 'kyazdani42/nvim-web-devicons', cond = not_vscode }
 
     -- バッファライン
     use {
@@ -152,149 +115,54 @@ return packer.startup {
     -- ファイルエクスプローラー
     use {
       'kyazdani42/nvim-tree.lua',
-      config = "require('config.nvim-tree')",
+      config = "require('plugins.nvim-tree')",
       cond = not_vscode,
-    }
-
-    -- ステータスライン
-    use {
-      'nvim-lualine/lualine.nvim',
-      after = { 'nvim-treesitter' },
-      config = "require('config.lualine')",
-      cond = not_vscode,
-    }
-
-    use {
-      'SmiteshP/nvim-navic',
-      requires = 'neovim/nvim-lspconfig',
     }
 
     -- シンタックスハイライト
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      config = "require('config.treesitter')",
+      config = "require('plugins.treesitter')",
       cond = not_vscode,
     }
 
+    -- use {
+    --   'nvim-treesitter/nvim-treesitter-textobjects',
+    --   after = { 'nvim-treesitter' },
+    --   cond = not_vscode,
+    -- }
+
+    -- ステータスライン
     use {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      after = { 'nvim-treesitter' },
+      'nvim-lualine/lualine.nvim',
+      config = "require('plugins.lualine')",
       cond = not_vscode,
-    }
-
-    -- 補完
-    use {
-      'hrsh7th/nvim-cmp',
-      requires = {
-        -- LSP completion source
-        'hrsh7th/cmp-nvim-lsp',
-        -- Buffer completion source
-        'hrsh7th/cmp-buffer',
-        -- Snippet completion source
-        'saadparwaiz1/cmp_luasnip',
-        -- Path completion source
-        'hrsh7th/cmp-path',
-        -- Commadline completion source
-        'hrsh7th/cmp-cmdline',
-        -- Neovim Lua API completion source
-        'hrsh7th/cmp-nvim-lua',
-        'onsails/lspkind-nvim',
-      },
-      after = { 'LuaSnip' },
-      config = "require('config.cmp')",
-    }
-
-    use {
-      'tzachar/cmp-tabnine',
-      run = './install.sh',
-    }
-
-    -- スニペットコレクション
-    use {
-      'rafamadriz/friendly-snippets',
-    }
-
-    -- スニペットエンジン
-    use {
-      'L3MON4D3/LuaSnip',
-      after = 'friendly-snippets',
-      config = "require('config.luasnip')",
     }
 
     -- 自動ペアリング
     use {
       'windwp/nvim-autopairs',
       event = 'InsertEnter',
-      config = "require('config.autopairs')",
-      cond = not_vscode,
-    }
-
-    -- ビルドインLSP
-    use {
-      'neovim/nvim-lspconfig',
-      requires = {
-        -- LSP manager
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        'ray-x/lsp_signature.nvim',
-        'tami5/lspsaga.nvim',
-        'folke/lsp-colors.nvim',
-        'ray-x/lsp_signature.nvim',
-      },
-      config = "require('config.lsp')",
-    }
-
-    use {
-      'tamago324/nlsp-settings.nvim',
-      after = { 'nvim-lspconfig' },
-      cond = not_vscode,
-    }
-    
-    use { 'b0o/schemastore.nvim', cond = not_vscode }
-    
-    -- LSP シンボル
-    use {
-      'simrat39/symbols-outline.nvim',
-      setup = function()
-        vim.g.symbols_outline = { auto_close = true }
-      end,
-      cond = not_vscode,
-    }
-
-    -- フォーマッタ
-    use {
-      'jose-elias-alvarez/null-ls.nvim',
-      after = 'mason',
-      config = "require('config.null-ls')",
+      config = "require('plugins.autopairs')",
       cond = not_vscode,
     }
 
     -- エラー一覧
-    use {
-      'folke/trouble.nvim',
-      after = { 'mason', 'lsp-colors.nvim' },
-      config = function()
-        require('trouble').setup()
-      end,
-      cond = not_vscode,
-    }
-
-    -- LSP読み込みUI
-    use {
-      'j-hui/fidget.nvim',
-      after = 'mason',
-      config = function()
-        require('fidget').setup()
-      end,
-      cond = not_vscode,
-    }
+    -- use {
+    --   'folke/trouble.nvim',
+    --   after = { 'mason', 'lsp-colors.nvim' },
+    --   config = function()
+    --     require('trouble').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
 
     -- あいまい検索
     use {
       'nvim-telescope/telescope.nvim',
       event = 'VimEnter',
-      config = "require('config.telescope')",
+      config = "require('plugins.telescope')",
       cond = not_vscode,
     }
 
@@ -310,26 +178,10 @@ return packer.startup {
       cond = not_vscode,
     }
 
-    -- スタート画面
-    use {
-      'goolord/alpha-nvim',
-      config = "require('config.alpha')",
-      cond = not_vscode,
-    }
-
-    -- カラーコードのハイライト
-    use {
-      'norcalli/nvim-colorizer.lua',
-      config = function()
-        require('colorizer').setup()
-      end,
-      cond = not_vscode,
-    }
-
     -- ターミナル
     use {
       'akinsho/toggleterm.nvim',
-      config = "require('config.toggleterm')",
+      config = "require('plugins.toggleterm')",
       cond = not_vscode,
     }
 
@@ -344,98 +196,199 @@ return packer.startup {
     -- インデントの強調表示
     use {
       'lukas-reineke/indent-blankline.nvim',
-      config = "require('config.indentline')",
+      config = "require('plugins.indentline')",
       cond = not_vscode,
     }
 
     -- キーマップのポップアップ
     use {
       'folke/which-key.nvim',
-      config = "require('config.whichkey')",
+      config = "require('plugins.whichkey')",
       cond = not_vscode,
     }
 
-    -- スクロールをスムーズにする
-    use {
-      'karb94/neoscroll.nvim',
-      config = function()
-        require('neoscroll').setup()
-      end,
-      cond = not_vscode,
-    }
-
-    -- エスケープをスムーズにする
-    use {
-      'max397574/better-escape.nvim',
-      event = { 'InsertEnter' },
-      config = function()
-        require('better_escape').setup()
-      end,
-      cond = not_vscode,
-    }
-
-    -- Goプラグイン
-    use {
-      'ray-x/go.nvim',
-      config = "require('config.go')",
-      cond = not_vscode,
-    }
-
-    -- Markdownプレビュー
-    use {
-      'iamcco/markdown-preview.nvim',
-      run = 'cd app && yarn install',
-      cond = not_vscode,
-    }
-
-    -- TODOコメントのハイライト
-    use {
-      'folke/todo-comments.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      event = 'VimEnter',
-      config = function()
-        require('todo-comments').setup()
-      end,
-      cond = not_vscode,
-    }
+    -- -- Markdownプレビュー
+    -- use {
+    --   'iamcco/markdown-preview.nvim',
+    --   run = 'cd app && yarn install',
+    --   cond = not_vscode,
+    -- }
 
     -- スクロールバー
     use {
       'petertriho/nvim-scrollbar',
-      requires = 'kevinhwang91/nvim-hlslens',
-      config = "require('config.scrollbar')",
+      config = "require('plugins.scrollbar')",
       cond = not_vscode,
     }
 
-    -- 行ジャンプピーク
+    -- Snippet collection
+    use { 'rafamadriz/friendly-snippets' }
+    -- Snippet engine
+    use { 'L3MON4D3/LuaSnip' }
+    -- Completion engine
     use {
-      'nacro90/numb.nvim',
-      config = function()
-        require('numb').setup()
-      end,
-      cond = not_vscode,
+      'hrsh7th/nvim-cmp',
+      config = "require('plugins.lsp.nvim-cmp')",
+    }
+    -- Snippet completion source
+    use { 'saadparwaiz1/cmp_luasnip' }
+    -- Buffer completion source
+    use { 'hrsh7th/cmp-buffer' }
+    -- Path completion source
+    use { 'hrsh7th/cmp-path' }
+    -- Commadline completion source
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'tzachar/cmp-tabnine', run = './install.sh' }
+    -- LSP completion source
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    -- LSP Icons
+    use {
+      'onsails/lspkind-nvim',
+      config = "require('plugins.lsp.lspkind')",
     }
 
-    -- キーワードハイライト
+    -- Built-in LSP
     use {
-      'yamatsum/nvim-cursorline',
-      config = "require('config.nvim-cursorline')",
-      cond = not_vscode,
+      'neovim/nvim-lspconfig',
+      config = "require('plugins.lsp.lspconfig')",
+    }
+    -- Package Manager
+    use {
+      'williamboman/mason.nvim',
+      config = "require('plugins.lsp.mason')",
+    }
+    -- LSP manager
+    use { 'williamboman/mason-lspconfig.nvim' }
+    use { 'SmiteshP/nvim-navic' }
+    use { 'ray-x/lsp_signature.nvim' }
+    use { 'glepnir/lspsaga.nvim' }
+    use { 'folke/lsp-colors.nvim' }
+    -- Formatting and linting
+    use { 'jose-elias-alvarez/null-ls.nvim' }
+    -- null-ls manager
+    use {
+      'jayp0521/mason-null-ls.nvim',
+      config = "require('plugins.lsp.null-ls')",
     }
 
-    -- 検索パネル
-    use {
-      'nvim-pack/nvim-spectre',
-      config = "require('config.nvim-spectre')",
-      cond = not_vscode,
-    }
+    -- 一旦保留
+    -- -- スクリーンショット
+    -- use 'segeljakt/vim-silicon'
 
-    -- カーソル行のカラー
-    use {
-      'mvllow/modes.nvim',
-      config = "require('config.modes')",
-      cond = not_vscode,
-    }
+    -- use {
+    --   'blackCauldron7/surround.nvim',
+    --   config = "require('config.surround')",
+    -- }
+
+    -- -- Neovimの高速化
+    -- use {
+    --   'lewis6991/impatient.nvim',
+    --   config = function()
+    --     require('impatient').enable_profile()
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- Notification Enhancer
+    -- use {
+    --   'rcarriga/nvim-notify',
+    --   config = "require('config.notify')",
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- Cursorhold fix
+    -- use {
+    --   'antoinemadec/FixCursorHold.nvim',
+    --   event = { 'BufRead', 'BufNewFile' },
+    --   config = function()
+    --     vim.g.cursorhold_updatetime = 100
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- エスケープをスムーズにする
+    -- use {
+    --   'max397574/better-escape.nvim',
+    --   event = { 'InsertEnter' },
+    --   config = function()
+    --     require('better_escape').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- スタート画面
+    -- use {
+    --   'goolord/alpha-nvim',
+    --   config = "require('config.alpha')",
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- カラーコードのハイライト
+    -- use {
+    --   'norcalli/nvim-colorizer.lua',
+    --   config = function()
+    --     require('colorizer').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- スクロールをスムーズにする
+    -- use {
+    --   'karb94/neoscroll.nvim',
+    --   config = function()
+    --     require('neoscroll').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- Goプラグイン
+    -- use {
+    --   'ray-x/go.nvim',
+    --   config = "require('config.go')",
+    --   cond = not_vscode,
+    -- }
+    --
+    --
+    -- -- 行ジャンプピーク
+    -- use {
+    --   'nacro90/numb.nvim',
+    --   config = function()
+    --     require('numb').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- キーワードハイライト
+    -- use {
+    --   'yamatsum/nvim-cursorline',
+    --   config = "require('config.nvim-cursorline')",
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- 検索パネル
+    -- use {
+    --   'nvim-pack/nvim-spectre',
+    --   config = "require('config.nvim-spectre')",
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- カーソル行のカラー
+    -- use {
+    --   'mvllow/modes.nvim',
+    --   config = "require('config.modes')",
+    --   cond = not_vscode,
+    -- }
+    --
+    -- -- TODOコメントのハイライト
+    -- use {
+    --   'folke/todo-comments.nvim',
+    --   requires = 'nvim-lua/plenary.nvim',
+    --   event = 'VimEnter',
+    --   config = function()
+    --     require('todo-comments').setup()
+    --   end,
+    --   cond = not_vscode,
+    -- }
 
     if Packer_bootstrap then
       require('packer').sync()
