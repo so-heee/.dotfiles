@@ -11,6 +11,7 @@ opt.shortmess:append 'c'
 opt.showmatch = true -- 対応する括弧をハイライト表示する
 opt.visualbell = true -- ビープ無効
 opt.whichwrap = 'h,l,b,<,>,[,]' --カーソル行を行頭、行末で止まらないように
+opt.shortmess = opt.shortmess + 'I' -- スプラッシュ画面を表示しない
 
 --------------------------------------
 -- visual settings
@@ -73,9 +74,9 @@ opt.termguicolors = true
 --------------------------------------
 -- 背景透過
 --------------------------------------
-vim.cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
-vim.cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
-vim.cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
-vim.cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
-vim.cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
-vim.cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
+vim.cmd 'au ColorScheme * hi Normal ctermbg=none guibg=none'
+vim.cmd 'au ColorScheme * hi SignColumn ctermbg=none guibg=none'
+vim.cmd 'au ColorScheme * hi NormalNC ctermbg=none guibg=none'
+vim.cmd 'au ColorScheme * hi MsgArea ctermbg=none guibg=none'
+vim.cmd 'au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none'
+vim.cmd 'au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none'
