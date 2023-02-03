@@ -63,7 +63,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'cmp_tabnine' },
+    -- { name = 'cmp_tabnine' },
     { name = 'treesitter' },
   },
   experimental = {
@@ -79,7 +79,7 @@ cmp.setup {
         path = '[Path]',
         -- vsnip = '[Vsnip]',
         luasnip = '[Snip]',
-        cmp_tabnine = '[TabNine]',
+        -- cmp_tabnine = '[TabNine]',
         treesitter = '[Treesitter]',
         -- ultisnips = '[UltiSnip]',
       },
