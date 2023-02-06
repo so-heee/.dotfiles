@@ -11,6 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local isVscode = function()
+  return vim.g.vscode == nil
+end
+
 require('lazy').setup {
   {
     'folke/tokyonight.nvim',
@@ -25,13 +29,23 @@ require('lazy').setup {
       require 'plugins.vim-expand-region'
     end,
   },
+  -- 自動ペアリング
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = "require('plugins.autopairs')",
+    cond = isVscode(),
+  },
   {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
     end,
   },
-  { 'nvim-lua/popup.nvim' },
+  {
+    'nvim-lua/popup.nvim',
+    cond = isVscode(),
+  },
   -- Bufferline
   {
     'akinsho/bufferline.nvim',
@@ -41,6 +55,7 @@ require('lazy').setup {
     config = function()
       require('bufferline').setup()
     end,
+    cond = isVscode(),
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -51,6 +66,7 @@ require('lazy').setup {
     config = function()
       require 'plugins.lualine'
     end,
+    cond = isVscode(),
   },
   -- Treesitter
   {
@@ -59,6 +75,7 @@ require('lazy').setup {
     config = function()
       require 'plugins.treesitter'
     end,
+    cond = isVscode(),
   },
   --NvimTree
   {
@@ -67,6 +84,7 @@ require('lazy').setup {
     config = function()
       require 'plugins.nvim-tree'
     end,
+    cond = isVscode(),
   },
   -- Telescope
   {
@@ -77,13 +95,50 @@ require('lazy').setup {
     config = function()
       require 'plugins.telescope'
     end,
+    cond = isVscode(),
   },
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require 'plugins.indentline'
     end,
+    cond = isVscode(),
   },
+  -- キーマップのポップアップ
+  {
+    'folke/which-key.nvim',
+    config = function()
+      require 'plugins.whichkey'
+    end,
+    cond = isVscode(),
+  },
+
+  -- LSP
+  -- {
+  --   'VonHeikemen/lsp-zero.nvim',
+  --   dependencies = {
+  --     -- LSP Support
+  --     { 'neovim/nvim-lspconfig' }, -- Required
+  --     { 'williamboman/mason.nvim' }, -- Optional
+  --     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+  --
+  --     -- Autocompletion
+  --     { 'hrsh7th/nvim-cmp' }, -- Required
+  --     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+  --     { 'hrsh7th/cmp-buffer' }, -- Optional
+  --     { 'hrsh7th/cmp-path' }, -- Optional
+  --     { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+  --     { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+  --
+  --     -- Snippets
+  --     { 'L3MON4D3/LuaSnip' }, -- Required
+  --     { 'rafamadriz/friendly-snippets' }, -- Optional
+  --   },
+  --   -- event = "InsertEnter",
+  --   config = function()
+  --     require 'plugins.lsp'
+  --   end,
+  -- },
 
   -- Snippet collection
   { 'rafamadriz/friendly-snippets' },
@@ -93,7 +148,7 @@ require('lazy').setup {
   {
     'hrsh7th/nvim-cmp',
     config = function()
-      require 'plugins.lsp.nvim-cmp'
+      require 'plugins.lsp2.nvim-cmp'
     end,
   },
   -- Snippet completion source
@@ -110,7 +165,7 @@ require('lazy').setup {
   {
     'onsails/lspkind-nvim',
     config = function()
-      require 'plugins.lsp.lspkind'
+      require 'plugins.lsp2.lspkind'
     end,
   },
 
@@ -118,14 +173,14 @@ require('lazy').setup {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require 'plugins.lsp.lspconfig'
+      require 'plugins.lsp2.lspconfig'
     end,
   },
   -- Package Manager
   {
     'williamboman/mason.nvim',
     config = function()
-      require 'plugins.lsp.mason'
+      require 'plugins.lsp2.mason'
     end,
   },
   -- LSP manager
@@ -140,7 +195,7 @@ require('lazy').setup {
   {
     'jayp0521/mason-null-ls.nvim',
     config = function()
-      require 'plugins.lsp.null-ls'
+      require 'plugins.lsp2.null-ls'
     end,
   },
 }
