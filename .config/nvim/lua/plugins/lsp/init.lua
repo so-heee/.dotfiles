@@ -1,1 +1,5 @@
 require 'plugins/lsp/lsp'
+require 'plugins/lsp/lspkind'
+require 'plugins/lsp/lspsaga'
+require 'plugins/lsp/null-ls'
+require 'plugins/lsp/nvim-cmp'

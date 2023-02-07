@@ -104,6 +104,25 @@ require('lazy').setup {
     end,
     cond = isVscode(),
   },
+  -- スクロールバー
+  {
+    'petertriho/nvim-scrollbar',
+    config = function()
+      require 'plugins.scrollbar'
+    end,
+    cond = isVscode(),
+  },
+  -- Git
+  {
+    'lewis6991/gitsigns.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('gitsigns').setup()
+    end,
+    cond = isVscode(),
+  },
   -- キーマップのポップアップ
   {
     'folke/which-key.nvim',
@@ -114,88 +133,98 @@ require('lazy').setup {
   },
 
   -- LSP
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    dependencies = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' }, -- Required
+      { 'williamboman/mason.nvim' }, -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { 'SmiteshP/nvim-navic' },
+      { 'ray-x/lsp_signature.nvim' },
+      { 'glepnir/lspsaga.nvim' },
+      { 'folke/lsp-colors.nvim' },
+
+      -- Formmater
+      { 'jose-elias-alvarez/null-ls.nvim' },
+      { 'jay-babu/mason-null-ls.nvim' },
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' }, -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'hrsh7th/cmp-buffer' }, -- Optional
+      { 'hrsh7th/cmp-path' }, -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+      { 'onsails/lspkind-nvim' },
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' }, -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
+    },
+    -- event = "InsertEnter",
+    config = function()
+      require 'plugins.lsp'
+    end,
+    cond = isVscode(),
+  },
+
+  -- -- Snippet collection
+  -- { 'rafamadriz/friendly-snippets' },
+  -- -- Snippet engine
+  -- { 'L3MON4D3/LuaSnip' },
+  -- -- Completion engine
   -- {
-  --   'VonHeikemen/lsp-zero.nvim',
-  --   dependencies = {
-  --     -- LSP Support
-  --     { 'neovim/nvim-lspconfig' }, -- Required
-  --     { 'williamboman/mason.nvim' }, -- Optional
-  --     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-  --
-  --     -- Autocompletion
-  --     { 'hrsh7th/nvim-cmp' }, -- Required
-  --     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-  --     { 'hrsh7th/cmp-buffer' }, -- Optional
-  --     { 'hrsh7th/cmp-path' }, -- Optional
-  --     { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-  --     { 'hrsh7th/cmp-nvim-lua' }, -- Optional
-  --
-  --     -- Snippets
-  --     { 'L3MON4D3/LuaSnip' }, -- Required
-  --     { 'rafamadriz/friendly-snippets' }, -- Optional
-  --   },
-  --   -- event = "InsertEnter",
+  --   'hrsh7th/nvim-cmp',
   --   config = function()
-  --     require 'plugins.lsp'
+  --     require 'plugins.lsp2.nvim-cmp'
   --   end,
   -- },
-
-  -- Snippet collection
-  { 'rafamadriz/friendly-snippets' },
-  -- Snippet engine
-  { 'L3MON4D3/LuaSnip' },
-  -- Completion engine
-  {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require 'plugins.lsp2.nvim-cmp'
-    end,
-  },
-  -- Snippet completion source
-  { 'saadparwaiz1/cmp_luasnip' },
-  -- Buffer completion source
-  { 'hrsh7th/cmp-buffer' },
-  -- Path completion source
-  { 'hrsh7th/cmp-path' },
-  -- Commadline completion source
-  { 'hrsh7th/cmp-cmdline' },
-  -- LSP completion source
-  { 'hrsh7th/cmp-nvim-lsp' },
-  -- LSP Icons
-  {
-    'onsails/lspkind-nvim',
-    config = function()
-      require 'plugins.lsp2.lspkind'
-    end,
-  },
-
-  -- Built-in LSP
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require 'plugins.lsp2.lspconfig'
-    end,
-  },
-  -- Package Manager
-  {
-    'williamboman/mason.nvim',
-    config = function()
-      require 'plugins.lsp2.mason'
-    end,
-  },
-  -- LSP manager
-  { 'williamboman/mason-lspconfig.nvim' },
-  { 'SmiteshP/nvim-navic' },
-  { 'ray-x/lsp_signature.nvim' },
-  { 'glepnir/lspsaga.nvim' },
-  { 'folke/lsp-colors.nvim' },
-  -- Formatting and linting
-  { 'jose-elias-alvarez/null-ls.nvim' },
-  -- null-ls manager
-  {
-    'jayp0521/mason-null-ls.nvim',
-    config = function()
-      require 'plugins.lsp2.null-ls'
-    end,
-  },
+  -- -- Snippet completion source
+  -- { 'saadparwaiz1/cmp_luasnip' },
+  -- -- Buffer completion source
+  -- { 'hrsh7th/cmp-buffer' },
+  -- -- Path completion source
+  -- { 'hrsh7th/cmp-path' },
+  -- -- Commadline completion source
+  -- { 'hrsh7th/cmp-cmdline' },
+  -- -- LSP completion source
+  -- { 'hrsh7th/cmp-nvim-lsp' },
+  -- -- LSP Icons
+  -- {
+  --   'onsails/lspkind-nvim',
+  --   config = function()
+  --     require 'plugins.lsp2.lspkind'
+  --   end,
+  -- },
+  --
+  -- -- Built-in LSP
+  -- {
+  --   'neovim/nvim-lspconfig',
+  --   config = function()
+  --     require 'plugins.lsp2.lspconfig'
+  --   end,
+  -- },
+  -- -- Package Manager
+  -- {
+  --   'williamboman/mason.nvim',
+  --   config = function()
+  --     require 'plugins.lsp2.mason'
+  --   end,
+  -- },
+  -- -- LSP manager
+  -- { 'williamboman/mason-lspconfig.nvim' },
+  -- { 'SmiteshP/nvim-navic' },
+  -- { 'ray-x/lsp_signature.nvim' },
+  -- { 'glepnir/lspsaga.nvim' },
+  -- { 'folke/lsp-colors.nvim' },
+  -- -- Formatting and linting
+  -- { 'jose-elias-alvarez/null-ls.nvim' },
+  -- -- null-ls manager
+  -- {
+  --   'jayp0521/mason-null-ls.nvim',
+  --   config = function()
+  --     require 'plugins.lsp2.null-ls'
+  --   end,
+  -- },
 }
