@@ -131,6 +131,23 @@ require('lazy').setup {
     end,
     cond = isVscode(),
   },
+  -- ターミナル
+  {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require 'plugins.toggleterm'
+    end,
+    cond = isVscode(),
+  },
+  -- TODOコメントのハイライト
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    config = function()
+      require('todo-comments').setup()
+    end,
+    cond = isVscode(),
+  },
 
   -- LSP
   {
@@ -154,6 +171,7 @@ require('lazy').setup {
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
       { 'hrsh7th/cmp-buffer' }, -- Optional
       { 'hrsh7th/cmp-path' }, -- Optional
+      { 'hrsh7th/cmp-cmdline' },
       { 'saadparwaiz1/cmp_luasnip' }, -- Optional
       { 'hrsh7th/cmp-nvim-lua' }, -- Optional
       { 'onsails/lspkind-nvim' },
@@ -162,7 +180,6 @@ require('lazy').setup {
       { 'L3MON4D3/LuaSnip' }, -- Required
       { 'rafamadriz/friendly-snippets' }, -- Optional
     },
-    -- event = "InsertEnter",
     config = function()
       require 'plugins.lsp'
     end,
@@ -227,4 +244,13 @@ require('lazy').setup {
   --     require 'plugins.lsp2.null-ls'
   --   end,
   -- },
+
+  -- エラー一覧
+  {
+    'folke/trouble.nvim',
+    config = function()
+      require('trouble').setup()
+    end,
+    cond = isVscode(),
+  },
 }
