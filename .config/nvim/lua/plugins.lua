@@ -148,6 +148,22 @@ require('lazy').setup {
     end,
     cond = isVscode(),
   },
+  -- カラーコードのハイライト
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+    cond = isVscode(),
+  },
+  -- Markdownプレビュー
+  {
+    'iamcco/markdown-preview.nvim',
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    cond = isVscode(),
+  },
 
   -- LSP
   {
@@ -161,6 +177,7 @@ require('lazy').setup {
       { 'ray-x/lsp_signature.nvim' },
       { 'glepnir/lspsaga.nvim' },
       { 'folke/lsp-colors.nvim' },
+      { 'folke/trouble.nvim' },
 
       -- Formmater
       { 'jose-elias-alvarez/null-ls.nvim' },
@@ -244,13 +261,4 @@ require('lazy').setup {
   --     require 'plugins.lsp2.null-ls'
   --   end,
   -- },
-
-  -- エラー一覧
-  {
-    'folke/trouble.nvim',
-    config = function()
-      require('trouble').setup()
-    end,
-    cond = isVscode(),
-  },
 }
