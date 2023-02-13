@@ -16,19 +16,27 @@ local isVscode = function()
 end
 
 require('lazy').setup {
+  -- Themes
+  { 'rose-pine/neovim' },
+  { 'EdenEast/nightfox.nvim' },
   {
     'folke/tokyonight.nvim',
     config = function()
-      vim.cmd [[colorscheme tokyonight]]
+      vim.cmd [[colorscheme rose-pine]]
     end,
   },
+
+  -- ヤンクハイライト
   { 'machakann/vim-highlightedyank' },
+
+  -- 選択範囲
   {
     'terryma/vim-expand-region',
     config = function()
       require 'plugins.vim-expand-region'
     end,
   },
+
   -- 自動ペアリング
   {
     'windwp/nvim-autopairs',
@@ -164,6 +172,13 @@ require('lazy').setup {
     end,
     cond = isVscode(),
   },
+  -- Start DashBoard
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end,
+  },
 
   -- LSP
   {
@@ -202,63 +217,4 @@ require('lazy').setup {
     end,
     cond = isVscode(),
   },
-
-  -- -- Snippet collection
-  -- { 'rafamadriz/friendly-snippets' },
-  -- -- Snippet engine
-  -- { 'L3MON4D3/LuaSnip' },
-  -- -- Completion engine
-  -- {
-  --   'hrsh7th/nvim-cmp',
-  --   config = function()
-  --     require 'plugins.lsp2.nvim-cmp'
-  --   end,
-  -- },
-  -- -- Snippet completion source
-  -- { 'saadparwaiz1/cmp_luasnip' },
-  -- -- Buffer completion source
-  -- { 'hrsh7th/cmp-buffer' },
-  -- -- Path completion source
-  -- { 'hrsh7th/cmp-path' },
-  -- -- Commadline completion source
-  -- { 'hrsh7th/cmp-cmdline' },
-  -- -- LSP completion source
-  -- { 'hrsh7th/cmp-nvim-lsp' },
-  -- -- LSP Icons
-  -- {
-  --   'onsails/lspkind-nvim',
-  --   config = function()
-  --     require 'plugins.lsp2.lspkind'
-  --   end,
-  -- },
-  --
-  -- -- Built-in LSP
-  -- {
-  --   'neovim/nvim-lspconfig',
-  --   config = function()
-  --     require 'plugins.lsp2.lspconfig'
-  --   end,
-  -- },
-  -- -- Package Manager
-  -- {
-  --   'williamboman/mason.nvim',
-  --   config = function()
-  --     require 'plugins.lsp2.mason'
-  --   end,
-  -- },
-  -- -- LSP manager
-  -- { 'williamboman/mason-lspconfig.nvim' },
-  -- { 'SmiteshP/nvim-navic' },
-  -- { 'ray-x/lsp_signature.nvim' },
-  -- { 'glepnir/lspsaga.nvim' },
-  -- { 'folke/lsp-colors.nvim' },
-  -- -- Formatting and linting
-  -- { 'jose-elias-alvarez/null-ls.nvim' },
-  -- -- null-ls manager
-  -- {
-  --   'jayp0521/mason-null-ls.nvim',
-  --   config = function()
-  --     require 'plugins.lsp2.null-ls'
-  --   end,
-  -- },
 }
