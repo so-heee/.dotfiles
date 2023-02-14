@@ -19,10 +19,11 @@ require('lazy').setup {
   -- Themes
   { 'rose-pine/neovim' },
   { 'EdenEast/nightfox.nvim' },
+  { 'projekt0n/github-nvim-theme' },
   {
     'folke/tokyonight.nvim',
     config = function()
-      vim.cmd [[colorscheme rose-pine]]
+      vim.cmd [[colorscheme github_dark]]
     end,
   },
 
@@ -99,6 +100,10 @@ require('lazy').setup {
     'Usuim/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+      },
     },
     config = function()
       require 'plugins.telescope'
