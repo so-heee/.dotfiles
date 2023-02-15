@@ -12,7 +12,12 @@ local mappings = {
     t = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
   },
   e = { '<cmd>NvimTreeToggle<cr>', 'NvimTree' },
-  f = { '<cmd>Telescope find_files<cr>', 'Find Files' },
+  f = {
+    name = 'Telescope',
+    f = { '<cmd>Telescope find_files<cr>', 'Find Files' },
+    g = { '<cmd>Telescope live_grep<cr>', 'Grep' },
+    o = { '<cmd>Telescope oldfiles<cr>', 'Old' },
+  },
   g = {
     name = 'Git',
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', 'Lazygit' },
