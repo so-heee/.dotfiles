@@ -1,12 +1,12 @@
 local map = require('utils').map
 
-vim.cmd 'highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6'
+-- vim.cmd 'highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6'
 
 -- コメント
-map('x', 'gc', '<Plug>VSCodeCommentary')
-map('n', 'gc', '<Plug>VSCodeCommentary')
-map('o', 'gc', '<Plug>VSCodeCommentary')
-map('n', 'gcc', '<Plug>VSCodeCommentaryLine')
+-- map('x', 'gc', '<Plug>VSCodeCommentary')
+-- map('n', 'gc', '<Plug>VSCodeCommentary')
+-- map('o', 'gc', '<Plug>VSCodeCommentary')
+-- map('n', 'gcc', '<Plug>VSCodeCommentaryLine')
 
 -- -- 保存
 -- map('n', '<leader>w', '<Cmd>call VSCodeNotify("workbench.action.files.save")<CR>')
@@ -36,7 +36,7 @@ map('n', 'gcc', '<Plug>VSCodeCommentaryLine')
 --
 -- -- クイックオープン
 -- map('n', '<leader>ff', '<Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>')
--- -- grep検索
+-- grep検索
 -- map('n', '<leader>fg', '<Cmd>call VSCodeNotify("workbench.action.findInFiles")<CR>')
 -- -- エクスプローラー
 -- map('n', '<leader>e', '<Cmd>call VSCodeNotify("workbench.files.action.focusFilesExplorer")<CR>')

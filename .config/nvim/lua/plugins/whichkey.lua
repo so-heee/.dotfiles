@@ -1,10 +1,10 @@
 require('which-key').setup()
 
 local mappings = {
-  q = { ':q<cr>', 'Quit' },
-  Q = { ':q!<cr>', 'Forced Quit' },
-  w = { ':w<cr>', 'Save' },
-  x = { ':bdelete<cr>', 'Close' },
+  -- q = { ':q<cr>', 'Quit' },
+  -- Q = { ':q!<cr>', 'Forced Quit' },
+  -- w = { ':w<cr>', 'Save' },
+  -- x = { ':bdelete<cr>', 'Close' },
   t = {
     name = 'ToggleTerm',
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },

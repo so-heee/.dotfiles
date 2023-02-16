@@ -1,23 +1,35 @@
-local status, lsp = pcall(require, "lsp-zero")
-if not status then
-	return
+local lsp_status_ok, lsp = pcall(require, 'lsp-zero')
+local navic_status_ok, navic = pcall(require, 'nvim-navic')
+if not lsp_status_ok and not navic_status_ok then
+  return
 end
 
-lsp.preset("recommended")
+lsp.preset 'recommended'
 
-lsp.ensure_installed({
-	"gopls",
-	"sumneko_lua",
-})
-lsp.set_preferences({
-	sign_icons = {},
+lsp.ensure_installed {
+  'gopls',
+  'sumneko_lua',
+}
+lsp.set_preferences {
+  sign_icons = {},
+}
+
+lsp.configure('sumneko_lua', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'use', 'vim' },
+      },
+    },
+  },
 })
 
 lsp.on_attach(function(client, bufnr)
-	local opts = { noremap = true, silent = true, buffer = bufnr }
-	local keymap = vim.keymap
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local keymap = vim.keymap
+  navic.attach(client, bufnr)
 
-	-- set keybinds
+  -- set keybinds
   keymap.set('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', opts)
   keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts)

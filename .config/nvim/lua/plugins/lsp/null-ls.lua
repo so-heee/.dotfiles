@@ -5,11 +5,10 @@ if not masonnullls_status_ok then
 end
 
 masonnullls.setup {
-  sources = {
-    'luacheck',
+  ensure_installed = {
+    'stylua',
     'golangci_lint',
     'gofumpt',
-    'gopls',
     'goimports',
   },
   -- auto-install configured servers (with lspconfig)
@@ -28,12 +27,8 @@ local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 nullls.setup {
   sources = {
     formatting.stylua,
-    -- formatting.lua_format,
-    -- formatting.gofumpt,
-    formatting.gofmt,
     formatting.goimports,
-    -- diagnostics.luacheck,
-    -- diagnostics.golangci_lint,
+    diagnostics.golangci_lint,
   },
   -- configure on save
   on_attach = function(current_client, bufnr)
@@ -55,4 +50,3 @@ nullls.setup {
     end
   end,
 }
-
