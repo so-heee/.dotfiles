@@ -3,4 +3,8 @@ if not status_ok then
   return
 end
 
-lspsaga.setup()
+lspsaga.setup {
+  symbol_in_winbar = {
+    separator = ' > ',
+  },
+}
