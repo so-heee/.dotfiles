@@ -38,6 +38,14 @@ require('lazy').setup {
     end,
   },
 
+  -- ヤンクハイライト
+  {
+    'mvllow/modes.nvim',
+    config = function()
+      require 'plugins.modes'
+    end,
+  },
+
   -- 自動ペアリング
   {
     'windwp/nvim-autopairs',
