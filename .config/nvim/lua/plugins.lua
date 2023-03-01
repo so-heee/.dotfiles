@@ -17,13 +17,32 @@ end
 
 require('lazy').setup {
   -- Themes
-  { 'rose-pine/neovim' },
-  { 'EdenEast/nightfox.nvim' },
-  { 'projekt0n/github-nvim-theme' },
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('rose-pine').setup()
+  --     vim.cmd 'colorscheme rose-pine'
+  --   end,
+  -- },
+  -- {
+  --   'EdenEast/nightfox.nvim',
+  --   config = function()
+  --     vim.cmd [[colorscheme terafox]]
+  --   end,
+  -- },
+  -- {
+  --   'projekt0n/github-nvim-theme',
+  --   config = function()
+  --     vim.cmd [[colorscheme github_dark]]
+  --   end,
+  -- },
   {
     'folke/tokyonight.nvim',
     config = function()
-      vim.cmd [[colorscheme github_dark]]
+      vim.cmd [[colorscheme tokyonight]]
     end,
   },
 
@@ -95,11 +114,23 @@ require('lazy').setup {
     cond = isVscode(),
   },
   --NvimTree
+  -- {
+  --   'kyazdani42/nvim-tree.lua',
+  --   dependencies = { 'kyazdani42/nvim-web-devicons' },
+  --   config = function()
+  --     require 'plugins.nvim-tree'
+  --   end,
+  --   cond = isVscode(),
+  -- },
   {
-    'kyazdani42/nvim-tree.lua',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    'nvim-neo-tree/neo-tree.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
     config = function()
-      require 'plugins.nvim-tree'
+      require 'plugins.neo-tree'
     end,
     cond = isVscode(),
   },

@@ -11,7 +11,8 @@ local mappings = {
     h = { '<cmd>ToggleTerm size=15 direction=horizontal<cr>', ' Horizontal' },
     t = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
   },
-  e = { '<cmd>NvimTreeToggle<cr>', 'NvimTree' },
+  -- e = { '<cmd>NvimTreeToggle<cr>', 'NvimTree' },
+  e = { '<cmd>NeoTreeFocusToggle<cr>', 'NeoTree' },
   f = {
     name = 'Telescope',
     f = { '<cmd>Telescope find_files<cr>', 'Find Files' },
