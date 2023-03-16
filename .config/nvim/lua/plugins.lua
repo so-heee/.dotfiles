@@ -44,6 +44,7 @@ require('lazy').setup {
     config = function()
       vim.cmd [[colorscheme tokyonight]]
     end,
+    cond = isVscode(),
   },
 
   -- ヤンクハイライト
@@ -222,6 +223,7 @@ require('lazy').setup {
     config = function()
       require('alpha').setup(require('alpha.themes.startify').config)
     end,
+    cond = isVscode(),
   },
 
   -- LSP
