@@ -1,4 +1,4 @@
-all: install setup-zsh setup-git setup-fonts setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat
+all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat
 
 ## Show dot files in this repo
 .PHONY: list
@@ -6,8 +6,8 @@ list:
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
 # Install Homebrew Bundle
-.PHONY: install
-install:
+.PHONY: brew-install
+brew-install:
 	@./scripts/homebrew.sh
 
 # Setup Zsh
@@ -25,12 +25,6 @@ setup-git:
 setup-lazygit:
 	@./scripts/lazygit.sh
 
-## Setup Ricty Fonts
-.PHONY: setup-fonts
-setup-fonts:
-	@cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-	@fc-cache -vf
-
 # Create Workspace
 .PHONY: setup-workspace
 setup-workspace:
@@ -46,6 +40,11 @@ setup-karabiner:
 setup-asdf:
 	@./scripts/asdf.sh
 
+# Setup Broot
+.PHONY: setup-broot
+setup-broot:
+	@./scripts/broot.sh
+
 ## Setup Neovim
 .PHONY: setup-nvim
 setup-nvim:
@@ -55,6 +54,11 @@ setup-nvim:
 .PHONY: setup-kitty
 setup-kitty:
 	@./scripts/kitty.sh
+
+## Setup WezTerm
+.PHONY: setup-wezterm
+setup-wezterm:
+	@./scripts/wezterm.sh
 
 ## Setup Alacritty
 .PHONY: setup-alacritty

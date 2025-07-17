@@ -1,13 +1,24 @@
-hs.hotkey.bind({"ctrl"}, "t", function()
-    local kitty = hs.application.get("kitty")
-    if kitty == nil then
-        hs.application.launchOrFocus("/Applications/kitty.app")
-    elseif kitty:isFrontmost() then
-        kitty:hide()
+hs.hotkey.bind({ "ctrl" }, "t", function()
+    local wez = hs.application.get("WezTerm")
+    if wez == nil then
+        hs.application.launchOrFocus("/Applications/WezTerm.app")
+    elseif wez:isFrontmost() then
+        wez:hide()
     else
-        hs.application.launchOrFocus("/Applications/kitty.app")
+        hs.application.launchOrFocus("/Applications/WezTerm.app")
     end
 end)
+
+-- hs.hotkey.bind({"ctrl"}, "t", function()
+--     local kitty = hs.application.get("kitty")
+--     if kitty == nil then
+--         hs.application.launchOrFocus("/Applications/kitty.app")
+--     elseif kitty:isFrontmost() then
+--         kitty:hide()
+--     else
+--         hs.application.launchOrFocus("/Applications/kitty.app")
+--     end
+-- end)
 
 -- hs.hotkey.bind({"ctrl"}, "t", function()
 --     local alacritty = hs.application.find('alacritty')

@@ -42,9 +42,9 @@ export BAT_THEME="Dracula"
 export PATH=$HOME/.yarn/bin:$PATH
 
 #----------------------------------------
-# Setting exa
+# Setting eza
 #----------------------------------------
-export EXA_COLORS="ur=35;nnn:gr=35;nnn:tr=35;nnn:uw=34;nnn:gw=34;nnn:tw=34;nnn:ux=36;nnn:ue=36;nnn:gx=36;nnn:tx=36;nnn:uu=36;nnn"
+export LS_COLORS="ur=35;nnn:gr=35;nnn:tr=35;nnn:uw=34;nnn:gw=34;nnn:tw=34;nnn:ux=36;nnn:ue=36;nnn:gx=36;nnn:tx=36;nnn:uu=36;nnn"
 
 #----------------------------------------
 # Setting ghq
@@ -73,4 +73,4 @@ source /Users/s_mochizuki/.config/broot/launcher/bash/br
 #----------------------------------------
 # asdf
 #----------------------------------------
-. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh

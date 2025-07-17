@@ -4,9 +4,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-## exa
-alias ls='exa --group-directories-first'
-alias ll='exa -hal --git --time-style=iso --group-directories-first'
+## eza
+alias ls='eza --group-directories-first'
+alias ll='eza -hal --git --time-style=iso --group-directories-first'
+alias cat='bat'
 
 # cdの後にlsを実行
 chpwd() { ll }
@@ -41,3 +42,6 @@ alias lg='lazygit -ucd ~/.config/lazygit'
 
 alias tmux='tmux -u'
 alias tm='tmux -u'
+
+alias cu='cursor'
+
