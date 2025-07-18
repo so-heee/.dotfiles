@@ -12,6 +12,7 @@ opt.showmatch = true -- 対応する括弧をハイライト表示する
 opt.visualbell = true -- ビープ無効
 opt.whichwrap = 'h,l,b,<,>,[,]' --カーソル行を行頭、行末で止まらないように
 opt.shortmess = opt.shortmess + 'I' -- スプラッシュ画面を表示しない
+opt.wrap = false -- 折り返し無し
 
 --------------------------------------
 -- visual settings

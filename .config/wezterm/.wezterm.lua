@@ -14,9 +14,10 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 -- カラースキームの設定
--- Tokyo Night
--- Catppuccin Macchiato (Gogh)
+-- config.color_scheme = 'Tokyo Night Storm'
 config.color_scheme = 'Tokyo Night'
+-- config.color_scheme = 'Catppuccin Mocha (Gogh)'
+-- config.color_scheme = 'Catppuccin Latte (Gogh)'
 
 -- 背景透過
 config.window_background_opacity = 0.9
