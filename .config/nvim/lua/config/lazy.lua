@@ -18,9 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		-- -- ColorScheme
-		-- { import = "plugins.gruvbox" },
+		{ import = "plugins.gruvbox" },
 		-- { import = "plugins.tokyonight" },
-		{ import = "plugins.catppuccin" },
+		-- { import = "plugins.catppuccin" },
 
 		{ import = "plugins.comment" },
 		{ import = "plugins.vim-highlightedyank" },
@@ -34,6 +34,7 @@ require("lazy").setup({
 		{ import = "plugins.scrollbar" },
 		{ import = "plugins.markview" },
 		{ import = "plugins.which-key" },
+		{ import = "plugins.gitsigns" },
 		{ import = "plugins.lsp" },
 
 		-- { import = "plugins.smear-cursor" }, 動作が遅い

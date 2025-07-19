@@ -1,24 +1,24 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = {}
 
 if wezterm.config_builder then
-    config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
 -- 最初からフルスクリーンで起動
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():toggle_fullscreen()
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():toggle_fullscreen()
 end)
 
 -- カラースキームの設定
 -- config.color_scheme = 'Gruvbox (Gogh)'
--- config.color_scheme = 'Gruvbox Dark (Gogh)'
+config.color_scheme = "GruvboxDarkHard"
 -- config.color_scheme = 'Tokyo Night'
 -- config.color_scheme = 'Catppuccin Mocha (Gogh)'
-config.color_scheme = 'Catppuccin Latte (Gogh)'
+-- config.color_scheme = 'Catppuccin Latte (Gogh)'
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定
@@ -35,10 +35,10 @@ config.use_ime = true
 config.enable_tab_bar = false
 -- 余白
 config.window_padding = {
- left = 0,
- right = 0,
- top = 0,
- bottom = 0,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 
 return config

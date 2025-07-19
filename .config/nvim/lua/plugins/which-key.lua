@@ -1,7 +1,15 @@
 return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {},
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	opts = {},
+	config = function()
+		local wk = require("which-key")
+		wk.add({
+			{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "ファイル名を名前で検索", mode = "n" },
+			{ "<leader>s", "<cmd>Telescope live_grep<cr>", desc = "検索", mode = "n" },
+			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "ファイルエクスプローラー", mode = "n" },
+		})
+	end,
 }
 
 -- require('which-key').setup()
@@ -79,4 +87,3 @@ return {
 -- local opts = { prefix = '<leader>' }
 --
 -- require('which-key').register(mappings, opts)
-
