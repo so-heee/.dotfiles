@@ -27,8 +27,8 @@ map('n', '<Leader>w', ':w<CR>')
 map('n', '<Leader>q', ':q<CR>')
 map('n', '<Leader>x', ':x<CR>')
 -- 新しいタブ・ウィンドウ
-map('n', '<Leader>vs', ':vsplit<CR>')
-map('n', '<Leader>sp', ':split<CR>')
+map('n', '<Leader>\\', ':vsplit<CR>')
+map('n', '<Leader>-', ':split<CR>')
 
 ------------------------------
 -- insert mode
