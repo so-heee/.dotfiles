@@ -72,6 +72,7 @@ setup-hammerspoon:
 
 ## Setup Tmux
 .PHONY: setup-tmux
+setup-tmux:
 	@./scripts/tmux.sh
 
 ## Setup Jetbrain

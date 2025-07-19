@@ -14,19 +14,31 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 -- カラースキームの設定
--- config.color_scheme = 'Tokyo Night Storm'
-config.color_scheme = 'Tokyo Night'
+-- config.color_scheme = 'Gruvbox (Gogh)'
+-- config.color_scheme = 'Gruvbox Dark (Gogh)'
+-- config.color_scheme = 'Tokyo Night'
 -- config.color_scheme = 'Catppuccin Mocha (Gogh)'
--- config.color_scheme = 'Catppuccin Latte (Gogh)'
-
+config.color_scheme = 'Catppuccin Latte (Gogh)'
 -- 背景透過
 config.window_background_opacity = 0.9
-
 -- フォントの設定
 config.font = wezterm.font("HackGen35 Console NF", { weight = "Medium", stretch = "Normal", style = "Normal" })
-
 -- フォントサイズの設定
 config.font_size = 17
-
+-- スクロールバック行数（デフォルト3500）
+config.scrollback_lines = 7000
+-- ベル無効
+config.audible_bell = "Disabled"
+-- imeでの入力を無効化
+config.use_ime = true
+-- タブバー無効
+config.enable_tab_bar = false
+-- 余白
+config.window_padding = {
+ left = 0,
+ right = 0,
+ top = 0,
+ bottom = 0,
+}
 
 return config
