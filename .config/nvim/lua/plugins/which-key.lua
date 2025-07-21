@@ -8,6 +8,14 @@ return {
 			{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "ファイル名を名前で検索", mode = "n" },
 			{ "<leader>s", "<cmd>Telescope live_grep<cr>", desc = "検索", mode = "n" },
 			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "ファイルエクスプローラー", mode = "n" },
+			{
+				"<leader>c",
+				function()
+					require("nvim-silicon").shoot()
+				end,
+				desc = "ファイルエクスプローラー",
+				mode = "n",
+			},
 		})
 	end,
 }

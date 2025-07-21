@@ -25,3 +25,4 @@ make setup-karabiner
 - LeftCtrl+hjklで移動
 - RightCmdで英数かな切り替え
 - CapsLockをハイパーキーに設定
+- LeftCtrl+ioで行頭・行末移動

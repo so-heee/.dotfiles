@@ -44,4 +44,5 @@ alias tmux='tmux -u'
 alias tm='tmux -u'
 
 alias cu='cursor'
+alias silicon='silicon --from-clipboard -o silicon.png --theme gruvbox-dark'
 

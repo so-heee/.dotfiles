@@ -53,6 +53,33 @@
                         ]
                     },
                     {
+                        "description": "Left Ctrl + io to Home End keys",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "home" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "end" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "右コマンドキーを、英数・かなのトグルに変更する",
                         "manipulators": [
                             {
@@ -115,10 +142,6 @@
                     "simple_modifications": [
                         {
                             "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "left_command" }]
-                        },
-                        {
-                            "from": { "key_code": "left_command" },
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]

@@ -47,6 +47,7 @@ brew "zsh-completions"
 #----------------------------------------
 #cask "1password"
 #cask "appcleaner"
+cask "chatgpt"
 cask "claude"
 cask "cursor"
 cask "docker"

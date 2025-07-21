@@ -1,5 +1,4 @@
 #!/bin/bash
 
 echo "### Setting Karabiner..."
-mkdir -p ${HOME}/.config/karabiner
-ln -sfnv ${HOME}/.dotfiles/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
+ln -sfnv ${HOME}/.dotfiles/.config/karabiner ${HOME}/.config/karabiner
