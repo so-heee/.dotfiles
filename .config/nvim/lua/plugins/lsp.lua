@@ -94,7 +94,7 @@ return {
 		version = "1.*",
 		event = { "InsertEnter", "CmdLineEnter" },
 		opts = {
-			keymap = { preset = "enter" },
+			keymap = { preset = "super-tab" },
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 				providers = {

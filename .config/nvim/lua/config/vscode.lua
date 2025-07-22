@@ -1,4 +1,5 @@
-local map = require('utils').map
+-- local map = require('utils').map
+local map = vim.keymap.set
 
 -- vim.cmd 'highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6'
 

@@ -5,14 +5,59 @@ return {
 	config = function()
 		local wk = require("which-key")
 		wk.add({
-			{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "ファイル名を名前で検索", mode = "n" },
-			{ "<leader>s", "<cmd>Telescope live_grep<cr>", desc = "検索", mode = "n" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files", mode = "n" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep", mode = "n" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers", mode = "n" },
 			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "ファイルエクスプローラー", mode = "n" },
+			{ "<leader>h", "<cmd>BufferLineCyclePrev<CR>", desc = "ファイルエクスプローラー", mode = "n" },
+			{ "<leader>l", "<cmd>BufferLineCycleNext<CR>", desc = "ファイルエクスプローラー", mode = "n" },
+
+			--LSP
 			{
-				"<leader>c",
-				function()
-					require("nvim-silicon").shoot()
-				end,
+				"gd",
+				"<cmd>lua vim.lsp.buf.definition()<CR>",
+				desc = "Go to definition",
+				mode = "n",
+			},
+			{
+				"gD",
+				"<cmd>lua vim.lsp.buf.declaration()<CR>",
+				desc = "Go to declaration",
+				mode = "n",
+			},
+			{
+				"gi",
+				"<cmd>lua vim.lsp.buf.implementation()<CR>",
+				desc = "Go to implementation",
+				mode = "n",
+			},
+			{
+				"gr",
+				"<cmd>lua vim.lsp.buf.references()<CR>",
+				desc = "Go to references",
+				mode = "n",
+			},
+			{
+				"K",
+				"<cmd>lua vim.lsp.buf.hover()<CR>",
+				desc = "Show hover",
+				mode = "n",
+			},
+			{
+				"<leader>rn",
+				"<cmd>lua vim.lsp.buf.rename()<CR>",
+				desc = "Rename symbol",
+				mode = "n",
+			},
+			{
+				"<leader>ca",
+				"<cmd>lua vim.lsp.buf.code_action()<CR>",
+				desc = "Code actions",
+				mode = "n",
+			},
+			{
+				"K",
+				"<cmd>lua vim.lsp.buf.hover()<CR>",
 				desc = "ファイルエクスプローラー",
 				mode = "n",
 			},

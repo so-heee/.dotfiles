@@ -1,5 +1,9 @@
 # raycast の設定
 
+## ImportSetting
+
+Raycastの`Import Settigns & Data`を使用してdotfilesのrayconfigファイルをインポートする
+
 ## General
 
 - Hotkey の設定
@@ -20,10 +24,32 @@
 - Cmd + 4 :  
 - Cmd + 5 :  
 - Cmd + 6 :  
-- Cmd + 7 :  
-- Cmd + 8 :  
+- Cmd + 7 : EmojiPicker 
+- Cmd + 8 : RaycatNotes 
 - Cmd + 9 : GoogleTranslate  
 - Cmd + 0 : GoogleSearch
+
+## Alias
+
+- q  : QuitAllApps
+- s  : ShutDown
+- bk : SearchBookMarks
+- ca : Calender(Default)
+- ch : ClipBoardHistory
+- rn : RaycastNotes
+- th : WindowManager TopHarf
+- bh : WindowManager BottomHarf
+- lh : WindowManager LeftHarf
+- rh : WindowManager RightHarf
+- em : Search Emoji & Symbols
+- gc : GoogleCalender
+- gm : GoogleMail
+- gs : GoogleSearch
+- gt : GoogleTranslate
+
+## Official
+
+- RaycastNotes
 
 ## Extention
 

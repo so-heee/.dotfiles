@@ -1,18 +1,22 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  branch = 'master',
-  lazy = false,
-  build = ":TSUpdate",
-  opts = {
-    ensure_installed = {
-      'toml',
-      'json',
-      'yaml',
-      'go',
-      'vim',
-      'lua',
-      "markdown",
-      "markdown_inline",
-    },
-  },
+	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
+	lazy = false,
+	build = ":TSUpdate",
+	opts = {
+		ensure_installed = {
+			"toml",
+			"json",
+			"yaml",
+			"go",
+			"vim",
+			"lua",
+			"markdown",
+			"markdown_inline",
+		},
+		highlight = { enable = true },
+	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 }
