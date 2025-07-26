@@ -13,7 +13,8 @@ unsetopt bg_nice                    # 全てのバックグラウンドジョブ
 unsetopt hup                        # シェル終了時にジョブを強制終了しない
 unsetopt check_jobs                 # シェルの終了時にジョブについてレポートしない
 setopt brace_ccl                    # 範囲指定できるようにする 例 : mkdir {1-3} で フォルダ1, 2, 3を作れる
-setopt correct_all                  # コマンドライン全てのスペルチェックをする
+# setopt correct_all                  # コマンドライン全てのスペルチェックをする
+setopt nocorrect                    # スペルチェック無効
 setopt print_eight_bit              # 日本語ファイル名等8ビットを通す
 setopt magic_equal_subst            # コマンドラインの引数でも補完を有効にする（--prefix=/userなど）
 setopt auto_param_keys              # カッコの対応などを自動的に補完

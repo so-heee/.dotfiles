@@ -1,3 +1,7 @@
+local colorscheme = "gruvbox"
+-- colorscheme = "tokyonight"
+-- colorscheme = "catppuccin"
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -17,11 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		-- -- ColorScheme
-		{ import = "plugins.gruvbox" },
-		-- { import = "plugins.tokyonight" },
-		-- { import = "plugins.catppuccin" },
-
+		{ import = "plugins." .. colorscheme },
 		{ import = "plugins.comment" },
 		{ import = "plugins.vim-highlightedyank" },
 		{ import = "plugins.bufferline" },
@@ -34,12 +34,13 @@ require("lazy").setup({
 		{ import = "plugins.scrollbar" },
 		{ import = "plugins.markview" },
 		{ import = "plugins.which-key" },
+		{ import = "plugins.noice" },
 		{ import = "plugins.gitsigns" },
 		{ import = "plugins.lsp" },
 
 		-- { import = "plugins.smear-cursor" }, 動作が遅い
 	},
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { colorscheme } },
 	checker = {
 		enabled = true,
 		notify = false,

@@ -3,7 +3,6 @@ tap "homebrew/bundle"
 #----------------------------------------
 # brew
 #----------------------------------------
-brew "asdf"
 brew "bat"
 brew "broot"
 brew "cheat"
@@ -22,6 +21,7 @@ brew "jq"
 # brew "koekeishiya/formulae/skhd"
 brew "lazygit"
 brew "mas"
+brew "mise"
 brew "neofetch"
 brew "neovim"
 brew "openssl"

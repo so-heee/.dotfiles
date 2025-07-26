@@ -8,30 +8,35 @@ vim.g.maplocalleader = "\\"
 ------------------------------
 -- normal mode
 ------------------------------
+map("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 map("n", ";", ":", { desc = "Change ; to :" })
 map("n", ":", ";", { desc = "Change : to ;" })
 map("n", "j", "gj", { desc = "Move down (wrap)" })
 map("n", "k", "gk", { desc = "Move up (wrap)" })
 map("n", "gj", "j", { desc = "Move down" })
 map("n", "gk", "k", { desc = "Move up" })
-map("n", "<C-d>", "<C-d>zz", { desc = "Half page down + center" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Half page up + center" })
 map("n", "n", "nzzzv", { desc = "Next search + center" })
 map("n", "N", "Nzzzv", { desc = "Previous search + center" })
-map("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
-map("n", "<C-a>", "ggVG", { desc = "Select All" })
-map("n", "<Leader>w", ":w<CR>", { desc = "Save" })
-map("n", "<Leader>q", ":q<CR>", { desc = "Close" })
-map("n", "<Leader>x", ":x<CR>", { desc = "Save & Close" })
-map("n", "<C-w>\\", ":vsplit<CR>", { desc = "Split Window Vertical" })
-map("n", "<C-w>-", ":split<CR>", { desc = "Split Window Horizontal" })
 map("n", "Y", "y$", { desc = "End of the line Yank" })
 map("n", "x", '"_x', { desc = "Delete without yanking" })
+map("n", "<C-a>", "ggVG", { desc = "Select All" })
+map("n", "<C-w>\\", ":vsplit<CR>", { silent = true, desc = "Split Window Vertical" })
+map("n", "<C-w>-", ":split<CR>", { silent = true, desc = "Split Window Horizontal" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Half page down + center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Half page up + center" })
+map("n", "<Leader>w", ":w<CR>", { silent = true, desc = "Save" })
+map("n", "<Leader>q", ":q<CR>", { silent = true, desc = "Quit" })
+map("n", "<Leader>Q", ":qa!<CR>", { silent = true, desc = "Force Quit" })
+map("n", "<Leader>x", ":x<CR>", { silent = true, desc = "Save & Close" })
+map("n", "<Leader>bn", ":bnext<CR>", { silent = true, desc = "Next buffer" })
+map("n", "<Leader>bp", ":bprevious<CR>", { silent = true, desc = "Previous buffer" })
+map("n", "<Leader>bd", ":bdelete<CR>", { silent = true, desc = "Delete buffer" })
+map("n", "<Leader>bD", ":bdelete!<CR>", { silent = true, desc = "Force delete buffer" })
 
 ------------------------------
 -- insert mode
 ------------------------------
-map("i", "jj", "<Esc>")
+map("i", "jj", "<Esc>", { silent = true, desc = "Esc" })
 
 ------------------------------
 -- commandline mode

@@ -34,7 +34,7 @@ export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=Dracula --style=h
 #----------------------------------------
 # Setting bat
 #----------------------------------------
-export BAT_THEME="Dracula"
+export BAT_THEME="gruvbox-dark"
 
 #----------------------------------------
 # Setting yarn
@@ -71,6 +71,6 @@ eval "$(gh completion -s zsh)"
 source /Users/s_mochizuki/.config/broot/launcher/bash/br
 
 #----------------------------------------
-# asdf
+# mise
 #----------------------------------------
-. /usr/local/opt/asdf/libexec/asdf.sh
+eval "$(mise activate zsh)"

@@ -14,11 +14,13 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 -- カラースキームの設定
--- config.color_scheme = 'Gruvbox (Gogh)'
+-- config.color_scheme = "Gruvbox (Gogh)"
 config.color_scheme = "GruvboxDarkHard"
--- config.color_scheme = 'Tokyo Night'
--- config.color_scheme = 'Catppuccin Mocha (Gogh)'
--- config.color_scheme = 'Catppuccin Latte (Gogh)'
+-- config.color_scheme = "tokyonight_day"
+-- config.color_scheme = "Catppuccin Mocha (Gogh)"
+-- config.color_scheme = "Catppuccin Latte (Gogh)"
+-- config.color_scheme = "OneDark (base16)"
+
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定

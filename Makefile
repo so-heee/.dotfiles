@@ -1,4 +1,4 @@
-all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat
+all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat setup-starship
 
 ## Show dot files in this repo
 .PHONY: list
@@ -50,20 +50,20 @@ setup-broot:
 setup-nvim:
 	@./scripts/nvim.sh
 
-## Setup Kitty
-.PHONY: setup-kitty
-setup-kitty:
-	@./scripts/kitty.sh
+# ## Setup Kitty
+# .PHONY: setup-kitty
+# setup-kitty:
+# 	@./scripts/kitty.sh
+
+# ## Setup Alacritty
+# .PHONY: setup-alacritty
+# setup-alacritty:
+# 	@./scripts/alacritty.sh
 
 ## Setup WezTerm
 .PHONY: setup-wezterm
 setup-wezterm:
 	@./scripts/wezterm.sh
-
-## Setup Alacritty
-.PHONY: setup-alacritty
-setup-alacritty:
-	@./scripts/alacritty.sh
 
 ## Setup Hammerspoon
 .PHONY: setup-hammerspoon
@@ -89,3 +89,9 @@ setup-stylua:
 .PHONY: setup-cheat
 setup-cheat:
 	@./scripts/cheat.sh
+
+## Setup Starship
+.PHONY: setup-starship
+setup-starship:
+	@./scripts/starship.sh
+
