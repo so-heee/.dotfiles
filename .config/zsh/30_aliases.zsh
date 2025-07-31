@@ -40,12 +40,16 @@ alias -g F='| fzf'
 
 alias lg='lazygit -ucd ~/.config/lazygit'
 
+alias silicon='silicon --from-clipboard -o silicon.png --theme gruvbox-dark'
+
+# tmux
 alias tmux='tmux -u'
 alias tm='tmux -u'
 
+# cursor
 alias cu='cursor'
-alias silicon='silicon --from-clipboard -o silicon.png --theme gruvbox-dark'
 
+# claude
 alias cl='claude'
 alias clc='claude --continue'
 alias clr='claude --resume'
