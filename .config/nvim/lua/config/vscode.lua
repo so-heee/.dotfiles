@@ -4,12 +4,12 @@ local is_vscode = vim.g.vscode
 local vscode = is_vscode and require("vscode-neovim") or nil
 
 -- aaa
-map("n", "<leader>ff", function()
-	vscode.call("workbench.action.quickOpen")
-end, { desc = "Find files" })
-map("n", "<leader>fg", function()
-	vscode.call("workbench.action.findInFiles")
-end, { desc = "Find files" })
+-- map("n", "<leader>ff", function()
+-- 	vscode.call("workbench.action.quickOpen")
+-- end, { desc = "Find files" })
+-- map("n", "<leader>fg", function()
+-- 	vscode.call("workbench.action.findInFiles")
+-- end, { desc = "Find files" })
 
 -- vim.cmd 'highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6'
 

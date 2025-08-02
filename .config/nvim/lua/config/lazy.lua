@@ -2,6 +2,16 @@ local colorscheme = "gruvbox"
 -- colorscheme = "tokyonight"
 -- colorscheme = "catppuccin"
 
+--------------------------------------
+-- 背景透過(pluginの前でやらないといけない)
+--------------------------------------
+vim.cmd("au ColorScheme * hi Normal ctermbg=none guibg=none")
+vim.cmd("au ColorScheme * hi SignColumn ctermbg=none guibg=none")
+vim.cmd("au ColorScheme * hi NormalNC ctermbg=none guibg=none")
+vim.cmd("au ColorScheme * hi MsgArea ctermbg=none guibg=none")
+vim.cmd("au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none")
+vim.cmd("au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none")
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -23,6 +33,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins." .. colorscheme },
 		{ import = "plugins.comment" },
+		{ import = "plugins.colorizer" },
 		{ import = "plugins.vim-highlightedyank" },
 		{ import = "plugins.bufferline" },
 		{ import = "plugins.autopairs" },

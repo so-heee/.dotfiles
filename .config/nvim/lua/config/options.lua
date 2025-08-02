@@ -1,17 +1,17 @@
 local opt = vim.opt
 local g, fn = vim.g, vim.fn
 
-g.python3_host_prog = fn.system 'echo -n $(which python3)'
+g.python3_host_prog = fn.system("echo -n $(which python3)")
 
 --------------------------------------
 -- settings
 --------------------------------------
 opt.swapfile = false -- スワップファイルを作らない
-opt.shortmess:append 'c'
+opt.shortmess:append("c")
 opt.showmatch = true -- 対応する括弧をハイライト表示する
 opt.visualbell = true -- ビープ無効
-opt.whichwrap = 'h,l,b,<,>,[,]' --カーソル行を行頭、行末で止まらないように
-opt.shortmess = opt.shortmess + 'I' -- スプラッシュ画面を表示しない
+opt.whichwrap = "h,l,b,<,>,[,]" --カーソル行を行頭、行末で止まらないように
+opt.shortmess = opt.shortmess + "I" -- スプラッシュ画面を表示しない
 opt.wrap = false -- 折り返し無し
 
 --------------------------------------
@@ -20,9 +20,9 @@ opt.wrap = false -- 折り返し無し
 opt.title = true -- タイトルを表示
 opt.number = true -- 行番号を表示
 opt.cursorline = true -- 現在の行を強調表示
-opt.virtualedit = 'onemore' -- 行末の1文字先までカーソルを移動できるように
+-- opt.virtualedit = "onemore" -- 行末の1文字先までカーソルを移動できるように (aをちゃんと使う)
 opt.laststatus = 2 -- ステータスラインを常に表示
-opt.clipboard = 'unnamedplus' -- クリップボードに保存
+opt.clipboard = "unnamedplus" -- クリップボードに保存
 opt.splitbelow = true -- 新規ウィンドウは下に開く
 
 --------------------------------------
@@ -68,16 +68,6 @@ g.did_install_syntax_menu = 1
 --------------------------------------
 -- colorscheme setting(あってるか怪しい)
 --------------------------------------
-vim.cmd 'filetype plugin indent on'
+vim.cmd("filetype plugin indent on")
 g.syntax_on = true
 opt.termguicolors = true
-
---------------------------------------
--- 背景透過
---------------------------------------
-vim.cmd 'au ColorScheme * hi Normal ctermbg=none guibg=none'
-vim.cmd 'au ColorScheme * hi SignColumn ctermbg=none guibg=none'
-vim.cmd 'au ColorScheme * hi NormalNC ctermbg=none guibg=none'
-vim.cmd 'au ColorScheme * hi MsgArea ctermbg=none guibg=none'
-vim.cmd 'au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none'
-vim.cmd 'au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none'
