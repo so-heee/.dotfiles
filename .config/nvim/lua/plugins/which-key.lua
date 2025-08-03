@@ -9,8 +9,9 @@ return {
 			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep", mode = "n" },
 			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers", mode = "n" },
 			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "ファイルエクスプローラー", mode = "n" },
-			{ "<leader>h", "<cmd>BufferLineCyclePrev<CR>", desc = "ファイルエクスプローラー", mode = "n" },
-			{ "<leader>l", "<cmd>BufferLineCycleNext<CR>", desc = "ファイルエクスプローラー", mode = "n" },
+			-- { "<leader>h", "<cmd>BufferLineCyclePrev<CR>", desc = "ファイルエクスプローラー", mode = "n" },
+			-- { "<leader>l", "<cmd>BufferLineCycleNext<CR>", desc = "ファイルエクスプローラー", mode = "n" },
+			{ "<leader>m", "<cmd>Markview splitToggle<CR>", desc = "Markview", mode = "n" },
 
 			--LSP
 			{
