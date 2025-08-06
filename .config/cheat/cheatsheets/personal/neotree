@@ -1,0 +1,119 @@
+R:refresh
+a:add_file:Default-VscodeNeovim
+A:add_directory:DefaultVscodeNeovim
+d:delete
+r:rename
+y:copy_to_clipboard
+x:cut_to_clipboard
+p:paste_from_clipboard
+
+c:copy
+m:move
+
+
+<space>:toggle_node
+<cr>:open
+<esc>:"cancel
+P:toggle_preview
+<C-f>:scroll_preview
+<C-b>:scroll_preview
+l:focus_preview
+S:open_split
+s:open_vsplit
+t:open_tabnew
+w:open_with_window_picker
+C:close_node
+z:close_all_nodes
+e:toggle_auto_expand_width
+q:close_window
+?:show_help
+<:prev_source
+>:next_source
+
+
+{
+  "key": "d",
+  "command": "deleteFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+}
+{
+  "key": "a",
+  "command": "explorer.newFile",
+  "when": "filesExplorerFocus && !inputFocus"
+}
+{
+  "key": "shift+a",
+  "command": "explorer.newFolder",
+  "when": "filesExplorerFocus && !inputFocus"
+}
+{
+  "key": "shift+r",
+  "command": "workbench.files.action.refreshFilesExplorer",
+  "when": "filesExplorerFocus && !explorerFindProviderActive && !inputFocus"
+}
+{
+  "key": "r",
+  "command": "renameFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+}
+{
+  "key": "y",
+  "command": "filesExplorer.copy",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+}
+{
+  "key": "x",
+  "command": "filesExplorer.cut",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+}
+{
+  "key": "p",
+  "command": "filesExplorer.paste",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "key": "shift+alt+f",
+  "command": "filesExplorer.findInFolder",
+  "when": "explorerResourceIsFolder && filesExplorerFocus && foldersViewVisible && !inputFocus"
+}
+
+{
+  "key": "cmd+e",
+  "command": "workbench.action.toggleSidebarVisibility"
+  "when": "filesExplorerFocus && !inputFocus"
+},
+{
+  "key": "cmd+e",
+  "command": "workbench.view.explorer"
+  "when": "editorTextFocus"
+}
+
+
+{
+  "key": "shift+alt+p",
+  "command": "swagger.preview",
+  "when": "editorTextFocus"
+}
+{
+  "key": "shift+cmd+e",
+  "command": "workbench.view.explorer",
+  "when": "viewContainer.workbench.view.explorer.enabled"
+}
+
+{
+  "key": "cmd+w",
+  "command": "workbench.action.closeActiveEditor"
+}

@@ -7,11 +7,11 @@ g.python3_host_prog = fn.system("echo -n $(which python3)")
 -- settings
 --------------------------------------
 opt.swapfile = false -- スワップファイルを作らない
-opt.shortmess:append("c")
+opt.shortmess:append("c") -- 補完メッセージを短縮
+opt.shortmess = opt.shortmess + "I" -- スプラッシュ画面を表示しない
 opt.showmatch = true -- 対応する括弧をハイライト表示する
 opt.visualbell = true -- ビープ無効
 opt.whichwrap = "h,l,b,<,>,[,]" --カーソル行を行頭、行末で止まらないように
-opt.shortmess = opt.shortmess + "I" -- スプラッシュ画面を表示しない
 opt.wrap = false -- 折り返し無し
 
 --------------------------------------
@@ -66,8 +66,7 @@ g.skip_loading_mswin = 1
 g.did_install_syntax_menu = 1
 
 --------------------------------------
--- colorscheme setting(あってるか怪しい)
+-- colorscheme setting
 --------------------------------------
-vim.cmd("filetype plugin indent on")
-g.syntax_on = true
 opt.termguicolors = true
+vim.cmd("syntax enable")

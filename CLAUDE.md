@@ -25,6 +25,8 @@ make setup-karabiner
 make setup-hammerspoon
 make setup-cheat
 make setup-starship
+make setup-wezterm
+make setup-lazygit
 ```
 
 ### 開発ツール
@@ -34,6 +36,13 @@ brew bundle
 
 # Homebrewの更新
 brew update && brew doctor && brew cleanup
+
+# 利用可能なmakeターゲット一覧
+make list
+
+# 個別セットアップスクリプトの実行
+./scripts/nvim.sh
+./scripts/zsh.sh
 ```
 
 ## アーキテクチャ
@@ -52,11 +61,12 @@ brew update && brew doctor && brew cleanup
 
 ### 主要な設定エリア
 - **シェル**: カスタムエイリアス、関数、プロンプト（starship）を持つzsh
-- **エディタ**: カスタム設定を持つNeovim
-- **ターミナル**: WezTerm、tmux設定
-- **開発**: Git、lazy git、各種CLIツール
-- **macOS**: キーリマッピング用Karabiner-Elements、自動化用Hammerspoon
+- **エディタ**: カスタム設定を持つNeovim、Cursor
+- **ターミナル**: WezTerm（メイン）、tmux設定、Alacritty/Kitty設定も含む
+- **開発**: Git、LazyGit、各種CLIツール（bat、eza、fzf、ripgrep、gh、ghqなど）
+- **macOS**: キーリマッピング用Karabiner-Elements、自動化用Hammerspoon、Raycast
 - **パッケージ管理**: Homebrew（formulaeとcask）、ランタイム管理用mise
+- **AI**: ChatGPT、Claude、Gemini（GUI apps）
 
 ### シンボリックリンク管理
 セットアップスクリプトは`ln -sfnv`を使用してシンボリックリンクを作成し、以下を保証します：
@@ -67,9 +77,24 @@ brew update && brew doctor && brew cleanup
 
 ## ツール固有の注意事項
 
-- **Neovim**: 設定は`.config/nvim/`に保存、セットアップ後に手動でプラグインのインストールが必要
+- **Neovim**: 設定は`.config/nvim/`に保存、Lazy.nvimでプラグイン管理、初回起動時に自動でプラグインインストール
 - **Zsh**: oh-my-zshを使わないカスタム設定、プラグイン管理にzinitを使用
-- **Git**: diff強調表示用deltaとカスタムエイリアスを含む
+- **Git**: diff強調表示用deltaとカスタムエイリアスを含む、グローバル設定は`.config/git/`に保存
 - **Tmux**: カスタムキーバインドとステータスバー設定
-- **Karabiner**: 生産性向上のための複雑なキーリマッピングルール
+- **Karabiner**: 生産性向上のための複雑なキーリマッピングルール、設定は`.config/karabiner/`に保存
 - **Cheat**: 個人用チートシートは`.config/cheat/cheatsheets/personal/`に保存
+- **WezTerm**: メインターミナル、設定は`.config/wezterm/`に保存
+- **Starship**: シェルプロンプト、設定は`.config/starship/`に保存
+- **Hammerspoon**: macOS自動化、Luaスクリプトで設定
+
+## よく使用されるBrewfileパッケージ
+
+主要なCLIツール:
+- `bat` - catの代替（シンタックスハイライト付き）
+- `eza` - lsの代替（カラー表示）
+- `fzf` - ファジーファインダー
+- `ripgrep` - grepの代替（高速検索）
+- `gh` - GitHub CLI
+- `ghq` - リポジトリ管理
+- `lazygit` - Git TUI
+- `mise` - ランタイムバージョン管理

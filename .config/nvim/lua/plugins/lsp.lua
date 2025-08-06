@@ -1,6 +1,47 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local lspconfig = require("lspconfig")
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			-- Lua Language Server
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						runtime = {
+							version = "LuaJIT",
+						},
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+
+			-- Go Language Server
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+						gofumpt = true,
+					},
+				},
+			})
+		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -15,6 +56,7 @@ return {
 			}
 			require("mason-lspconfig").setup({
 				ensure_installed = mason_servers,
+				automatic_installation = true,
 				automatic_enable = true,
 			})
 		end,
@@ -112,5 +154,36 @@ return {
 		"folke/trouble.nvim",
 		opts = {},
 		cmd = "Trouble",
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lspsaga").setup({
+				ui = {
+					border = "rounded",
+				},
+				lightbulb = {
+					enable = false, -- コードアクション表示を無効化
+				},
+				symbol_in_winbar = {
+					enable = false, -- ウィンドウバーのシンボル表示を無効化
+				},
+			})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lsp_signature").setup({
+				max_width = 80,
+				transparency = 10,
+			})
+		end,
 	},
 }
