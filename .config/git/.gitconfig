@@ -1,20 +1,53 @@
-[core]
-	excludesfile = ~/.gitignore
-    quotepath = false
-	ignorecase = false
 [include]
-    path = ~/.dotfiles/.config/git/.gitconfig.global
+	path = ~/.dotfiles/.config/git/.gitconfig.global
 [includeIf "gitdir:~/.dotfiles/"]
-    path = ~/.dotfiles/.config/git/.gitconfig.private
+	path = ~/.dotfiles/.config/git/.gitconfig.private
+[init]
+	defaultBranch = main
+[core]
+	# エディタの指定（コミットメッセージ編集など）
+	editor = nvim
+	# 改行コードの処理
+	autocrlf = input
+	# 日本語ファイル名の文字化け防止
+	quotepath = false
+	# ページャーの設定
+	pager = delta
+	# ファイル名の大文字小文字を区別
+	ignorecase = false
+	# デフォルトの.gitignoreファイル
+	excludesfile = ~/.gitignore_global
 [color]
-    ui = auto
+	ui = auto
 [alias]
-    st = status
-    co = checkout
-    ci = commit
-    co = checkout
-    br  = branch
-    di = diff
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	df = diff
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --oneline --graph --decorate --all
+[merge]
+    ff = false
+    conflictstyle = diff3
+[pull]
+    ff = only
+[diff]
+	colorMoved = default
+[push]
+	default = simple
+# delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = gruvbox-dark
+    navigate = true
+	dark = true
+	line-numbers = true
+# ghq
+[ghq]
+    root = ~/Workspace
 # sourcetree
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -22,23 +55,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-# delta
-[core]
-    pager = delta
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    features = side-by-side line-numbers decorations
-    whitespace-error-style = 22 reverse
-    syntax-theme = Dracula
-[delta "decorations"]
-    commit-decoration-style = bold blue box ul
-    file-style = bold green ul
-    file-decoration-style = none
-    hunk-header-decoration-style = blue box
-[delta "line-numbers"]
-    line-numbers-left-style = cyan
-    line-numbers-right-style = cyan
-# ghq
-[ghq]
-    root = ~/Workspace

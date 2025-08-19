@@ -1,0 +1,337 @@
+{
+  // ****************************************************
+  // cursor config
+  // ****************************************************
+  // "workbench.activityBar.orientation": "vertical", // アクティビティバーの表示方向（縦）
+  // "workbench.panel.opensMaximized": "never", // パネル（ターミナルなど）を最大化せず開く
+  // "workbench.sideBar.location": "left", // サイドバーを左側に固定表示
+  // ===========================================
+  // エディタの基本設定
+  // ===========================================
+  "editor.fontSize": 16,
+  "editor.fontFamily": "HackGen35 Console NF",
+  "editor.inlayHints.fontFamily": "HackGen35 Console NF",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "all",
+  "editor.renderLineHighlight": "all",
+  //"editor.guides.bracketPairs": true,
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.linkedEditing": true,
+  "editor.smoothScrolling": true,
+  //"editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "solid",
+  // ===========================================
+  // 表示・UI設定
+  // ===========================================
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.enablePreview": false,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 16,
+  "workbench.editor.closeOnFileDelete": true,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.reduceMotion": "off",
+  // ===========================================
+  // コード補完・IntelliSense
+  // ===========================================
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.suggestSelection": "first",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.tabCompletion": "on",
+  // ===========================================
+  // フォーマット・整形
+  // ===========================================
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "files.trimTrailingWhitespace": true,
+  // ===========================================
+  // ファイル管理
+  // ===========================================
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/.next": true,
+    "**/dist": true
+  },
+  "search.useGlobalIgnoreFiles": true,
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/build": true,
+    "**/.nuxt": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+  // ===========================================
+  // ターミナル設定
+  // ===========================================
+  "terminal.integrated.fontSize": 17,
+  "terminal.integrated.fontFamily": "HackGen35 Console NF",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.rightClickBehavior": "paste",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.defaultLocation": "editor",
+  // ===========================================
+  // Git設定
+  // ===========================================
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.showPushSuccessNotification": true,
+  "scm.diffDecorations": "all",
+  "diffEditor.ignoreTrimWhitespace": false,
+  // ===========================================
+  // 言語別設定
+  // ===========================================
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml][yml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.autoIndent": "advanced"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[html][css][scss]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript][typescript][javascriptreact][typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  // ===========================================
+  // パフォーマンス設定
+  // ===========================================
+  "extensions.autoUpdate": false,
+  "search.followSymlinks": false,
+  "editor.suggest.localityBonus": true,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "emmet.preferences": {},
+  "emmet.variables": {},
+  // ===========================================
+  // セキュリティ・プライバシー
+  // ===========================================
+  "update.showReleaseNotes": false,
+  "extensions.ignoreRecommendations": false,
+  // ===========================================
+  // 拡張機能設定
+  // ===========================================
+  // ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.run": "onType",
+  // JavaScript・TypeScript
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  // Go
+  "go.toolsManagement.autoUpdate": true,
+  // VSCode Neovim
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim", // Neovimのパス（macOS）
+  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/s_mochizuki/.config/nvim/init.lua", // init.luaのパス
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape" // jjでESC
+    },
+    "jk": {
+      "command": "vscode-neovim.lua", // jkでESCして保存
+      "args": [
+        "vim.api.nvim_input('<ESC>')\nrequire('vscode-neovim').action('workbench.action.files.save')"
+      ]
+    }
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1 // Neovim拡張を専用プロセスに分離
+  },
+  // MultiCommand
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.openFileAndCloseExplorer",
+      "sequence": [
+        "explorer.openAndPassFocus",
+        "workbench.action.closeSidebar"
+      ]
+    }
+  ],
+  // VSCode Vim
+  // "vim.leader": "<space>",
+  // "vim.useSystemClipboard": true,
+  // "vim.hlsearch": true,
+  // "vim.normalModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": [
+  //       ";"
+  //     ],
+  //     "after": [
+  //       ":"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       ":"
+  //     ],
+  //     "after": [
+  //       ";"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "n"
+  //     ],
+  //     "after": [
+  //       "n",
+  //       "z",
+  //       "z"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "N"
+  //     ],
+  //     "after": [
+  //       "N",
+  //       "z",
+  //       "z"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "Y"
+  //     ],
+  //     "after": [
+  //       "y",
+  //       "$"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "x"
+  //     ],
+  //     "after": [
+  //       "\"",
+  //       "_",
+  //       "x"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "s"
+  //     ],
+  //     "after": [
+  //       "\"",
+  //       "_",
+  //       "s"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "<C-a>"
+  //     ],
+  //     "after": [
+  //       "g",
+  //       "g",
+  //       "V",
+  //       "G"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "<C-d>"
+  //     ],
+  //     "after": [
+  //       "<C-d>",
+  //       "z",
+  //       "z"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "<C-u>"
+  //     ],
+  //     "after": [
+  //       "<C-u>",
+  //       "z",
+  //       "z"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "s"
+  //     ],
+  //     "after": [
+  //       "\"",
+  //       "_",
+  //       "s"
+  //     ]
+  //   }
+  // ],
+  // "vim.insertModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": [
+  //       "j",
+  //       "j"
+  //     ],
+  //     "after": [
+  //       "<Esc>"
+  //     ]
+  //   }
+  // ],
+  // "docker.extension.enableComposeLanguageServer": false, // Docker Composeの言語サーバーを無効にする
+}

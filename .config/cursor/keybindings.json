@@ -1,0 +1,284 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
+[
+  // ファイルエクスプローラーでファイル選択時にエクスプローラーを自動で閉じる
+  {
+    "key": "enter",
+    "command": "multiCommand.openFileAndCloseExplorer",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  // VsCodeNeovimPluginConfigs
+  {
+    "key": "space w",
+    "command": "workbench.action.files.save",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space q",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "u",
+    "command": "undo",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "redo",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space n",
+    "command": "workbench.action.nextEditor",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space p",
+    "command": "workbench.action.previousEditor",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w \\",
+    "command": "workbench.action.splitEditorRight",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "ctrl+w -",
+    "command": "workbench.action.splitEditorDown",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "neovim.mode == 'normal' && filesExplorerFocus"
+  },
+  {
+    "key": "space e",
+    "command": "workbench.view.explorer",
+    "when": "neovim.mode == 'normal' && !filesExplorerFocus"
+  },
+  {
+    "key": "space m",
+    "command": "markdown-preview-enhanced.openPreviewToTheSide",
+    "when": "neovim.mode == 'normal' && editorLangId == 'markdown'"
+  },
+  // ファイル名検索
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "neovim.mode == 'normal'"
+  },
+  // Grep検索
+  {
+    "key": "space f g",
+    "command": "workbench.action.findInFiles",
+    "when": "neovim.mode == 'normal'"
+  },
+  // ナビゲーション
+  {
+    "key": "g d",
+    "command": "editor.action.revealDefinition",
+    "when": "neovim.mode == 'normal' && editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "g p",
+    "command": "editor.action.peekDefinition",
+    "when": "neovim.mode == 'normal' && editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "g shift+d",
+    "command": "editor.action.revealDeclaration",
+    "when": "neovim.mode == 'normal' && editorHasDeclarationProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "g i",
+    "command": "editor.action.goToImplementation",
+    "when": "neovim.mode == 'normal' && editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "g r",
+    "command": "references-view.findReferences",
+    "when": "neovim.mode == 'normal' && editorHasReferenceProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "g t",
+    "command": "editor.action.goToTypeDefinition",
+    "when": "neovim.mode == 'normal' && editorHasTypeDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "g k",
+    "command": "editor.action.showHover",
+    "when": "neovim.mode == 'normal' && editorTextFocus"
+  },
+  {
+    "key": "g s",
+    "command": "editor.action.triggerParameterHints",
+    "when": "neovim.mode == 'normal' && editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  // LSP操作
+  {
+    "key": "space l r",
+    "command": "editor.action.rename",
+    "when": "neovim.mode == 'normal' && editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "space l a",
+    "command": "editor.action.quickFix",
+    "when": "neovim.mode == 'normal' && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "space l f",
+    "command": "editor.action.formatDocument",
+    "when": "neovim.mode == 'normal' && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "space l s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "neovim.mode == 'normal' && editorTextFocus"
+  },
+  {
+    "key": "space l shift+s",
+    "command": "workbench.action.showAllSymbols",
+    "when": "neovim.mode == 'normal'"
+  },
+  //診断
+  {
+    "key": "space d d",
+    "command": "workbench.actions.view.problems",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space d f",
+    "command": "workbench.actions.view.problems",
+    "args": {
+      "filterText": "@${file}"
+    },
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space d p",
+    "command": "editor.action.marker.prevInFiles",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "space d n",
+    "command": "editor.action.marker.nextInFiles",
+    "when": "neovim.mode == 'normal'"
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorHoverVisible && editorTextFocus && neovim.init && neovim.mode == 'normal'"
+  },
+  {
+    "key": "shift+k",
+    "command": "-editor.action.showHover",
+    "when": "editorHoverVisible && editorTextFocus && neovim.init && neovim.mode == 'normal'"
+  }
+  // Vim PluginだとEditor以外でLeaderがちゃんと動作しないためLeader関連はkeyconfigs.jsonで管理
+  // {
+  //   "key": "space w",
+  //   "command": "workbench.action.files.save",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "space q",
+  //   "command": "workbench.action.closeActiveEditor",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "u",
+  //   "command": "undo",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+r",
+  //   "command": "redo",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "space n",
+  //   "command": "workbench.action.nextEditor",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "space p",
+  //   "command": "workbench.action.previousEditor",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w h",
+  //   "command": "workbench.action.focusLeftGroup",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w l",
+  //   "command": "workbench.action.focusRightGroup",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w j",
+  //   "command": "workbench.action.focusBelowGroup",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w k",
+  //   "command": "workbench.action.focusAboveGroup",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w \\",
+  //   "command": "workbench.action.splitEditorRight",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // {
+  //   "key": "ctrl+w -",
+  //   "command": "workbench.action.splitEditorDown",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // // ファイルエクスプローラー
+  // {
+  //   "key": "space e",
+  //   "command": "workbench.action.toggleSidebarVisibility",
+  //   "when": "vim.mode == 'Normal' && filesExplorerFocus"
+  // },
+  // {
+  //   "key": "space e",
+  //   "command": "workbench.view.explorer",
+  //   "when": "vim.mode == 'Normal' && !filesExplorerFocus"
+  // },
+  // // ファイル名検索
+  // {
+  //   "key": "space f f",
+  //   "command": "workbench.action.quickOpen",
+  //   // "command": "find-it-faster.findFiles",
+  //   "when": "vim.mode == 'Normal'"
+  // },
+  // // Grep検索
+  // {
+  //   "key": "space f g",
+  //   "command": "workbench.action.findInFiles",
+  //   // "command": "find-it-faster.findWithinFiles",
+  //   "when": "vim.mode == 'Normal'"
+  // }
+]
