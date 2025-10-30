@@ -15,8 +15,9 @@ end)
 
 -- カラースキームの設定
 -- config.color_scheme = "Gruvbox (Gogh)"
-config.color_scheme = "GruvboxDarkHard"
+-- config.color_scheme = "GruvboxDarkHard"
 -- config.color_scheme = "tokyonight_day"
+config.color_scheme = "tokyonight"
 -- config.color_scheme = "Catppuccin Mocha (Gogh)"
 -- config.color_scheme = "Catppuccin Latte (Gogh)"
 -- config.color_scheme = "OneDark (base16)"
@@ -24,7 +25,7 @@ config.color_scheme = "GruvboxDarkHard"
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定
-config.font = wezterm.font("HackGen35 Console NF", { weight = "Medium", stretch = "Normal", style = "Normal" })
+config.font = wezterm.font("Moralerspace Argon", { weight = "Medium", stretch = "Normal", style = "Normal" })
 -- フォントサイズの設定
 config.font_size = 17
 -- スクロールバック行数（デフォルト3500）

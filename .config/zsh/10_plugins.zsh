@@ -49,7 +49,8 @@ fi
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
 # Env
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -123,7 +124,7 @@ eval "$(gh completion -s zsh)"
 #----------------------------------------
 # broot
 #----------------------------------------
-source /Users/s_mochizuki/.config/broot/launcher/bash/br
+source /Users/sohei.mochizuki/.config/broot/launcher/bash/br
 
 #----------------------------------------
 # mise

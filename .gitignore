@@ -2,3 +2,4 @@
 .gitconfig.global
 Brewfile.lock.json
 00_local.zsh
+.config/.claude
