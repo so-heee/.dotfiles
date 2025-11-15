@@ -15,8 +15,9 @@ end)
 
 -- カラースキームの設定
 -- config.color_scheme = "Gruvbox (Gogh)"
-config.color_scheme = "GruvboxDarkHard"
+-- config.color_scheme = "GruvboxDarkHard"
 -- config.color_scheme = "tokyonight_day"
+config.color_scheme = "tokyonight"
 -- config.color_scheme = "Catppuccin Mocha (Gogh)"
 -- config.color_scheme = "Catppuccin Latte (Gogh)"
 -- config.color_scheme = "OneDark (base16)"

@@ -1,0 +1,42 @@
+============================================
+Version
+============================================
+gh auth login                      # ログイン
+gh auth status                     # ログイン情報の確認
+gh auth switch                     # アカウントの切り替え
+gh auth setup-git                  # .gitconfigにghの設定追加
+gh browse                          # 開いているリポジトリのwebページを開く
+
+============================================
+Repository
+============================================
+gh repo clone caru-ini/test-repo   # 他人のリポジトリをクローン
+gh repo clone test-repo            # 自分のリポジトリをクローン
+
+============================================
+Issue
+============================================
+gh issue list                      # Issueの一覧
+	-s ステータス
+	-A 作成者
+	-a 担当者
+	-l ラベル
+gh issue create                    # Issueの作成
+	-t タイトル
+	-b 本文
+	-a 担当者
+	-l ラベル
+	-w ブラウザで開く
+
+============================================
+PullRequest
+============================================
+gh pr list                         # PullRequestの一覧
+gh pr create                       # PullRequestの作成
+	-t タイトル
+	-b 本文
+	-a 担当者
+	-l ラベル
+	-d 下書き
+	-w ブラウザで開く
+gh pr checkout <Request番号>       # PullRequestをチェックアウト
