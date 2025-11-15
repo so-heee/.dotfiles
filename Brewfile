@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 #----------------------------------------
 # brew
 #----------------------------------------
@@ -23,7 +21,6 @@ brew "lazygit"
 brew "lefthook"
 brew "mas"
 brew "mise"
-brew "neofetch"
 brew "neovim"
 brew "openssl"
 brew "pgformatter"
@@ -32,6 +29,8 @@ brew "pwgen"
 brew "rga"
 brew "ripgrep"
 brew "silicon"
+brew "sheldon"
+brew "starship"
 brew "stylua"
 brew "tmux"
 brew "tree"
@@ -41,6 +40,7 @@ brew "wezterm"
 brew "wget"
 brew "yarn"
 # brew "zplug"
+brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
 

@@ -95,3 +95,7 @@ setup-cheat:
 setup-starship:
 	@./scripts/starship.sh
 
+## Setup Sheldon
+.PHONY: setup-sheldon
+setup-sheldon:
+	@./scripts/sheldon.sh

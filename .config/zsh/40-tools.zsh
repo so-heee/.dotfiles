@@ -18,7 +18,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS="--height 50% --reverse --border"
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=Dracula --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --theme=gruvbox --style=header,grid --line-range :100 {}"'
 
 # bat
 export BAT_THEME="gruvbox-dark"
@@ -31,12 +31,6 @@ export LS_COLORS="ur=35;nnn:gr=35;nnn:tr=35;nnn:uw=34;nnn:gw=34;nnn:tw=34;nnn:ux
 
 # gh
 eval "$(gh completion -s zsh)"
-
-# kubectl
-# Only load if kubectl is installed
-if command -v kubectl >/dev/null 2>&1; then
-    source <(kubectl completion zsh)
-fi
 
 # broot
 source /Users/s_mochizuki/.config/broot/launcher/bash/br
