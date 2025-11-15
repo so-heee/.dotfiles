@@ -1,7 +1,16 @@
+#----------------------------------------
+# Completions
+#----------------------------------------
+# Initialize completion system
+autoload -Uz compinit
 
-#----------------------------------------
-# Completion
-#----------------------------------------
+# Check if we need to rebuild completions
+if [[ $HOME/.zcompdump(#qNmh+24) ]]; then
+    compinit -d $HOME/.zcompdump
+else
+    compinit -C -d $HOME/.zcompdump
+fi
+
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'

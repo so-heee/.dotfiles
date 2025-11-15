@@ -11,8 +11,11 @@ if [ $HOME/.zshenv -nt $HOME/.zshenv.zwc ]; then
    zcompile $HOME/.zshenv
 fi
 
-for config (~/.dotfiles/.config/zsh/[0-9]*.zsh) source $config
+# Load configuration files in numerical order (nn-name.zsh format)
+for config (~/.dotfiles/.config/zsh/[0-9][0-9]-*.zsh) source $config
 
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof
 # fi
+
+
