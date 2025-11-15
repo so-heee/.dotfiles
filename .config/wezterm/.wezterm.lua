@@ -24,7 +24,7 @@ config.color_scheme = "GruvboxDarkHard"
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定
-config.font = wezterm.font("HackGen35 Console NF", { weight = "Medium", stretch = "Normal", style = "Normal" })
+config.font = wezterm.font("Moralerspace Neon", { weight = "Medium", stretch = "Normal", style = "Normal" })
 -- フォントサイズの設定
 config.font_size = 17
 -- スクロールバック行数（デフォルト3500）
