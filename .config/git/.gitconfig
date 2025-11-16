@@ -41,10 +41,11 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    features = gruvbox-dark
+	side-by-side = true
     navigate = true
-	dark = true
 	line-numbers = true
+	dark = true
+    syntax-theme = gruvbox-dark
 # ghq
 [ghq]
     root = ~/Workspace

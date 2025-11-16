@@ -1,55 +1,51 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_orange)\
+[](fg:b1)\
 $os\
 $username\
-[](bg:color_yellow fg:color_orange)\
 $directory\
-[](fg:color_yellow bg:color_aqua)\
+[](bg:b2 fg:b1)\
 $git_branch\
 $git_commit\
-$git_state\
 $git_status\
-[](fg:color_aqua bg:color_blue)\
-$c\
-$cpp\
-$rust\
+$git_state\
+[](bg:b3 fg:b2)\
+$aws\
+[](bg:b4 fg:b3)\
 $golang\
-$nodejs\
-$php\
 $java\
 $kotlin\
-$haskell\
-$python\
+$lua\
+$nodejs\
 $php\
-[](fg:color_blue bg:color_bg3)\
-$docker_context\
-$conda\
-$pixi\
+$python\
+$ruby\
+$rust\
+$scala\
 $terraform\
-[](fg:color_bg3 bg:color_bg1)\
+$mise\
+[](fg:b4)\
+$fill\
+[](fg:b3)\
+$status\
+[](bg:b3 fg:b2)\
+$cmd_duration\
+[](bg:b2 fg:b1)\
 $time\
-[ ](fg:color_bg1)\
-$line_break$character"""
+[](fg:b1)\
+\n$character\
+"""
 
-palette = 'gruvbox_dark'
+# right_format = """
+# $cmd_duration
+# """
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
+palette = 'soheee'
 
 [os]
+style = "bg:b1 fg:f1"
 disabled = false
-style = "bg:color_orange fg:color_fg0"
 
 [os.symbols]
 Windows = "󰍲"
@@ -74,16 +70,10 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 Pop = ""
 
-[username]
-show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user ]($style)'
-
 [directory]
-style = "fg:color_fg0 bg:color_yellow"
+style = "bg:b1 fg:f2"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 4
 truncation_symbol = "…/"
 
 [directory.substitutions]
@@ -94,92 +84,128 @@ truncation_symbol = "…/"
 "Developer" = "󰲋 "
 
 [git_branch]
-symbol = ""
-style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+symbol = '   '
+style = "bg:b2 fg:f2"
+format = "[ $symbol$branch(:$remote_branch) ]($style)"
+
+[git_commit]
+style = "bg:b2 fg:f2"
 
 [git_status]
-style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+style = "bg:b2 fg:f2"
+format = '([\[$all_status$ahead_behind\] ]($style))'
 
-[nodejs]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+[git_state]
+style = "bg:b2 fg:f2"
+format = '[\($state( $progress_current of $progress_total)\)]($style)'
 
-[c]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+[aws]
+style = 'bg:b3 fg:f3'
+symbol = "󰸏 "
+format = '[ $symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 
-[cpp]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+[gcloud]
+symbol = " "
 
 [golang]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[php]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
 [java]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
 [kotlin]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
-[haskell]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+[lua]
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
+
+[nodejs]
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
+
+[php]
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
 [python]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
-[docker_context]
-symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+[ruby]
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
-[conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
+[rust]
+style = "bg:b4 fg:f4"
+symbol = "󱘗 "
+format = "[ $symbol($version )]($style)"
 
-[pixi]
-style = "bg:color_bg3"
-format = '[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)'
+[scala]
+style = "bg:b4 fg:f4"
+symbol = " "
+format = "[ $symbol($version )]($style)"
 
-[time]
+[terraform]
+style = "bg:b4 fg:f4"
+symbol = " "
+
+[mise]
+style = "bg:b4 fg:f4"
 disabled = false
-time_format = "%R"
-style = "bg:color_bg1"
-format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+
+[fill]
+symbol = '─'
+style = 'b4'
 
 [line_break]
 disabled = false
 
-[character]
+[status]
+style = "bg:b3"
+format = '[ $symbol ]($style)'
+symbol = '[✘](bg:b3 fg:red)'
+success_symbol = '[✔](bg:b3 fg:green)'
+not_executable_symbol = '[✘](bg:b3 fg:red)'
+not_found_symbol = '[✘](bg:b3 fg:red)'
+map_symbol = true
 disabled = false
-success_symbol = '[❯](bold fg:color_green)'
-error_symbol = '[❯](bold fg:color_red)'
-vimcmd_symbol = '[❮](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[❮](bold fg:color_purple)'
-vimcmd_replace_symbol = '[❮](bold fg:color_purple)'
-vimcmd_visual_symbol = '[❮](bold fg:color_yellow)'
 
+[cmd_duration]
+min_time = 1
+style = "bg:b2 fg:f2"
+show_milliseconds = true
+format = '[ 󰚭 $duration ]($style)'
+disabled = false
+
+[time]
+time_format = "%T"
+style = "bg:b1 fg:f1"
+format = '[  $time ]($style)'
+disabled = false
+
+[character]
+success_symbol = '[❯](green)'
+error_symbol = '[❯](red)'
+disabled = false
+
+[palettes.soheee]
+b1 = '235'
+b2 = '238'
+b3 = '241'
+b4 = '244'
+f1 = 'white'
+f2 = 'white'
+f3 = 'white'
+f4 = 'white'

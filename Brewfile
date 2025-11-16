@@ -47,6 +47,7 @@ brew "zsh-completions"
 #----------------------------------------
 # cask
 #----------------------------------------
+cask "aws-vault"
 #cask "1password"
 #cask "appcleaner"
 cask "alt-tab"
