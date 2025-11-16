@@ -1,5 +1,27 @@
-column_width = 100
-indent_type = 'Spaces'
-quote_style = 'AutoPreferSingle'
+# =========================================
+# Stylua Best Practice (Neovim/Lua Project)
+# =========================================
+
+# ▼ インデント系（最重要）
+indent_type = "Spaces"
 indent_width = 2
-no_call_parentheses = true
+
+# ▼ クォート（Auto が最も安全）
+quote_style = 'AutoPreferSingle'
+
+# ▼ 行幅（120 が VSCode・Nvim ともに相性良い）
+column_width = 120
+
+# ▼ 改行（自動判定／Unix が無難）
+line_endings = "Unix"
+
+# ▼ 関数呼び出しの括弧
+call_parentheses = "Always"
+
+# ▼ 1 行で書ける statement は collapse しない
+#   collapse_simple_statement = "Never" を推奨しない理由 → 後述
+collapse_simple_statement = "Never"
+
+# ▼ Lua 5.1 互換のためにテーブル末尾カンマは禁止
+#   LuaJIT / Neovim の設定で安全
+no_call_parentheses = false

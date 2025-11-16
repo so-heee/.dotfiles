@@ -1,7 +1,7 @@
 -- local map = require('utils').map
 local map = vim.keymap.set
 local is_vscode = vim.g.vscode
-local vscode = is_vscode and require("vscode-neovim") or nil
+local vscode = is_vscode and require('vscode-neovim') or nil
 
 -- aaa
 -- map("n", "<leader>ff", function()

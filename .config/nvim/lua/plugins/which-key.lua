@@ -3,8 +3,8 @@ return {
   event = 'VeryLazy',
   opts = {},
   config = function()
-    local wk = require 'which-key'
-    wk.add {
+    local wk = require('which-key')
+    wk.add({
       -- ファイル操作・検索 (f グループ)
       { '<leader>f', group = 'Find/Files' },
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files', mode = 'n' },
@@ -72,6 +72,6 @@ return {
       },
       { 'gk', '<cmd>Lspsaga hover_doc<CR>', desc = 'ホバー情報', mode = 'n' },
       { 'gs', '<cmd>Lspsaga signature_help<CR>', desc = 'シグネチャヘルプ', mode = 'n' },
-    }
+    })
   end,
 }

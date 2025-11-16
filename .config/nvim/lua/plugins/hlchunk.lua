@@ -1,18 +1,18 @@
 return {
-  "shellRaining/hlchunk.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  'shellRaining/hlchunk.nvim',
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     chunk = {
-        enable = true
+      enable = true,
     },
     indent = {
-        enable = true
+      enable = true,
     },
     blank = {
-        enable = true
+      enable = true,
     },
     line_num = {
-        enable = true
-    }
-  }
+      enable = true,
+    },
+  },
 }

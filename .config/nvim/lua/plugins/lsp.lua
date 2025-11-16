@@ -41,7 +41,7 @@ return {
         },
       })
 
-      vim.lsp.enable { 'lua_ls', 'gopls' }
+      vim.lsp.enable({ 'lua_ls', 'gopls' })
     end,
   },
   {
@@ -55,10 +55,10 @@ return {
         'gopls',
         'lua_ls',
       }
-      require('mason-lspconfig').setup {
+      require('mason-lspconfig').setup({
         ensure_installed = mason_servers,
         automatic_enable = true,
-      }
+      })
     end,
   },
   {
@@ -75,7 +75,7 @@ return {
         return
       end
 
-      masonnullls.setup {
+      masonnullls.setup({
         ensure_installed = {
           'stylua',
           'golangci_lint',
@@ -84,7 +84,7 @@ return {
           'sqlfmt',
         },
         automatic_installation = true,
-      }
+      })
 
       local status_ok, nullls = pcall(require, 'null-ls')
       if not status_ok then
@@ -95,9 +95,9 @@ return {
       local diagnostics = nullls.builtins.diagnostics
       local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-      nullls.setup {
+      nullls.setup({
         sources = {
-          formatting.stylua.with {
+          formatting.stylua.with({
             command = 'stylua',
             args = {
               '--indent-type',
@@ -109,31 +109,31 @@ return {
               '$FILENAME',
               '-', -- ← 標準入力を明示
             },
-          },
+          }),
           formatting.goimports,
           formatting.sqlfmt,
           diagnostics.golangci_lint,
         },
         -- configure on save
         on_attach = function(current_client, bufnr)
-          if current_client.supports_method 'textDocument/formatting' then
-            vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+          if current_client.supports_method('textDocument/formatting') then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd('BufWritePre', {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.lsp.buf.format {
+                vim.lsp.buf.format({
                   filter = function(client)
                     -- only format on save if the client supports formatting
                     return client.name == 'null-ls'
                   end,
                   bufnr = bufnr,
-                }
+                })
               end,
             })
           end
         end,
-      }
+      })
     end,
   },
   {
@@ -173,7 +173,7 @@ return {
     'nvimdev/lspsaga.nvim',
     event = 'LspAttach',
     config = function()
-      require('lspsaga').setup {
+      require('lspsaga').setup({
         ui = {
           border = 'rounded',
         },
@@ -183,7 +183,7 @@ return {
         symbol_in_winbar = {
           enable = false, -- ウィンドウバーのシンボル表示を無効化
         },
-      }
+      })
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
@@ -194,10 +194,10 @@ return {
     'ray-x/lsp_signature.nvim',
     event = 'LspAttach',
     config = function()
-      require('lsp_signature').setup {
+      require('lsp_signature').setup({
         max_width = 80,
         transparency = 10,
-      }
+      })
     end,
   },
 }

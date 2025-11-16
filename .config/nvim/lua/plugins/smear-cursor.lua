@@ -1,4 +1,4 @@
 return {
-  "sphamba/smear-cursor.nvim",
+  'sphamba/smear-cursor.nvim',
   opts = {},
 }
