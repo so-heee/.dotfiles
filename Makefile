@@ -50,7 +50,7 @@ setup-broot:
 setup-nvim:
 	@./scripts/nvim.sh
 
-## Setup Claude 
+## Setup Claude
 .PHONY: setup-claude
 setup-claude:
 	@./scripts/claude.sh
@@ -99,6 +99,11 @@ setup-cheat:
 .PHONY: setup-starship
 setup-starship:
 	@./scripts/starship.sh
+
+## Setup Sheldon
+.PHONY: setup-sheldon
+setup-sheldon:
+	@./scripts/sheldon.sh
 
 ## Setup Bash
 .PHONY: setup-bash

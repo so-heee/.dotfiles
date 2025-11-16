@@ -55,3 +55,10 @@ Hi so-heee! You've successfully authenticated, but GitHub does not provide shell
 ## グローバルの設定を追加
 
 .dotfiles/.config/git/.gitconfig.globalを作成
+
+## ローカル専用ファイルの変更を無視
+
+```bash
+# 新しいマシンでリポジトリをcloneした際に実行
+git update-index --skip-worktree .config/zsh/99-local.zsh
+```

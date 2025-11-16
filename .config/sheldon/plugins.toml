@@ -1,0 +1,28 @@
+shell = "zsh"
+
+[plugins]
+
+# zsh-autosuggestions
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+# fast-syntax-highlighting
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+
+# fzf-tab - Replace zsh's default completion selection menu with fzf
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
+# sudo plugin - Press ESC twice to add sudo to command
+[plugins.sudo]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/sudo"
+
+# zoxide - A smarter cd command (replaces rupa/z)
+[plugins.zoxide]
+inline = 'eval "$(zoxide init zsh)"'
+
+# starship prompt
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
