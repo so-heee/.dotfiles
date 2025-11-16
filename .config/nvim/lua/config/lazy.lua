@@ -1,6 +1,7 @@
--- local colorscheme = 'gruvbox'
-local colorscheme = "tokyonight"
--- colorscheme = "catppuccin"
+local colorscheme = 'gruvbox'
+-- local colorscheme = 'tokyonight'
+-- local colorscheme = 'catppuccin'
+-- local colorscheme = 'aura-theme'
 
 --------------------------------------
 -- 背景透過(pluginの前でやらないといけない)
@@ -50,6 +51,7 @@ require('lazy').setup {
     { import = 'plugins.gitsigns' },
     { import = 'plugins.lsp' },
     { import = 'plugins.diff' },
+    { import = 'plugins.grug-far' },
 
     -- { import = "plugins.smear-cursor" }, 動作が遅い
   },

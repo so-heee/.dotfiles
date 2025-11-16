@@ -88,3 +88,7 @@ logs/
 *.bak
 *.backup
 *~
+
+.claude/*
+local-ignore/
+AGENTS.md

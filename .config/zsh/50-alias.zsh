@@ -57,3 +57,7 @@ alias cu='cursor'
 alias cl='claude'
 alias clc='claude --continue'
 alias clr='claude --resume'
+
+# codex
+alias co='codex'
+alias cor='codex resume'

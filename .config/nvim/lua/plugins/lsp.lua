@@ -5,12 +5,9 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      vim.lsp.config('*', {
-        capabilities = capabilities,
-      })
-
       -- Lua Language Server
       vim.lsp.config('lua_ls', {
+        capabilities = capabilities,
         settings = {
           Lua = {
             runtime = {
@@ -32,6 +29,7 @@ return {
 
       -- Go Language Server
       vim.lsp.config('gopls', {
+        capabilities = capabilities,
         settings = {
           gopls = {
             analyses = {
@@ -99,7 +97,19 @@ return {
 
       nullls.setup {
         sources = {
-          formatting.stylua,
+          formatting.stylua.with {
+            command = 'stylua',
+            args = {
+              '--indent-type',
+              'Spaces',
+              '--indent-width',
+              '2',
+              '--search-parent-directories',
+              '--stdin-filepath',
+              '$FILENAME',
+              '-', -- ← 標準入力を明示
+            },
+          },
           formatting.goimports,
           formatting.sqlfmt,
           diagnostics.golangci_lint,
