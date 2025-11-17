@@ -9,8 +9,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 ## eza
-alias ls='eza --group-directories-first'
-alias ll='eza -hal --git --time-style=iso --group-directories-first'
+alias ls='eza --group-directories-first --color=always --icons'
+alias ll='eza -hal --git --time-style=iso --group-directories-first --color=always --icons'
+alias lt="eza -T -L 3 -a -I 'node_modules|.git|.cache' --color=always"
 alias cat='bat'
 
 # cdの後にlsを実行
