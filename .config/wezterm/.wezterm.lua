@@ -17,16 +17,16 @@ end)
 
 -- カラースキームの設定
 -- config.color_scheme = "Gruvbox (Gogh)"
-config.color_scheme = "GruvboxDarkHard"
+-- config.color_scheme = "GruvboxDark"
 -- config.color_scheme = "Panda (Gogh)"
 -- config.color_scheme = "Aura (Gogh)"
 -- config.color_scheme = "tokyonight_day"
--- config.color_scheme = "Tokyo Night (Gogh)"
+config.color_scheme = "Tokyo Night (Gogh)"
 -- config.color_scheme = "Catppuccin Mocha (Gogh)"
 -- config.color_scheme = "Catppuccin Latte (Gogh)"
 -- config.color_scheme = "OneDark (base16)"
 -- config.color_scheme = "Solarized Dark (Gogh)"
-
+-- config.color_scheme = "Everforest Dark (Gogh)"
 
 -- 背景透過
 config.window_background_opacity = 0.9

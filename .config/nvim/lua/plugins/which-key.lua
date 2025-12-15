@@ -5,6 +5,11 @@ return {
   config = function()
     local wk = require('which-key')
     wk.add({
+
+      { '<leader>aa', '<cmd>ClaudeCodeFocus<cr>', desc = 'Claude Code', mode = { 'n', 'x' } },
+      { '<leader>ar', '<cmd>ClaudeCode --resume<cr>', desc = 'Resume Claude', mode = { 'n', 'x' } },
+      { '<leader>ac', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude', mode = { 'n', 'x' } },
+
       -- ファイル操作・検索 (f グループ)
       { '<leader>f', group = 'Find/Files' },
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files', mode = 'n' },
