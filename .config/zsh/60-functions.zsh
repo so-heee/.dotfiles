@@ -41,3 +41,14 @@ function tm() {
         tmux new-session
     fi
 }
+
+#----------------------------------------
+# Setting herdr session
+#----------------------------------------
+function hd() {
+    if [ -n "${1}" ]; then
+        herdr --session "${1}"
+    else
+        herdr
+    fi
+}

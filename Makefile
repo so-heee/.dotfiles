@@ -1,4 +1,4 @@
-all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-cheat setup-starship
+all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-herdr setup-cheat setup-starship
 
 ## Show dot files in this repo
 .PHONY: list
@@ -79,6 +79,11 @@ setup-hammerspoon:
 .PHONY: setup-tmux
 setup-tmux:
 	@./scripts/tmux.sh
+
+## Setup Herdr
+.PHONY: setup-herdr
+setup-herdr:
+	@./scripts/herdr.sh
 
 ## Setup Jetbrain
 .PHONY: setup-jetbrain

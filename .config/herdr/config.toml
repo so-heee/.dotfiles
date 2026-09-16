@@ -1,0 +1,36 @@
+onboarding = false
+# Herdr 設定 — .config/tmux/.tmux.conf を参考に構築
+
+[keys]
+# ▼ prefix と分割キーはデフォルトから変更（他はデフォルトと同値の明示宣言）
+prefix           = "ctrl+q"        # default: ctrl+b / tmux: set -g prefix C-q
+split_vertical   = "prefix+backslash"  # default: prefix+v / WezTerm: LEADER + \  左右分割
+copy_mode        = "prefix+v"      # 変更: default は prefix+[ / tmux: bind-key v copy-mode
+# ▼ 以下はデフォルトと同値
+new_tab          = "prefix+c"      # tmux: new-window (base-index 1)
+next_tab         = "prefix+n"
+previous_tab     = "prefix+p"
+split_horizontal = "prefix+minus"  # pain-control: prefix + -  上下分割
+focus_pane_left  = "prefix+h"      # vi風ペイン移動
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+switch_tab       = "prefix+1..9"
+
+# ▼ workspace 操作 — tab の prefix+c/n/p に対応する Shift 版で統一
+new_workspace      = "prefix+shift+c"  # 変更: default は prefix+shift+n
+next_workspace     = "prefix+shift+n"  # default: 未設定
+previous_workspace = "prefix+shift+p"  # default: 未設定
+rename_pane        = "prefix+shift+m"  # 変更: default は prefix+shift+p（previous_workspace に譲る）
+
+# lazygit をポップアップ起動
+[[keys.command]]
+key         = "prefix+alt+g"
+type        = "popup"
+command     = "lazygit"
+description = "run lazygit"
+width       = "80%"
+height      = "80%"
+
+[theme]
+name = "terminal"                  # WezTerm側の配色(color_scheme)に追従させる
