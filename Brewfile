@@ -56,6 +56,7 @@ cask "alt-tab"
 cask "cursor"
 cask "docker"
 cask "font-moralerspace"
+cask "font-symbols-only-nerd-font"  # Nerd Fonts 3.5+ のアイコン（cod-claude / cod-openai）用フォールバック
 # cask "gemini"
 cask "google-chrome"
 cask "google-cloud-sdk"

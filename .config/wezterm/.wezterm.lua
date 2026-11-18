@@ -31,7 +31,11 @@ config.color_scheme = "Tokyo Night (Gogh)"
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定
-config.font = wezterm.font("Moralerspace Argon", { weight = "Medium", stretch = "Normal", style = "Normal" })
+-- Moralerspace に無いグリフ（Nerd Fonts 3.5 の cod-claude / cod-openai など）は Symbols Nerd Font で補う
+config.font = wezterm.font_with_fallback({
+	{ family = "Moralerspace Argon", weight = "Medium", stretch = "Normal", style = "Normal" },
+	"Symbols Nerd Font Mono",
+})
 -- フォントサイズの設定
 config.font_size = 17
 -- スクロールバック行数（デフォルト3500）

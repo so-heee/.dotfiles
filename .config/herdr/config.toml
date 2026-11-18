@@ -34,3 +34,23 @@ height      = "80%"
 
 [theme]
 name = "terminal"                  # WezTerm側の配色(color_scheme)に追従させる
+
+[ui]
+mouse_capture = true               # default と同値。false だと herdr のクリック/ホイール操作が効かなくなる
+hide_tab_bar_when_single_tab = true  # default: false / タブが1つのワークスペースではタブ欄を隠す
+
+# Spaces 表示: 1行目 = 状態アイコン + 状態テキスト + リポジトリ別アイコン（zsh の _herdr_repo_icon が送る）、2行目 = workspace 名
+[ui.sidebar.spaces]
+rows = [["state_icon", "state_text", "$repo_icon"], ["workspace"]]
+
+# Agents 表示: 1行目 = 状態アイコン + 状態テキスト + エージェント別アイコン（zsh の claude/codex ラッパーが送る）、2行目 = 作業内容、3行目 = agent 名
+[ui.sidebar.agents]
+rows = [["state_icon", "state_text", "$agent_icon"], ["terminal_title_stripped"], ["agent"]]
+
+# エージェント別にアイコン色を変える（claude = Anthropic オレンジ、codex = OpenAI グリーン）
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "state_text", { token = "$agent_icon", fg = "#D97757" }], ["terminal_title_stripped"], ["agent"]]
+codex  = [["state_icon", "state_text", { token = "$agent_icon", fg = "#10A37F" }], ["terminal_title_stripped"], ["agent"]]
+
+[ui.toast]
+delivery = "herdr"                 # default: off / エージェント完了・要対応を herdr 内トーストで通知

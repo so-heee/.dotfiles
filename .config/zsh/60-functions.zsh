@@ -52,3 +52,45 @@ function hd() {
         herdr
     fi
 }
+
+#----------------------------------------
+# herdr: リポジトリ別アイコンを workspace に送る（サイドバーの $repo_icon）
+#----------------------------------------
+if [[ -n "$HERDR_ENV" && -n "$HERDR_WORKSPACE_ID" ]]; then
+    function _herdr_repo_icon() {
+        local root icon
+        root=$(git rev-parse --show-toplevel 2>/dev/null)
+        case "${root:t}" in
+            .dotfiles)       icon="🔧" ;;
+            touchgift-apps)  icon="🚀" ;;
+            touchgift-infra) icon="🌐" ;;
+            "")              icon="📁" ;;
+            *)               icon="📦" ;;
+        esac
+        # 値が変わったときだけ送る（バックグラウンドで実行してプロンプトを遅らせない）
+        [[ "$icon" == "$_HERDR_REPO_ICON" ]] && return
+        _HERDR_REPO_ICON="$icon"
+        herdr workspace report-metadata "$HERDR_WORKSPACE_ID" \
+            --source repo-icon --token "repo_icon=$icon" >/dev/null 2>&1 &!
+    }
+    add-zsh-hook chpwd _herdr_repo_icon
+    _herdr_repo_icon
+fi
+
+#----------------------------------------
+# herdr: 起動したエージェント別アイコンを pane に送る（Agents の $agent_icon）
+#----------------------------------------
+if [[ -n "$HERDR_ENV" && -n "$HERDR_PANE_ID" ]]; then
+    function _herdr_with_agent_icon() {
+        local icon="$1"; shift
+        herdr pane report-metadata "$HERDR_PANE_ID" \
+            --source agent-icon --token "agent_icon=$icon" >/dev/null 2>&1 &!
+        command "$@"
+        local rc=$?
+        herdr pane report-metadata "$HERDR_PANE_ID" \
+            --source agent-icon --clear-token agent_icon >/dev/null 2>&1 &!
+        return $rc
+    }
+    function claude() { _herdr_with_agent_icon "" claude "$@" }
+    function codex()  { _herdr_with_agent_icon "" codex "$@" }
+fi
