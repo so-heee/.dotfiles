@@ -66,6 +66,7 @@ cask "hammerspoon"
 cask "karabiner-elements"
 # cask "keycastr"
 cask "notion"
+cask "stablyai/orca/orca"  # 公式 Homebrew の "orca" は別物（plotly）なので tap 付きで指定する
 cask "raycast"
 cask "sequel-ace"
 cask "slack"
