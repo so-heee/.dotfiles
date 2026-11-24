@@ -49,7 +49,7 @@ brew bundle         # Brewfile の内容をインストール・更新
 | `ideavim/` | IdeaVim | `.ideavimrc` → `~/.ideavimrc` |
 | `wezterm/` | WezTerm（メインのターミナル） | `.wezterm.lua` → `~/.wezterm.lua` |
 | `tmux/` | tmux | `.tmux.conf` → `~/.config/tmux/tmux.conf`。`.tmux.session.conf` などはセッション定義 |
-| `herdr/` | herdr（エージェント用ターミナル多重化） | `config.toml` → `~/.config/herdr/config.toml` |
+| `herdr/` | herdr（エージェント用ターミナル多重化） | `config.toml` → `~/.config/herdr/config.toml`。`scripts/herdr.sh` で Claude / Codex 用の連携フック（`herdr integration install`）もインストールする |
 | `orca/` | Orca（AI エージェント用 IDE） | 設定は SQLite に保存されるためリンクしない。`README.md` に GUI での設定手順をメモ |
 | `starship/` | Starship（プロンプト） | `starship.toml` → `~/.config/starship.toml` |
 | `eza/` | eza | `themes/<THEME>.yml` → `~/.config/eza/theme.yml`（テーマを選んでリンク） |
@@ -75,7 +75,7 @@ JSON にはコメントを書けず、Orca や herdr がファイルを書き直
 2. **中間: `hooks`**
    - 反映する: `Stop` の afplay
    - 反映しない（ツールが自動で追加するもの）:
-     - herdr のフック（`herdr-agent-state.sh`）。`herdr integration install claude` で追加される。ユーザー名入りの絶対パスを含むため公開しない
+     - herdr のフック（`herdr-agent-state.sh`）。`herdr integration install claude` で追加される（`make setup-herdr` で実行）。ユーザー名入りの絶対パスを含むため公開しない
      - Orca のフック（`ORCA_AGENT_HOOK` / `~/.orca/agent-hooks/` を含むもの）。Orca の起動時に書き戻される
 3. **下側: ローカルのみ（コミットしない）**
    `env`、`model`、`skipAutoPermissionPrompt`、`skipWorkflowUsageWarning`
