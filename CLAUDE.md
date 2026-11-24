@@ -1,100 +1,84 @@
 # CLAUDE.md
 
-このファイルは、Claude Code (claude.ai/code) がこのリポジトリでコードを操作する際のガイダンスを提供します。
+macOS 開発環境の設定ファイルとセットアップスクリプトを管理する個人用 dotfiles リポジトリ。
+設定ファイルを `.config/` に置き、`scripts/` のスクリプトでホームディレクトリの所定の場所へシンボリックリンクを張る。
 
-## リポジトリ概要
+## 注意事項
 
-これは、macOS開発環境の設定ファイルとセットアップスクリプトを管理する個人用dotfilesリポジトリです。設定ファイルを`.config/`に保存し、ホームディレクトリの適切な場所にリンクするシンボリックリンクベースのアプローチを使用しています。
+- **このリポジトリは公開リポジトリ（GitHub: so-heee/.dotfiles）**。仕事の情報（社内リポジトリ名、AWS プロファイル名、踏み台サーバー名、SSM パスなど）や秘密情報をコミットしない
+- `~/.claude/settings.json` などはこのリポジトリへのシンボリックリンクなので、ツール（Claude Code、Orca、herdr など）が書き込むとこのリポジトリに差分が出る
+- 未コミットの変更が多くたまりやすい。コミットは内容ごとに分け、関係ない差分を混ぜない（ファイルの一部だけをコミットするときは部分ステージを使う）
+- コミットメッセージは日本語で短く書く（例: `orca導入`、`eza設定変更`）
 
-## 共通コマンド
+## よく使うコマンド
 
-### 初期セットアップ
 ```bash
-# 完全セットアップ（Homebrewのインストール、全ツールの設定）
-make all
-
-# Homebrewパッケージのみインストール
-make brew-install
-
-# 個別コンポーネントのセットアップ
-make setup-zsh
-make setup-git
-make setup-nvim
-make setup-tmux
-make setup-karabiner
-make setup-hammerspoon
-make setup-cheat
-make setup-starship
-make setup-wezterm
-make setup-lazygit
+make all            # 全体セットアップ（Homebrew インストールと主要ツールの設定）
+make list           # make ターゲット一覧
+make brew-install   # Brewfile のパッケージをインストール
+make setup-<tool>   # 個別セットアップ（scripts/<tool>.sh を実行）
+brew bundle         # Brewfile の内容をインストール・更新
 ```
 
-### 開発ツール
-```bash
-# Homebrewパッケージのインストール/更新
-brew bundle
+`make all` に含まれるもの: brew-install, zsh, git, workspace, karabiner, kitty, hammerspoon, nvim, tmux, herdr, cheat, starship, eza, yazi
+個別に実行するもの: lazygit, asdf, broot, claude, wezterm, jetbrain, stylua, sheldon, bash
 
-# Homebrewの更新
-brew update && brew doctor && brew cleanup
+## ディレクトリ構成
 
-# 利用可能なmakeターゲット一覧
-make list
+| パス | 内容 |
+|---|---|
+| `.config/` | ツールごとの設定ファイル（下表） |
+| `scripts/` | ツールごとのセットアップスクリプト。`ln -sfnv` でシンボリックリンクを作る |
+| `doc/` | 手順メモ（`設定手順.md`、mac、git、tmux、karabiner、raycast、vscode、キーバインドなど） |
+| `Brewfile` | Homebrew の formula / cask 定義（`Brewfile.lock.json` は gitignore） |
+| `Makefile` | セットアップの入口。各ターゲットが `scripts/*.sh` を呼ぶ |
+| `README.md` | リポジトリの説明 |
+| `.claude/` | このリポジトリ用の Claude Code ローカル設定（`settings.local.json`、グローバル gitignore で除外） |
 
-# 個別セットアップスクリプトの実行
-./scripts/nvim.sh
-./scripts/zsh.sh
-```
+## `.config/` の各ツール
 
-## アーキテクチャ
+| ディレクトリ | ツール | リンク先 / 備考 |
+|---|---|---|
+| `.claude/` | Claude Code | `CLAUDE.md` → `~/.claude/CLAUDE.md`、`settings.json` → `~/.claude/settings.json`（`scripts/claude.sh`）。settings.json の扱いは下記 |
+| `zsh/` | zsh | `.zshrc` / `.zshenv` → `~/`。番号順に読み込む分割設定（`00-env` → `10-options` → `20-completions` → `30-sheldon` → `40-tools` → `50-alias` → `60-functions` → `70-bindkeys` → `99-local`）。`99-local.zsh` はマシン固有の設定 |
+| `sheldon/` | sheldon | zsh プラグイン管理。`plugins.toml` → `~/.config/sheldon` |
+| `bash/` | bash | `.bashrc` → `~/.bashrc` |
+| `git/` | Git | `.gitconfig` / `.gitignore_global` → `~/`。`.gitconfig.private` は個人用アカウントの設定 |
+| `nvim/` | Neovim | ディレクトリごと `~/.config/nvim`。lazy.nvim でプラグイン管理（`lua/config/` と `lua/plugins/`） |
+| `vim/` | Vim | `.vimrc` → `~/.vimrc` |
+| `ideavim/` | IdeaVim | `.ideavimrc` → `~/.ideavimrc` |
+| `wezterm/` | WezTerm（メインのターミナル） | `.wezterm.lua` → `~/.wezterm.lua` |
+| `tmux/` | tmux | `.tmux.conf` → `~/.config/tmux/tmux.conf`。`.tmux.session.conf` などはセッション定義 |
+| `herdr/` | herdr（エージェント用ターミナル多重化） | `config.toml` → `~/.config/herdr/config.toml` |
+| `orca/` | Orca（AI エージェント用 IDE） | 設定は SQLite に保存されるためリンクしない。`README.md` に GUI での設定手順をメモ |
+| `starship/` | Starship（プロンプト） | `starship.toml` → `~/.config/starship.toml` |
+| `eza/` | eza | `themes/<THEME>.yml` → `~/.config/eza/theme.yml`（テーマを選んでリンク） |
+| `yazi/` | yazi（ファイラ） | ディレクトリごと `~/.config/yazi`。プラグインは `package.toml` から復元（`plugins/` は gitignore） |
+| `lazygit/` | LazyGit | `config.yml` → `~/.config/lazygit/config.yml` |
+| `cheat/` | cheat | ディレクトリごと `~/.config/cheat`。個人用チートシートは `cheatsheets/personal/` |
+| `stylua/` | StyLua | `stylua.toml` → `~/.config/stylua.toml` |
+| `karabiner/` | Karabiner-Elements | ディレクトリごと `~/.config/karabiner` |
+| `hammerspoon/` | Hammerspoon | ディレクトリごと `~/.hammerspoon` |
+| `kitty/` / `alacritty/` | Kitty / Alacritty | ディレクトリごと `~/.config/` 配下（サブのターミナル） |
+| `cursor/` | Cursor | `settings.json` / `keybindings.json`（スクリプトなし） |
+| `iterm/` | iTerm2 | plist とカラースキーム（スクリプトなし） |
+| `raycast/` | Raycast | 設定のエクスポート（スクリプトなし） |
+| `.ssh/` | SSH | `config` と `conf.d/template.conf`（スクリプトなし） |
 
-### ディレクトリ構造
-- `.config/` - ツール別に整理された全設定ファイル
-- `scripts/` - 個別ツール用のセットアップスクリプト（各スクリプトがシンボリックリンクを作成）
-- `Brewfile` - Homebrewパッケージ定義
-- `Makefile` - セットアップタスクのメインオーケストレーション
+## Claude Code の settings.json の扱い
 
-### セットアップ戦略
-各ツールは`scripts/`内に独自のセットアップスクリプトを持ち、以下を実行します：
-1. `.config/{tool}`から`$HOME`内の適切な場所へのシンボリックリンク作成
-2. ツール固有のセットアップ要件の処理
-3. 独立して実行可能、または完全セットアップの一部として実行可能
+`.config/.claude/settings.json` には、リポジトリに反映する設定と、このマシンだけで使う設定が混在している。
+JSON にはコメントを書けず、Orca や herdr がファイルを書き直すため、**キーの並び順で区別する**。
 
-### 主要な設定エリア
-- **シェル**: カスタムエイリアス、関数、プロンプト（starship）を持つzsh
-- **エディタ**: カスタム設定を持つNeovim、Cursor
-- **ターミナル**: WezTerm（メイン）、tmux設定、Alacritty/Kitty設定も含む
-- **開発**: Git、LazyGit、各種CLIツール（bat、eza、fzf、ripgrep、gh、ghqなど）
-- **macOS**: キーリマッピング用Karabiner-Elements、自動化用Hammerspoon、Raycast
-- **パッケージ管理**: Homebrew（formulaeとcask）、ランタイム管理用mise
-- **AI**: ChatGPT、Claude、Gemini（GUI apps）
+1. **上側: リポジトリに反映する設定**
+   `language`、`permissions`、`statusLine`（ccstatusline はバージョン固定）、`enabledPlugins`、`extraKnownMarketplaces`、`tui`、`switchModelsOnFlag`、`voice`
+2. **中間: `hooks`**
+   - 反映する: `Stop` の afplay
+   - 反映しない（ツールが自動で追加するもの）:
+     - herdr のフック（`herdr-agent-state.sh`）。`herdr integration install claude` で追加される。ユーザー名入りの絶対パスを含むため公開しない
+     - Orca のフック（`ORCA_AGENT_HOOK` / `~/.orca/agent-hooks/` を含むもの）。Orca の起動時に書き戻される
+3. **下側: ローカルのみ（コミットしない）**
+   `env`、`model`、`skipAutoPermissionPrompt`、`skipWorkflowUsageWarning`
 
-### シンボリックリンク管理
-セットアップスクリプトは`ln -sfnv`を使用してシンボリックリンクを作成し、以下を保証します：
-- 既存のリンクを強制上書き（`-f`）
-- シンボリックリンクをたどらない（`-n`）
-- 詳細出力（`-v`）
-- シンボリックリンクを作成（`-s`）
-
-## ツール固有の注意事項
-
-- **Neovim**: 設定は`.config/nvim/`に保存、Lazy.nvimでプラグイン管理、初回起動時に自動でプラグインインストール
-- **Zsh**: oh-my-zshを使わないカスタム設定、プラグイン管理にzinitを使用
-- **Git**: diff強調表示用deltaとカスタムエイリアスを含む、グローバル設定は`.config/git/`に保存
-- **Tmux**: カスタムキーバインドとステータスバー設定
-- **Karabiner**: 生産性向上のための複雑なキーリマッピングルール、設定は`.config/karabiner/`に保存
-- **Cheat**: 個人用チートシートは`.config/cheat/cheatsheets/personal/`に保存
-- **WezTerm**: メインターミナル、設定は`.config/wezterm/`に保存
-- **Starship**: シェルプロンプト、設定は`.config/starship/`に保存
-- **Hammerspoon**: macOS自動化、Luaスクリプトで設定
-
-## よく使用されるBrewfileパッケージ
-
-主要なCLIツール:
-- `bat` - catの代替（シンタックスハイライト付き）
-- `eza` - lsの代替（カラー表示）
-- `fzf` - ファジーファインダー
-- `ripgrep` - grepの代替（高速検索）
-- `gh` - GitHub CLI
-- `ghq` - リポジトリ管理
-- `lazygit` - Git TUI
-- `mise` - ランタイムバージョン管理
+コミットするときは上側と hooks の反映分だけをステージし、下側と Orca のフックは作業ツリーに残す。
+新しいキーが追加されたら、どちらに置くかをユーザーに確認する。
