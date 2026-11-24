@@ -1,4 +1,33 @@
 {
+  "language": "japanese",
+  "permissions": {
+    "allow": [],
+    "blockReadsOutsideWorkingDirectories": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@2.2.34",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "switchModelsOnFlag": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "hooks": {
     "Stop": [
       {
@@ -11,6 +40,5 @@
         ]
       }
     ]
-  },
-  "alwaysThinkingEnabled": true
+  }
 }
