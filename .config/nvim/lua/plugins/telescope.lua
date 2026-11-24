@@ -1,16 +1,11 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.8',
+  cmd = 'Telescope',
   dependencies = {
     'nvim-lua/plenary.nvim',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
-    },
-  },
-  opts = {
-    defaults = {
-      layout_strategy = 'flex',
     },
   },
   config = function()
@@ -23,6 +18,7 @@ return {
     table.insert(vimgrep_arguments, '!**/.git/*')
     telescope.setup({
       defaults = {
+        layout_strategy = 'flex',
         vimgrep_arguments = vimgrep_arguments,
       },
       pickers = {

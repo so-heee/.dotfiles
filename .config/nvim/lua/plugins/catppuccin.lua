@@ -3,4 +3,8 @@ return {
   name = 'catppuccin',
   lazy = false,
   priority = 1000,
+  config = function()
+    require('catppuccin').setup({ flavour = 'frappe' })
+    vim.o.background = 'dark'
+  end,
 }

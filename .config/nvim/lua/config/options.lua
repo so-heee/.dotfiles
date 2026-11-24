@@ -1,7 +1,7 @@
 local opt = vim.opt
 local g, fn = vim.g, vim.fn
 
-g.python3_host_prog = fn.system('echo -n $(which python3)')
+g.python3_host_prog = fn.exepath('python3')
 
 --------------------------------------
 -- settings
@@ -70,3 +70,13 @@ g.did_install_syntax_menu = 1
 --------------------------------------
 opt.termguicolors = true
 vim.cmd('syntax enable')
+
+--------------------------------------
+-- yank highlight (標準機能)
+--------------------------------------
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('HighlightYank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})

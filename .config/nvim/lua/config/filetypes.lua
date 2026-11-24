@@ -6,3 +6,4 @@ vim.cmd('autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 exp
 vim.cmd('autocmd FileType sh setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab')
 vim.cmd('autocmd FileType zsh setlocal tabstop=2 shiftwidth=2 expandtab')
 vim.cmd('autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.cmd('autocmd FileType text setlocal noendofline nofixendofline') -- txtは末尾に改行を付けない

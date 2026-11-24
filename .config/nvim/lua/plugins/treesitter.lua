@@ -1,10 +1,11 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  branch = 'master',
+  branch = 'main',
   lazy = false,
   build = ':TSUpdate',
-  opts = {
-    ensure_installed = {
+  config = function()
+    -- インストールするパーサ（markdown_inline は injection 用でファイルタイプ無し）
+    local parsers = {
       'toml',
       'json',
       'yaml',
@@ -13,11 +14,48 @@ return {
       'lua',
       'markdown',
       'markdown_inline',
-    },
-    highlight = { enable = true },
-  },
-  -- 別々で書かないとハイライトが効かなかった
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
+      'typescript',
+      'tsx',
+      'javascript',
+      'python',
+      'terraform',
+      'hcl',
+      'bash',
+      'sql',
+      'css',
+      'html',
+    }
+    require('nvim-treesitter').install(parsers)
+
+    -- ハイライトは FileType autocmd で明示的に有効化（main ブランチ仕様）
+    local filetypes = {
+      'toml',
+      'json',
+      'yaml',
+      'go',
+      'vim',
+      'lua',
+      'markdown',
+      'typescript',
+      'typescriptreact',
+      'javascript',
+      'javascriptreact',
+      'python',
+      'terraform',
+      'terraform-vars',
+      'hcl',
+      'sh',
+      'bash',
+      'sql',
+      'css',
+      'html',
+    }
+    vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('TreesitterStart', { clear = true }),
+      pattern = filetypes,
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
   end,
 }

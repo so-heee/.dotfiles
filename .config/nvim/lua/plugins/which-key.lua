@@ -6,10 +6,6 @@ return {
     local wk = require('which-key')
     wk.add({
 
-      { '<leader>aa', '<cmd>ClaudeCodeFocus<cr>', desc = 'Claude Code', mode = { 'n', 'x' } },
-      { '<leader>ar', '<cmd>ClaudeCode --resume<cr>', desc = 'Resume Claude', mode = { 'n', 'x' } },
-      { '<leader>ac', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude', mode = { 'n', 'x' } },
-
       -- ファイル操作・検索 (f グループ)
       { '<leader>f', group = 'Find/Files' },
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files', mode = 'n' },
@@ -18,29 +14,35 @@ return {
 
       { '<leader>fh', '<cmd>GrugFar<cr>', desc = 'GrugFar', mode = 'n' },
 
+      -- Git (g グループ)
+      { '<leader>g', group = 'Git' },
+
+      -- Swap (textobjects)
+      { '<leader>s', group = 'Swap' },
+
       -- UI・エクスプローラー
-      {
-        '<leader>e',
-        '<cmd>Neotree toggle<cr>',
-        desc = 'ファイルエクスプローラー',
-        mode = 'n',
-      },
+      -- {
+      --   '<leader>e',
+      --   '<cmd>Neotree toggle<cr>',
+      --   desc = 'ファイルエクスプローラー',
+      --   mode = 'n',
+      -- },
       { '<leader>m', '<cmd>Markview splitToggle<CR>', desc = 'Markview', mode = 'n' },
 
       -- LSP操作 (l グループ)
       { '<leader>l', group = 'LSP' },
-      { '<leader>lr', '<cmd>Lspsaga rename<CR>', desc = 'リネーム', mode = 'n' },
+      { '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', desc = 'リネーム', mode = 'n' },
       {
         '<leader>la',
-        '<cmd>Lspsaga code_action<CR>',
+        '<cmd>lua vim.lsp.buf.code_action()<CR>',
         desc = 'コードアクション',
         mode = { 'n', 'v' },
       },
-      { '<leader>lf', '<cmd>Lspsaga finder<CR>', desc = '参照・定義検索', mode = 'n' },
-      { '<leader>lo', '<cmd>Lspsaga outline<CR>', desc = 'アウトライン', mode = 'n' },
+      { '<leader>lf', '<cmd>Trouble lsp toggle<CR>', desc = '参照・定義検索', mode = 'n' },
+      { '<leader>lo', '<cmd>Trouble symbols toggle<CR>', desc = 'アウトライン', mode = 'n' },
       {
         '<leader>lF',
-        '<cmd>lua vim.lsp.buf.format()<CR>',
+        '<cmd>lua require("conform").format({ async = true })<CR>',
         desc = 'フォーマット',
         mode = { 'n', 'v' },
       },
@@ -54,29 +56,39 @@ return {
         desc = 'ファイル診断',
         mode = 'n',
       },
-      { '<leader>dp', '<cmd>Lspsaga diagnostic_jump_prev<CR>', desc = '前の診断', mode = 'n' },
-      { '<leader>dn', '<cmd>Lspsaga diagnostic_jump_next<CR>', desc = '次の診断', mode = 'n' },
+      {
+        '<leader>dp',
+        '<cmd>lua vim.diagnostic.jump({ count = -1 })<CR>',
+        desc = '前の診断',
+        mode = 'n',
+      },
+      {
+        '<leader>dn',
+        '<cmd>lua vim.diagnostic.jump({ count = 1 })<CR>',
+        desc = '次の診断',
+        mode = 'n',
+      },
       {
         '<leader>ds',
-        '<cmd>Lspsaga show_line_diagnostics<CR>',
+        '<cmd>lua vim.diagnostic.open_float()<CR>',
         desc = '行診断表示',
         mode = 'n',
       },
 
       -- LSPナビゲーション（グループ化しない - 頻繁に使用）
-      { 'gd', '<cmd>Lspsaga goto_definition<CR>', desc = '定義へ移動', mode = 'n' },
-      { 'gp', '<cmd>Lspsaga peek_definition<CR>', desc = '定義プレビュー', mode = 'n' },
+      { 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', desc = '定義へ移動', mode = 'n' },
+      { 'gp', '<cmd>Telescope lsp_definitions<CR>', desc = '定義プレビュー', mode = 'n' },
       { 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', desc = '宣言へ移動', mode = 'n' },
       { 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', desc = '実装へ移動', mode = 'n' },
       { 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', desc = '参照を表示', mode = 'n' },
       {
         'gt',
-        '<cmd>Lspsaga peek_type_definition<CR>',
+        '<cmd>Telescope lsp_type_definitions<CR>',
         desc = '型定義プレビュー',
         mode = 'n',
       },
-      { 'gk', '<cmd>Lspsaga hover_doc<CR>', desc = 'ホバー情報', mode = 'n' },
-      { 'gs', '<cmd>Lspsaga signature_help<CR>', desc = 'シグネチャヘルプ', mode = 'n' },
+      { 'gk', '<cmd>lua vim.lsp.buf.hover()<CR>', desc = 'ホバー情報', mode = 'n' },
+      { 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', desc = 'シグネチャヘルプ', mode = 'n' },
     })
   end,
 }

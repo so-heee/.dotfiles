@@ -1,8 +1,15 @@
 -- local colorscheme = 'gruvbox'
-local colorscheme = 'tokyonight'
+-- local colorscheme = 'tokyonight'
 -- local colorscheme = 'catppuccin'
 -- local colorscheme = 'aura-theme'
 -- local colorscheme = 'everforest'
+-- local colorscheme = 'flexoki'
+-- local colorscheme = 'catppuccin'
+-- local colorscheme = 'rose-pine'
+-- local colorscheme = 'solarized'
+-- local colorscheme = 'catppuccin'
+-- local colorscheme = 'github_light'
+local colorscheme = 'night-owl'
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -24,14 +31,12 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   spec = {
     { import = 'plugins.' .. colorscheme },
-    { import = 'plugins.comment' },
     { import = 'plugins.colorizer' },
-    { import = 'plugins.vim-highlightedyank' },
     { import = 'plugins.bufferline' },
     { import = 'plugins.autopairs' },
     { import = 'plugins.lualine' },
     { import = 'plugins.treesitter' },
-    { import = 'plugins.neo-tree' },
+    -- { import = 'plugins.neo-tree' },
     { import = 'plugins.telescope' },
     { import = 'plugins.hlchunk' },
     { import = 'plugins.scrollbar' },
@@ -40,9 +45,17 @@ require('lazy').setup({
     { import = 'plugins.noice' },
     { import = 'plugins.gitsigns' },
     { import = 'plugins.lsp' },
+    { import = 'plugins.conform' },
+    { import = 'plugins.lint' },
+    { import = 'plugins.mason-tool-installer' },
     { import = 'plugins.diff' },
     { import = 'plugins.grug-far' },
-    { import = 'plugins.claudecode' },
+    { import = 'plugins.yazi' },
+    { import = 'plugins.flash' },
+    { import = 'plugins.surround' },
+    { import = 'plugins.textobjects' },
+    { import = 'plugins.lazygit' },
+    { import = 'plugins.todo-comments' },
 
     -- { import = "plugins.smear-cursor" }, 動作が遅い
   },
@@ -72,12 +85,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 
     -- Telescope
     vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' })
-
-    -- ★ Neo-tree（最も重要）
-    vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'none' })
-    vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = 'none' })
-    vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'none' })
-    vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { bg = 'none' })
   end,
 })
 vim.cmd.colorscheme(colorscheme)
