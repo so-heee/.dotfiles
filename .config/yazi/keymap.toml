@@ -1,0 +1,25 @@
+# シェルの感覚に合わせて z/Z を入れ替える
+# z = zoxide (過去の訪問履歴全体からジャンプ)
+# Z = fzf    (現在地配下のファイル/ディレクトリを再帰検索)
+# prepend_keymap で yazi デフォルト (z=fzf, Z=zoxide) を上書きする
+
+[[mgr.prepend_keymap]]
+on = "z"
+run = "plugin zoxide"
+desc = "Jump to a directory via zoxide"
+
+[[mgr.prepend_keymap]]
+on = "Z"
+run = "plugin fzf"
+desc = "Jump to a file/directory via fzf"
+
+# smart-enter: l/Enter を「ディレクトリなら入る・ファイルなら開く」に統一
+[[mgr.prepend_keymap]]
+on = "l"
+run = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on = "<Enter>"
+run = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"

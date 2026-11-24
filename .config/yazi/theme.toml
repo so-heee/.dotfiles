@@ -1,0 +1,8 @@
+# git.yazi のステータス記号の色分け
+[git]
+modified  = { fg = "blue" }
+added     = { fg = "green" }
+untracked = { fg = "magenta" }
+deleted   = { fg = "red", bold = true }
+ignored   = { fg = "darkgray" }
+updated   = { fg = "yellow" }

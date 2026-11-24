@@ -45,6 +45,15 @@ brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
 
+# yazi & プレビュー依存 (ffmpeg=動画, poppler=PDF, imagemagick=画像, resvg=SVG, sevenzip=書庫, fd=検索)
+brew "yazi"
+brew "fd"
+brew "ffmpeg"
+brew "imagemagick"
+brew "poppler"
+brew "resvg"
+brew "sevenzip"
+
 #----------------------------------------
 # cask
 #----------------------------------------

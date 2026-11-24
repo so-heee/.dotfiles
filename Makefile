@@ -1,4 +1,4 @@
-all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-herdr setup-cheat setup-starship setup-eza
+all: brew-install setup-zsh setup-git setup-workspace setup-karabiner setup-kitty setup-hammerspoon setup-nvim setup-tmux setup-herdr setup-cheat setup-starship setup-eza setup-yazi
 
 ## Show dot files in this repo
 .PHONY: list
@@ -109,6 +109,11 @@ setup-starship:
 .PHONY: setup-eza
 setup-eza:
 	@./scripts/eza.sh
+
+## Setup Yazi
+.PHONY: setup-yazi
+setup-yazi:
+	@./scripts/yazi.sh
 
 ## Setup Sheldon
 .PHONY: setup-sheldon

@@ -1,3 +1,6 @@
 .DS_Store
 .gitconfig.global
 Brewfile.lock.json
+
+# yazi: プラグイン本体は管理せず package.toml から復元する
+.config/yazi/plugins/
