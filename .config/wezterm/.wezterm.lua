@@ -1,55 +1,63 @@
-local wezterm = require("wezterm")
+local wezterm = require('wezterm')
 
 local config = {}
 
 local act = wezterm.action
 
 if wezterm.config_builder then
-	config = wezterm.config_builder()
+  config = wezterm.config_builder()
 end
 
 -- 最初からフルスクリーンで起動
 local mux = wezterm.mux
-wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or {})
-	window:gui_window():toggle_fullscreen()
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():toggle_fullscreen()
 end)
 
 -- カラースキームの設定
 -- config.color_scheme = "Gruvbox (Gogh)"
 -- config.color_scheme = "GruvboxDark"
--- config.color_scheme = "Panda (Gogh)"
+-- config.color_scheme = 'flexoki-light'
 -- config.color_scheme = "Aura (Gogh)"
--- config.color_scheme = "tokyonight_day"
-config.color_scheme = "Tokyo Night (Gogh)"
--- config.color_scheme = "Catppuccin Mocha (Gogh)"
+-- config.color_scheme = 'tokyonight_day'
+-- config.color_scheme = 'Tokyo Night (Gogh)'
+-- config.color_scheme = 'Catppuccin Mocha (Gogh)'
 -- config.color_scheme = "Catppuccin Latte (Gogh)"
 -- config.color_scheme = "OneDark (base16)"
 -- config.color_scheme = "Solarized Dark (Gogh)"
 -- config.color_scheme = "Everforest Dark (Gogh)"
+-- config.color_scheme = 'tokyonight_storm'
+-- config.color_scheme = 'Catppuccin Latte'
+-- config.color_scheme = 'rose-pine-dawn'
+-- config.color_scheme = 'Catppuccin Frappe'
+-- config.color_scheme = 'Github Light (Gogh)'
+config.color_scheme = 'Night Owl (Gogh)'
 
 -- 背景透過
 config.window_background_opacity = 0.9
 -- フォントの設定
 -- Moralerspace に無いグリフ（Nerd Fonts 3.5 の cod-claude / cod-openai など）は Symbols Nerd Font で補う
 config.font = wezterm.font_with_fallback({
-	{ family = "Moralerspace Argon", weight = "Medium", stretch = "Normal", style = "Normal" },
-	"Symbols Nerd Font Mono",
+  { family = 'Moralerspace Argon', stretch = 'Normal', style = 'Normal' },
+  'Symbols Nerd Font Mono',
 })
+-- どのフォントにも無いグリフの警告ウィンドウを出さない
+config.warn_about_missing_glyphs = false
 -- フォントサイズの設定
 config.font_size = 17
 -- スクロールバック行数（デフォルト3500）
 config.scrollback_lines = 7000
 -- ベル無効
-config.audible_bell = "Disabled"
+config.audible_bell = 'Disabled'
 -- imeでの入力を無効化
 config.use_ime = true
 -- 余白
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
 }
 
 -- タブバー
@@ -69,38 +77,44 @@ end)
 -- config.cursor_blink_ease_in = "Constant"
 -- config.cursor_blink_ease_out = "Constant"
 config.colors = {
-    cursor_bg = "gray",
+  cursor_bg = 'gray',
 }
 -- config.force_reverse_video_cursor = false
 
-config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 }
+
+config.send_composed_key_when_left_alt_is_pressed = false
 
 config.keys = {
-  -- ── ペイン操作 ──────────────────────
-  { key = "-", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = "\\", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  -- ── 入力 ─────────────────────────────
+  -- Option+Enter で改行（WezTerm既定の全画面トグルを上書きし、Meta+Enter=ESC+CR を送る）
+  { key = 'Enter', mods = 'ALT', action = act.SendString('\x1b\r') },
 
-  { key = "h", mods = "LEADER", action = act.ActivatePaneDirection "Left" },
-  { key = "j", mods = "LEADER", action = act.ActivatePaneDirection "Down" },
-  { key = "k", mods = "LEADER", action = act.ActivatePaneDirection "Up" },
-  { key = "l", mods = "LEADER", action = act.ActivatePaneDirection "Right" },
+  -- ── ペイン操作 ──────────────────────
+  { key = '-', mods = 'LEADER', action = act.SplitVertical({ domain = 'CurrentPaneDomain' }) },
+  { key = '\\', mods = 'LEADER', action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }) },
+
+  { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection('Left') },
+  { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection('Down') },
+  { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection('Up') },
+  { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection('Right') },
 
   -- ペインサイズ変更（Shift + hjkl）
-  { key = "H", mods = "LEADER|SHIFT", action = act.AdjustPaneSize { "Left", 5 } },
-  { key = "J", mods = "LEADER|SHIFT", action = act.AdjustPaneSize { "Down", 5 } },
-  { key = "K", mods = "LEADER|SHIFT", action = act.AdjustPaneSize { "Up", 5 } },
-  { key = "L", mods = "LEADER|SHIFT", action = act.AdjustPaneSize { "Right", 5 } },
+  { key = 'H', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize({ 'Left', 5 }) },
+  { key = 'J', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize({ 'Down', 5 }) },
+  { key = 'K', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize({ 'Up', 5 }) },
+  { key = 'L', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize({ 'Right', 5 }) },
 
   -- ── タブ操作 ─────────────────────────
-  { key = "c", mods = "LEADER", action = act.SpawnTab "CurrentPaneDomain" },
-  { key = "x", mods = "LEADER", action = act.CloseCurrentPane { confirm = true } },
-  { key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
-  { key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+  { key = 'c', mods = 'LEADER', action = act.SpawnTab('CurrentPaneDomain') },
+  { key = 'x', mods = 'LEADER', action = act.CloseCurrentPane({ confirm = true }) },
+  { key = 'n', mods = 'LEADER', action = act.ActivateTabRelative(1) },
+  { key = 'p', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
 
   -- ── その他 ─────────────────────────
-  { key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
-  { key = "r", mods = "LEADER", action = act.ReloadConfiguration },
-  { key = "q", mods = "LEADER", action = act.PaneSelect { mode = "Activate" } },
+  { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
+  { key = 'r', mods = 'LEADER', action = act.ReloadConfiguration },
+  { key = 'q', mods = 'LEADER', action = act.PaneSelect({ mode = 'Activate' }) },
 }
 
 return config

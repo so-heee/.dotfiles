@@ -26,13 +26,13 @@ $scala\
 $terraform\
 [](fg:b4)\
 $fill\
-[](fg:b3)\
+[](fg:g3)\
 $status\
-[](bg:b3 fg:b2)\
+[](bg:g3 fg:g2)\
 $cmd_duration\
-[](bg:b2 fg:b1)\
+[](bg:g2 fg:g1)\
 $time\
-[](fg:b1)\
+[](fg:g1)\
 \n$character\
 """
 
@@ -44,6 +44,7 @@ palette = 'soheee'
 
 [os]
 style = "bg:b1 fg:f1"
+format = '[ $symbol]($style)'
 disabled = false
 
 [os.symbols]
@@ -101,7 +102,7 @@ format = '[\($state( $progress_current of $progress_total)\)]($style)'
 [aws]
 style = 'bg:b3 fg:f3'
 symbol = "󰸏 "
-format = '[ $symbol ($profile)]($style)'
+format = '[ $symbol($profile) ]($style)'
 
 [gcloud]
 symbol = " "
@@ -167,31 +168,31 @@ disabled = false
 
 [fill]
 symbol = '─'
-style = 'b4'
+style = 'gn'
 
 [line_break]
 disabled = false
 
 [status]
-style = "bg:b3"
+style = "bg:g3"
 format = '[ $symbol ]($style)'
-symbol = '[✘](bg:b3 fg:red)'
-success_symbol = '[✔](bg:b3 fg:green)'
-not_executable_symbol = '[✘](bg:b3 fg:red)'
-not_found_symbol = '[✘](bg:b3 fg:red)'
+symbol = '[✘](bg:g3 fg:red)'
+success_symbol = '[✔](bg:g3 fg:green)'
+not_executable_symbol = '[✘](bg:g3 fg:red)'
+not_found_symbol = '[✘](bg:g3 fg:red)'
 map_symbol = true
 disabled = false
 
 [cmd_duration]
 min_time = 1
-style = "bg:b2 fg:f2"
+style = "bg:g2 fg:gf"
 show_milliseconds = true
 format = '[ 󰚭 $duration ]($style)'
 disabled = false
 
 [time]
 time_format = "%T"
-style = "bg:b1 fg:f1"
+style = "bg:g1 fg:gf"
 format = '[  $time ]($style)'
 disabled = false
 
@@ -201,11 +202,20 @@ error_symbol = '[❯](red)'
 disabled = false
 
 [palettes.soheee]
-b1 = '235'
-b2 = '238'
-b3 = '241'
-b4 = '244'
-f1 = 'white'
-f2 = 'white'
-f3 = 'white'
-f4 = 'white'
+# 左側: night-owl accent（彩度を抑えたミュート版。文字は紺で可読）
+b1 = '#87a3d4' # blue   : os / directory (スレートブルー)
+b2 = '#addb67' # green  : git (Night Owl の柔らかい黄緑)
+b3 = '#dd9a82' # orange : aws (ソフトなテラコッタ)
+b4 = '#b59ace' # purple : languages (ミュートなモーブ)
+f1 = '#011627' # 左テキスト(紺文字)
+f2 = '#011627'
+f3 = '#011627'
+f4 = '#011627'
+# 右側: night-owl 由来グレー主体（ダーク=暗い紺グレー＋明文字、red/green もテーマ色）
+g1 = '#1d3b53' # selection : time bg（最も濃い）
+g2 = '#3e5d75' # surface   : cmd_duration bg
+g3 = '#5f7e97' # grey-blue : status bg（明るい側）
+gf = '#d6deeb' # fg       : 右テキスト(明文字)
+gn = '#637777' # comment  : neutral gray : fill（中央の ─ 線）
+red = '#ef5350'   # danger  : status ✘ / error ❯
+green = '#22da6e' # success : status ✔ / success ❯
