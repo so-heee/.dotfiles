@@ -4,3 +4,7 @@ Brewfile.lock.json
 
 # yazi: プラグイン本体は管理せず package.toml から復元する
 .config/yazi/plugins/
+
+# tmux: 仕事用などのローカルなセッション定義（.tmux.session.conf 以外）は管理しない
+.config/tmux/.tmux.*.conf
+!.config/tmux/.tmux.session.conf
